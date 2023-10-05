@@ -1,0 +1,8 @@
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @media only screen and (max-width: 630px) {
+    grid-template-columns: 1fr;
+  }
+}

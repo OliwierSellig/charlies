@@ -1,0 +1,94 @@
+@import "../../animations.scss";
+
+.background {
+  height: 90vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/img/hero-lg.webp");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  @media only screen and (max-width: 860px) {
+    height: 120vw;
+  }
+  @media only screen and (max-width: 460px) {
+    height: 160vw;
+  }
+
+  @media only screen and (max-resolution: 191dpi),
+    only screen and (max-width: 1200px) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("/img/hero-md.webp");
+  }
+
+  @media only screen and (max-width: 600px) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("/img/hero-sm.webp");
+  }
+}
+
+.container {
+  max-width: 100rem;
+  padding: 4.8rem;
+  z-index: 100;
+  width: 100%;
+
+  @media only screen and (max-width: 550px) {
+    padding: 2.4rem;
+  }
+}
+
+.btnBox {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  animation: fadeIn 2s;
+
+  @media only screen and (max-width: 300px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.8rem;
+  }
+}
+
+.btn {
+  border: none;
+  background-color: none;
+  color: #fff;
+  font-size: 2.6rem;
+  border: 2px solid #fff;
+  padding: 1.2rem 3.6rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+
+  &__buy {
+    &:hover,
+    &:focus {
+      background-color: var(--color-primary-yellow);
+      border: 2px solid var(--color-primary-yellow);
+    }
+  }
+
+  &__about {
+    &:hover,
+    &:focus {
+      background-color: #fff;
+      color: #111;
+    }
+  }
+}
+
+.spacer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  aspect-ratio: 960/540;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url("/svg/wave-up-hero.svg");
+}

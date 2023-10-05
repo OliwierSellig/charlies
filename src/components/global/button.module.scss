@@ -1,0 +1,49 @@
+.btn {
+  color: var(--color-primary-white);
+  font-size: 2.6rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  border: 2px solid var(--color-primary-white);
+
+  &__buy {
+    &:hover,
+    &:focus {
+      background-color: var(--color-primary-yellow);
+      border: 2px solid var(--color-primary-yellow);
+    }
+  }
+}
+
+.size {
+  &__sm {
+    padding: 0.8rem 2.4rem;
+  }
+
+  &__md {
+    padding: 1.2rem 3.6rem;
+  }
+
+  &__lg {
+    padding: 1.2rem 4.8rem;
+  }
+}
+
+.focus {
+  &__yellow {
+    &:hover,
+    &:focus {
+      background-color: var(--color-primary-yellow);
+      border: 2px solid var(--color-primary-yellow);
+      color: #fff;
+    }
+  }
+
+  &__white {
+    &:hover,
+    &:focus {
+      background-color: var(--color-primary-white);
+      border: 2px solid var(--color-primary-white);
+      color: var(--color-primary-black);
+    }
+  }
+}

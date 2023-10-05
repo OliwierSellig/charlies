@@ -1,0 +1,67 @@
+.section {
+  height: 100rem;
+  position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+    url("/img/faq-lg.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media only screen and (max-resolution: 191dpi),
+    only screen and (max-width: 1200px) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+      url("/img/faq-md.webp");
+  }
+
+  @media only screen and (max-width: 600px) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+      url("/img/faq-sm.webp");
+  }
+}
+
+.container {
+  position: relative;
+  max-width: 120rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  z-index: 100;
+  margin: 0 auto;
+  padding: 20rem 8rem;
+
+  @media only screen and (max-width: 800px) {
+    padding: 16rem 4rem;
+  }
+}
+
+.heading {
+  font-size: 6rem;
+  font-family: "Caveat", cursive;
+  line-height: 1.1;
+  letter-spacing: 0.3px;
+  margin-bottom: 4.8rem;
+}
+
+.list {
+  width: 100%;
+}
+
+.spacer {
+  position: absolute;
+  left: 0;
+  aspect-ratio: 960/540;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  &__down {
+    top: 0;
+    background-image: url("/svg/wave-down-questions.svg");
+  }
+
+  &__up {
+    bottom: 0;
+    background-image: url("/svg/wave-up-questions.svg");
+  }
+}

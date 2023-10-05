@@ -1,0 +1,98 @@
+.container {
+  position: relative;
+  height: 70vh;
+  min-height: 80rem;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/img/order-lg.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media only screen and (min-width: 1800px) {
+    height: 80vh;
+  }
+  @media only screen and (min-width: 2100px) {
+    height: 90vh;
+  }
+
+  @media only screen and (max-resolution: 191dpi),
+    only screen and (max-width: 1200px) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("/img/order-md.webp");
+  }
+
+  @media only screen and (max-width: 600px) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("/img/order-sm.webp");
+  }
+}
+
+.order {
+  max-width: 100rem;
+  width: 100%;
+  z-index: 100;
+  padding: 4.8rem;
+
+  @media only screen and (max-width: 460px) {
+    padding: 2.4rem;
+  }
+}
+
+.heading {
+  color: #e7e7e7;
+  font-size: 6.4rem;
+  font-family: "Caveat", cursive;
+  max-width: 60rem;
+  line-height: 1;
+  letter-spacing: 0.3px;
+  margin-bottom: 2.4rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-bottom: 4.8rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  color: #e7e7e7;
+}
+
+.check {
+  font-size: 3rem;
+}
+
+.text {
+  font-size: 2.4rem;
+}
+
+.highlight {
+  color: var(--color-primary-yellow);
+}
+
+.spacer {
+  position: absolute;
+  left: 0;
+  aspect-ratio: 960/540;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  &__down {
+    top: 0;
+    background-image: url("/svg/wave-down-order.svg");
+  }
+
+  &__up {
+    bottom: 0;
+    background-image: url("/svg/wave-up-order.svg");
+  }
+}

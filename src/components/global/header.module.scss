@@ -1,0 +1,100 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 4.8rem;
+  background-color: transparent;
+  z-index: 150;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2.8rem;
+
+  @media only screen and (max-width: 520px) {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+
+  &__mobileOpen {
+    @media only screen and (max-width: 520px) {
+      opacity: 1;
+      visibility: visible;
+      animation: fadeIn, 2s;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(#121212, 0.85);
+      -webkit-backdrop-filter: blur(3px);
+      backdrop-filter: blur(3px);
+      flex-direction: column;
+      justify-content: center;
+      z-index: 300;
+      transition: opacity 1s, height 0.8s;
+    }
+  }
+}
+
+.link {
+  color: var(--color-primary-white);
+  font-size: 2.4rem;
+  transition: var(--transition-fast);
+
+  &:hover,
+  &:focus {
+    color: var(--color-primary-yellow);
+  }
+
+  @media only screen and (max-width: 520px) {
+    font-size: 4.2rem;
+  }
+}
+
+.cart {
+  width: 4rem;
+  height: 4rem;
+  cursor: pointer;
+  background-image: url("/svg/cart-white.svg");
+  background-size: cover;
+  transition: var(--transition-fast);
+  &:hover,
+  &:focus {
+    background-image: url("/svg/cart-yellow.svg");
+  }
+
+  @media only screen and (max-width: 520px) {
+    width: 6rem;
+    height: 6rem;
+  }
+}
+
+.mobile {
+  display: none;
+  width: 5.2rem;
+  height: 5.2rem;
+  background-image: url("/svg/hamburger-menu-white.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: var(--transition-fast);
+  cursor: pointer;
+
+  &:focus,
+  &:hover {
+    background-image: url("/svg/hamburger-menu-yellow.svg");
+  }
+
+  @media only screen and (max-width: 520px) {
+    display: block;
+  }
+}

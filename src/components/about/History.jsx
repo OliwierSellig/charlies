@@ -124,13 +124,10 @@ function History() {
         From an idea to a world-range phenomenon
       </h2>
       <div className={styles.container}>
-        <ul
-          style={{ width: `${24 + eventList.length * 14}rem` }}
-          className={styles.axis}
-        >
+        <ul className={styles.axis}>
           {eventList.map((e, i) => (
             <li
-              style={{ left: `${12 + i * 14}rem` }}
+              style={{ left: `${4 + i * 5}%` }}
               className={`${styles.branch} ${i % 2 ? styles.branch__up : ""}`}
               key={e.year}
             >

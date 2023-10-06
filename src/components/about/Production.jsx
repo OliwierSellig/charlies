@@ -18,8 +18,8 @@ function Production() {
           Eco-friendly packaging, designed to preserve freshness, ensures the
           quality of our chocolates during shipping. Finally, our chocolates
           reach your doorstep, where you experience the culmination of a labor
-          of love – a sweet delight that captures the essence of our journey
-          from seed to customer."
+          of love a sweet delight that captures the essence of our journey from
+          seed to customer.
         </p>
       </div>
     </section>

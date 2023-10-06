@@ -1,0 +1,50 @@
+.section {
+  padding: 8rem 0;
+}
+
+.container {
+  max-width: 160rem;
+  padding: 0 4.8rem;
+  margin: 0 auto;
+}
+
+.heading {
+  font-size: 5.6rem;
+  font-family: "Caveat", cursive;
+  line-height: 1.1;
+  letter-spacing: 0.3px;
+  margin-bottom: 4.2rem;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.2rem 2.4rem;
+
+  &:not(:last-child) {
+    border-right: 2px solid var(--color-primary-white-shade-3);
+  }
+}
+
+.img {
+  width: 6rem;
+  height: 6rem;
+}
+
+.number {
+  font-size: 5.2rem;
+  font-family: "Caveat", cursive;
+  color: var(--color-primary-yellow);
+}
+
+.text {
+  font-size: 2rem;
+  color: var(--color-primary-white-shade-1);
+  text-align: center;
+}

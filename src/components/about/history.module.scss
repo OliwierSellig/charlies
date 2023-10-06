@@ -1,0 +1,117 @@
+.section {
+  padding: 20rem 2.4rem 8rem;
+  background-image: linear-gradient(
+      0deg,
+      rgba(18, 18, 18, 1) 0%,
+      rgba(18, 18, 18, 0.8) 50%,
+      rgba(18, 18, 18, 1) 100%
+    ),
+    url("/img/history-background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.heading {
+  font-size: 6rem;
+  font-family: "Caveat", cursive;
+  letter-spacing: 0.3px;
+  text-align: center;
+  color: var(--color-primary-yellow);
+}
+
+.container {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding: 32rem 0;
+
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 1000px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #444;
+  }
+}
+
+.axis {
+  width: 400rem;
+  height: 3px;
+  background-color: var(--color-primary-white-shade-3);
+  border-radius: 1000px;
+  position: relative;
+}
+
+.branch {
+  position: absolute;
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+  align-items: center;
+
+  &__up {
+    transform: translateY(-100%);
+  }
+}
+
+.line {
+  height: 6rem;
+  background-color: var(--color-primary-white-shade-3);
+  width: 3px;
+}
+
+.year {
+  position: relative;
+
+  &__number {
+    font-size: 4rem;
+    font-family: "Caveat", cursive;
+    transition: var(--transition-long);
+    cursor: default;
+
+    &:hover,
+    &:focus {
+      color: var(--color-primary-yellow);
+      & ~ .box {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.box {
+  position: absolute;
+  z-index: 20;
+  padding: 1.6rem;
+  background-color: rgba(#222, 0.9);
+  width: 30rem;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-long);
+  border-radius: 13px;
+  transform: translate(-35%, -100%);
+  cursor: default;
+}
+
+.title {
+  font-size: 2.4rem;
+  letter-spacing: 0.2px;
+  margin-bottom: 6px;
+  color: var(--color-primary-yellow);
+}
+
+.description {
+  font-size: 1.6rem;
+}

@@ -16,11 +16,17 @@ function Header() {
           if (e.target === backgroundRef.current && isOpen) setIsOpen(false);
         }}
       >
-        <NavLink className={styles.link}>About us</NavLink>
+        <NavLink to="/about" className={styles.link}>
+          About us
+        </NavLink>
 
-        <NavLink className={styles.link}>Blog</NavLink>
+        <NavLink to="/blog" className={styles.link}>
+          Blog
+        </NavLink>
 
-        <NavLink className={styles.link}>Contact</NavLink>
+        <NavLink to="/contact" className={styles.link}>
+          Contact
+        </NavLink>
 
         <button className={styles.cart} aria-label="Open Cart" />
       </nav>

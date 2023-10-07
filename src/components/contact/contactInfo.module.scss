@@ -1,0 +1,58 @@
+@import "../../animations.scss";
+
+.container {
+  padding: 6.4rem 3.2rem;
+  align-self: center;
+  box-shadow: -1.6rem 0px 3.2rem -3rem rgba(0, 0, 0, 0.2);
+  background-color: #151515;
+
+  @media only screen and (max-width: 1200px) {
+    padding: 2.4rem 3.2rem 3.6rem;
+  }
+}
+
+.heading {
+  font-size: 6.8rem;
+  font-family: "Caveat", cursive;
+  color: var(--color-primary-yellow);
+  line-height: 1.1;
+  letter-spacing: 0.3px;
+  margin-bottom: 1.2rem;
+  animation: fadeIn 2s;
+}
+
+.subheading {
+  font-size: 1.8rem;
+  color: var(--color-primary-white-shade-1);
+  margin-bottom: 3.2rem;
+  padding: 0 1.2rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 2.4rem;
+  margin-bottom: 3.6rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.icon {
+  width: 6rem;
+  height: 6rem;
+}
+
+.link {
+  font-size: 2rem;
+  transition: var(--transition-fast);
+  animation: fadeInLeft 2s;
+  &:hover,
+  &:focus {
+    color: var(--color-primary-yellow);
+  }
+}

@@ -3,6 +3,7 @@ import AppLayout from "./components/global/AppLayout";
 import Home from "./pages/Home";
 import PageNotFound from "./components/global/PageNotFound";
 import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
         <Route element={<AppLayout />}>
           <Route index path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+        </Route>
+        <Route element={<AppLayout staticHeader={true} />}>
+          <Route path="/contact" element={<Contact />} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>

@@ -13,6 +13,12 @@
   @media only screen and (max-width: 340px) {
     padding: 8px 2.4rem;
   }
+
+  &__static {
+    position: static;
+    background-color: var(--color-primary-black);
+    box-shadow: 2rem 0 4rem rgba(#000, 0.2);
+  }
 }
 
 .nav {
@@ -21,7 +27,6 @@
   gap: 2.8rem;
 
   @media only screen and (max-width: 520px) {
-    // display: none;
     visibility: hidden;
     opacity: 0;
     width: 0%;

@@ -3,11 +3,15 @@ import styles from "./header.module.scss";
 import Logo from "./Logo";
 import { useRef, useState } from "react";
 
-function Header() {
+function Header({ staticHeader }) {
   const backgroundRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className={styles.header}>
+    <header
+      className={`${styles.header} ${
+        staticHeader ? styles.header__static : ""
+      }`}
+    >
       <Logo />
       <nav
         className={`${styles.nav} ${isOpen ? styles.nav__mobileOpen : ""}`}

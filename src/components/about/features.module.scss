@@ -1,3 +1,5 @@
+@import "../../animations.scss";
+
 .section {
   padding: 14rem 0;
 
@@ -22,6 +24,7 @@
   line-height: 1.1;
   letter-spacing: 0.3px;
   margin-bottom: 3.6rem;
+  animation: fadeIn 2s;
 }
 
 .list {
@@ -52,6 +55,7 @@
 .icon {
   width: 8rem;
   height: 8rem;
+  animation: fadeIn 2.5s;
 }
 
 .info {
@@ -59,6 +63,7 @@
   flex-direction: column;
   align-items: start;
   gap: 4px;
+  animation: fadeIn 4s;
 }
 
 .title {

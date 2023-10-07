@@ -37,9 +37,9 @@ function Featured() {
           <li className={styles.item} key={item.name}>
             <img
               className={styles.icon}
-              srcSet={` /img/featured/${item.imageSm} 150w, /img/featured/${item.imageLg} 300w`}
+              srcSet={` /img/home/featured/${item.imageSm} 150w, /img/home/featured/${item.imageLg} 300w`}
               sizes="15vw"
-              src={`/img/featured/${item.imageLg}`}
+              src={`/img/home/featured/${item.imageLg}`}
               alt={item.name}
               loading="lazy"
             />

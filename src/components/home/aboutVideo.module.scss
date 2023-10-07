@@ -59,7 +59,7 @@
   width: 100%;
   aspect-ratio: 16/9;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("/img/video-lg.webp");
+    url("/img/home/video-lg.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -71,7 +71,7 @@
 
   @media only screen and (max-width: 600px) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url("/img/video-sm.webp");
+      url("/img/home/video-sm.webp");
   }
 }
 

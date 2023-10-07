@@ -31,7 +31,11 @@ function Achievements() {
         <ul className={styles.list}>
           {achievementList.map((achievement) => (
             <li className={styles.item} key={achievement.title}>
-              <img className={styles.img} src={`/svg/${achievement.icon}`} />
+              <img
+                className={styles.img}
+                src={`/svg/${achievement.icon}`}
+                alt={achievement.title}
+              />
               <span className={styles.number}>{achievement.number}</span>
               <span className={styles.text}>{achievement.title}</span>
             </li>

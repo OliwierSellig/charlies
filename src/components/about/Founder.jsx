@@ -6,7 +6,7 @@ function Founder() {
       <div className={styles.container}>
         <img
           className={styles.photo}
-          src="/img/founder-photo.jpg"
+          src="/img/about/founder-photo.webp"
           alt="Charlie Morgan"
         />
         <div className={styles.text}>

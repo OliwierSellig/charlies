@@ -2,7 +2,7 @@
   height: 100rem;
   position: relative;
   background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
-    url("/img/faq-lg.webp");
+    url("/img/home/faq-lg.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -10,12 +10,12 @@
   @media only screen and (max-resolution: 191dpi),
     only screen and (max-width: 1200px) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
-      url("/img/faq-md.webp");
+      url("/img/home/faq-md.webp");
   }
 
   @media only screen and (max-width: 600px) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
-      url("/img/faq-sm.webp");
+      url("/img/home/faq-sm.webp");
   }
 }
 

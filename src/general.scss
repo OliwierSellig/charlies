@@ -96,8 +96,8 @@ canvas {
 }
 
 html {
-  overflow-x: hidden;
   font-size: 62.5%;
+  overflow-x: hidden;
 
   @media only screen and (max-width: 1200px) {
     font-size: 56.25%;
@@ -117,9 +117,28 @@ html {
 }
 
 body {
+  overflow: hidden;
   font-family: "Nunito Sans", sans-serif;
   background-color: var(--color-primary-black);
   color: var(--color-primary-white);
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #222;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 1000px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #444;
+  }
 }
 
 h1 {

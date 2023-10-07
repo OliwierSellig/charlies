@@ -1,3 +1,5 @@
+@import "../../animations.scss";
+
 .section {
   background-image: linear-gradient(
       0deg,
@@ -5,7 +7,7 @@
       rgba(18, 18, 18, 0.8) 50%,
       rgba(18, 18, 18, 1) 100%
     ),
-    url("/img/founder-background.jpeg");
+    url("/img/about/founder-background-lg.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -14,8 +16,29 @@
   justify-content: center;
   padding: 26rem 0;
 
+  @media only screen and (max-resolution: 191dpi),
+    only screen and (max-width: 1200px) {
+    background-image: linear-gradient(
+        0deg,
+        rgba(18, 18, 18, 1) 0%,
+        rgba(18, 18, 18, 0.8) 50%,
+        rgba(18, 18, 18, 1) 100%
+      ),
+      url("/img/about/founder-background-md.webp");
+  }
+
   @media only screen and (max-width: 740px) {
     padding: 20rem 0 10rem;
+  }
+
+  @media only screen and (max-width: 600px) {
+    background-image: linear-gradient(
+        0deg,
+        rgba(18, 18, 18, 1) 0%,
+        rgba(18, 18, 18, 0.8) 50%,
+        rgba(18, 18, 18, 1) 100%
+      ),
+      url("/img/about/founder-background-sm.webp");
   }
 }
 
@@ -45,6 +68,7 @@
 .photo {
   border-radius: 1300px;
   box-shadow: 2rem 0 4rem rgba(#000, 0.2);
+  animation: fadeInLeft 2s;
 
   @media only screen and (max-width: 740px) {
     width: 50%;
@@ -68,6 +92,7 @@
   font-size: 3rem;
   line-height: 1.5;
   font-family: "EB Garamond", serif;
+  animation: fadeIn 2s;
 }
 
 .author {
@@ -77,10 +102,12 @@
     font-size: 3.6rem;
     font-weight: 500;
     color: var(--color-primary-yellow);
+    animation: fadeIn 2.5s;
   }
 
   &__role {
     font-size: 3rem;
     color: var(--color-primary-white-shade-1);
+    animation: fadeIn 3s;
   }
 }

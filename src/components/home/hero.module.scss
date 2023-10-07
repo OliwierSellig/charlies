@@ -3,7 +3,7 @@
 .background {
   height: 90vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("/img/hero-lg.webp");
+    url("/img/home/hero-lg.webp");
   background-position: center;
   background-size: cover;
   display: flex;
@@ -21,12 +21,12 @@
   @media only screen and (max-resolution: 191dpi),
     only screen and (max-width: 1200px) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url("/img/hero-md.webp");
+      url("/img/home/hero-md.webp");
   }
 
   @media only screen and (max-width: 600px) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url("/img/hero-sm.webp");
+      url("/img/home/hero-sm.webp");
   }
 }
 
@@ -45,8 +45,6 @@
   display: flex;
   align-items: center;
   gap: 1.4rem;
-  animation: fadeIn 2s;
-
   @media only screen and (max-width: 300px) {
     flex-direction: column;
     align-items: center;

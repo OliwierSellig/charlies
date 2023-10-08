@@ -1,0 +1,13 @@
+.container {
+  padding: 28rem 4.8rem 4.8rem;
+  max-width: 140rem;
+  margin: 0 auto;
+
+  @media only screen and (max-width: 1200px) {
+    padding: 24rem 3.2rem;
+  }
+
+  @media only screen and (max-width: 480px) {
+    padding: 28rem 2.4rem;
+  }
+}

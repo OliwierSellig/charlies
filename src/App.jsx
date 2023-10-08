@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import PageNotFound from "./components/global/PageNotFound";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Blog from "./pages/Blog";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route element={<AppLayout />}>
           <Route index path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
         </Route>
         <Route element={<AppLayout staticHeader={true} />}>
           <Route path="/contact" element={<Contact />} />

@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.btn {
+  width: 8rem;
+  height: 8rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: var(--transition-fast);
+  cursor: pointer;
+  &__prev {
+    background-image: url("/svg/arrow-prev-white.svg");
+
+    &:hover,
+    &:focus {
+      background-image: url("/svg/arrow-prev-yellow.svg");
+    }
+  }
+
+  &__next {
+    background-image: url("/svg/arrow-next-white.svg");
+
+    &:hover,
+    &:focus {
+      background-image: url("/svg/arrow-next-yellow.svg");
+    }
+  }
+}
+
+.choose {
+  display: flex;
+  align-items: end;
+  gap: 6px;
+}
+
+.link {
+  font-size: 2.6rem;
+  transition: var(--transition-fast);
+
+  &:hover,
+  &:focus {
+    color: var(--color-primary-yellow);
+  }
+}
+
+.dots {
+  font-size: 2.4rem;
+  cursor: default;
+}

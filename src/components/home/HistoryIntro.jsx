@@ -26,7 +26,7 @@ function HistoryIntro() {
         </li>
         <li className={styles.line} />
       </ul>
-      <Button size="sm" isLink={true} colorOnFocus="white">
+      <Button size="sm" isLink={true} colorOnFocus="white" goTo="/about">
         About us
       </Button>
     </div>

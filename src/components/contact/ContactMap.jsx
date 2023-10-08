@@ -6,7 +6,7 @@ function ContactMap() {
   return (
     <MapContainer
       center={position}
-      zoom={19}
+      zoom={15}
       scrollWheelZoom={true}
       className={styles.map}
     >

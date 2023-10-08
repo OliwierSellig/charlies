@@ -1,23 +1,44 @@
 import { NavLink } from "react-router-dom";
 import styles from "./header.module.scss";
 import Logo from "./Logo";
-import { useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
-function Header({ staticHeader }) {
-  const backgroundRef = useRef(null);
+function Header({ staticHeader = false }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+
+      if (prevScrollPos > currentScrollPos && currentScrollPos) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    if (!staticHeader) window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollPos, staticHeader]);
+
   return (
     <header
       className={`${styles.header} ${
         staticHeader ? styles.header__static : ""
-      }`}
+      } ${isSticky ? styles.header__sticky : ""}`}
     >
       <Logo />
       <nav
         className={`${styles.nav} ${isOpen ? styles.nav__mobileOpen : ""}`}
-        ref={backgroundRef}
         onClick={(e) => {
-          if (e.target === backgroundRef.current && isOpen) setIsOpen(false);
+          if (isOpen) setIsOpen(false);
         }}
       >
         <NavLink to="/about" className={styles.link}>

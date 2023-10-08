@@ -1,16 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./button.module.scss";
 
 function Button({
   isLink = false,
   colorOnFocus = "yellow",
   size = "md",
-  onClick,
+  handleClick,
   children,
+  goTo = "",
 }) {
+  const navigate = useNavigate();
+
   if (isLink)
     return (
       <Link
+        to={goTo}
         className={`${styles.btn} ${styles[`focus__${colorOnFocus}`]} ${
           styles[`size__${size}`]
         }`}
@@ -24,6 +28,7 @@ function Button({
       className={`${styles.btn} ${styles[`focus__${colorOnFocus}`]} ${
         styles[`size__${size}`]
       }`}
+      onClick={goTo ? () => navigate(goTo) : handleClick}
     >
       {children}
     </button>

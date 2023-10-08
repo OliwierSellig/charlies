@@ -8,10 +8,15 @@ function Hero() {
         <div className={styles.container}>
           <h1>Special treats for special occasions</h1>
           <div className={styles.btnBox}>
-            <Button size="md" isLink={true} colorOnFocus="yellow">
+            <Button
+              size="md"
+              isLink={true}
+              colorOnFocus="yellow"
+              goTo="/treats"
+            >
               Choose a treat
             </Button>
-            <Button size="md" isLink={true} colorOnFocus="white">
+            <Button size="md" isLink={true} colorOnFocus="white" goTo="/about">
               About us
             </Button>
           </div>

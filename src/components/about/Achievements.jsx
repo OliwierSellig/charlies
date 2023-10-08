@@ -1,4 +1,6 @@
+import AnimatedNumber from "../global/AnimatedNumbers";
 import styles from "./achievements.module.scss";
+import { useInView } from "react-intersection-observer";
 
 const achievementList = [
   {
@@ -24,8 +26,10 @@ const achievementList = [
 ];
 
 function Achievements() {
+  const { ref: myRef, inView } = useInView();
+
   return (
-    <section className={styles.section}>
+    <section className={styles.section} ref={myRef}>
       <div className={styles.container}>
         <h2 className={styles.heading}>What we have achieved so far</h2>
         <ul className={styles.list}>
@@ -36,7 +40,9 @@ function Achievements() {
                 src={`/svg/${achievement.icon}`}
                 alt={achievement.title}
               />
-              <span className={styles.number}>{achievement.number}</span>
+              <span className={styles.number}>
+                {inView ? <AnimatedNumber n={achievement.number} /> : 0}
+              </span>
               <span className={styles.text}>{achievement.title}</span>
             </li>
           ))}

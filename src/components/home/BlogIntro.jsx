@@ -24,7 +24,7 @@ function BlogIntro() {
           </button>
         </li>
       </ul>
-      <Button size="sm" isLink={true} colorOnFocus="white">
+      <Button size="sm" isLink={true} colorOnFocus="white" goTo="/blog">
         Visit our Blog
       </Button>
     </div>

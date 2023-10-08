@@ -36,7 +36,13 @@ function Order() {
             </p>
           </li>
         </ul>
-        <Button isLink={true} size="md" colorOnFocus="yellow" isFilled={false}>
+        <Button
+          isLink={true}
+          size="md"
+          colorOnFocus="yellow"
+          isFilled={false}
+          goTo="/treats"
+        >
           Choose a treat
         </Button>
       </div>

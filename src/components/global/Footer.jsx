@@ -97,10 +97,14 @@ function Footer() {
           <h3 className={styles.more__heading}>Explore</h3>
           <ul className={styles.more__list}>
             <li>
-              <NavLink className={styles.more__link}>About Us</NavLink>
+              <NavLink className={styles.more__link} to="/about">
+                About Us
+              </NavLink>
             </li>
             <li>
-              <NavLink className={styles.more__link}>Visit our blog</NavLink>
+              <NavLink className={styles.more__link} to="/blog">
+                Visit our blog
+              </NavLink>
             </li>
             <li>
               <NavLink className={styles.more__link}>Work with us</NavLink>
@@ -109,7 +113,9 @@ function Footer() {
               <NavLink className={styles.more__link}>ECO Certificates</NavLink>
             </li>
             <li>
-              <NavLink className={styles.more__link}>Help Center</NavLink>
+              <NavLink className={styles.more__link} to="/contact">
+                Help Center
+              </NavLink>
             </li>
             <li>
               <NavLink className={styles.more__link}>

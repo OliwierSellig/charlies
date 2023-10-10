@@ -30,6 +30,7 @@ const questionList = [
 
 function Questions() {
   const [activeIndex, setActiveIndex] = useState(null);
+
   return (
     <section className={styles.section}>
       <div className={`${styles.spacer} ${styles.spacer__down}`} />
@@ -39,10 +40,10 @@ function Questions() {
           {questionList.map((q, i) => (
             <QuestionBox
               questionTitle={q.question}
-              key={crypto.randomUUID()}
-              isActive={activeIndex === i}
-              setActiveIndex={setActiveIndex}
+              key={i}
               index={i}
+              isActive={i === activeIndex}
+              setActiveIndex={setActiveIndex}
             >
               {q.answer}
             </QuestionBox>

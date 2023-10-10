@@ -1,7 +1,14 @@
-import { NavLink } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import styles from "./blogNavigation.module.scss";
 
 function BlogNavigation() {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  function handleClick(value) {
+    searchParams.set("type", value);
+    setSearchParams(searchParams);
+  }
+
   return (
     <nav className={styles.nav}>
       <input
@@ -11,19 +18,38 @@ function BlogNavigation() {
       />
       <ul className={styles.list}>
         <li className={styles.all}>
-          <NavLink className={`${styles.link}`}>All</NavLink>
+          <button
+            className={`${styles.link}`}
+            onClick={() => handleClick("all")}
+          >
+            All
+          </button>
         </li>
         <li>
-          <NavLink className={styles.link}>Recipes</NavLink>
+          <button
+            className={styles.link}
+            onClick={() => handleClick("recipes")}
+          >
+            Recipes
+          </button>
         </li>
         <li>
-          <NavLink className={styles.link}>Ecology</NavLink>
+          <button
+            className={styles.link}
+            onClick={() => handleClick("ecology")}
+          >
+            Ecology
+          </button>
         </li>
         <li>
-          <NavLink className={styles.link}>Our Cocoa</NavLink>
+          <button className={styles.link} onClick={() => handleClick("cocoa")}>
+            Our Cocoa
+          </button>
         </li>
         <li>
-          <NavLink className={styles.link}>News</NavLink>
+          <button className={styles.link} onClick={() => handleClick("news")}>
+            News
+          </button>
         </li>
       </ul>
     </nav>

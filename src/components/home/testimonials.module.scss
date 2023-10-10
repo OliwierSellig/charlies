@@ -25,11 +25,20 @@
   margin: 0 auto;
   max-width: 120rem;
   width: 100%;
-  min-height: 40rem;
+  min-height: 50rem;
   padding: 0 4.8rem;
+  overflow-x: hidden;
+
+  @media only screen and (max-width: 500px) {
+    min-height: 45rem;
+  }
 
   @media only screen and (max-width: 420px) {
     padding: 0 2.4rem;
+  }
+
+  @media only screen and (max-width: 320px) {
+    min-height: 50rem;
   }
 }
 
@@ -44,7 +53,7 @@
   background-size: cover;
   transition: var(--transition-fast);
 
-  @media only screen and (max-width: 1140px) {
+  @media only screen and (max-width: 1330px) {
     top: 100%;
   }
 
@@ -58,7 +67,7 @@
       background-image: url("/svg/arrow-prev-yellow.svg");
     }
 
-    @media only screen and (max-width: 1140px) {
+    @media only screen and (max-width: 1330px) {
       transform: translateX(-100%);
       left: 50%;
     }
@@ -74,9 +83,29 @@
       background-image: url("/svg/arrow-next-yellow.svg");
     }
 
-    @media only screen and (max-width: 1140px) {
+    @media only screen and (max-width: 1330px) {
       transform: translateX(100%);
       right: 50%;
+    }
+  }
+}
+
+.disabled {
+  &__prev {
+    background-image: url("/svg/arrow-prev-grey.svg");
+    cursor: default;
+
+    &:hover {
+      background-image: url("/svg/arrow-prev-grey.svg");
+    }
+  }
+
+  &__next {
+    background-image: url("/svg/arrow-next-grey.svg");
+    cursor: default;
+
+    &:hover {
+      background-image: url("/svg/arrow-next-grey.svg");
     }
   }
 }

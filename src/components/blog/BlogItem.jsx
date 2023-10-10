@@ -1,19 +1,23 @@
 import { NavLink } from "react-router-dom";
 import styles from "./blogItem.module.scss";
 
-function BlogItem() {
+function BlogItem({ id, tile, date, image, children }) {
   return (
     <li>
-      <NavLink className={styles.item}>
-        <h3 className={styles.title}>
-          A new great wayu to compose chocolate has been found!
-        </h3>
+      <NavLink
+        to={`/blog/${id}`}
+        style={{
+          backgroundImage: `linear-gradient(
+      rgba(34, 34, 34, 0.8),
+      rgba(34, 34, 34, 0.8)
+    ), url("${image}")`,
+        }}
+        className={styles.item}
+      >
+        <h3 className={styles.title}>{tile}</h3>
         <div className={styles.box}>
-          <p className={styles.description}>
-            A scientist from New Your have found a new better way to make
-            chocolate bars. The are way more efficient as well as...
-          </p>
-          <span className={styles.date}>06.10.2023</span>
+          <p className={styles.description}>{children}</p>
+          <span className={styles.date}>{date}</span>
         </div>
       </NavLink>
     </li>

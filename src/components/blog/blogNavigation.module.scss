@@ -66,6 +66,7 @@
   padding: 6px 1.2rem;
   border-bottom: 2px solid var(--color-primary-white-shade-2);
   transition: var(--transition-fast);
+  cursor: pointer;
 
   &:hover,
   &:focus {

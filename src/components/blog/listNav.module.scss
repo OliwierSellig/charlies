@@ -6,8 +6,8 @@
 }
 
 .btn {
-  width: 8rem;
-  height: 8rem;
+  width: 6rem;
+  height: 6rem;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -32,23 +32,27 @@
   }
 }
 
-.choose {
-  display: flex;
-  align-items: end;
-  gap: 6px;
+.number {
+  font-size: 4rem;
+  font-weight: 500;
 }
 
-.link {
-  font-size: 2.6rem;
-  transition: var(--transition-fast);
+.disabled {
+  &__prev {
+    background-image: url("/svg/arrow-prev-grey.svg");
+    cursor: default;
 
-  &:hover,
-  &:focus {
-    color: var(--color-primary-yellow);
+    &:hover {
+      background-image: url("/svg/arrow-prev-grey.svg");
+    }
   }
-}
 
-.dots {
-  font-size: 2.4rem;
-  cursor: default;
+  &__next {
+    background-image: url("/svg/arrow-next-grey.svg");
+    cursor: default;
+
+    &:hover {
+      background-image: url("/svg/arrow-next-grey.svg");
+    }
+  }
 }

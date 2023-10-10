@@ -1,7 +1,13 @@
 .container {
+  position: absolute;
+  top: 0;
+  left: 0%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transform: translateX(-50%);
+  width: 100%;
+  transition: all 0.5s ease-in;
 }
 
 .testimonial {

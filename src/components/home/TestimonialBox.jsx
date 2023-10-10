@@ -1,8 +1,11 @@
 import styles from "./testimonialBox.module.scss";
 
-function TestimonialBox({ photo, name, role, children }) {
+function TestimonialBox({ photo, name, role, position, children }) {
   return (
-    <div className={styles.container}>
+    <div
+      style={{ transform: `translateX(${position * 150}%)` }}
+      className={styles.container}
+    >
       <div className={styles.testimonial}>
         <blockquote className={styles.quote}>{children}</blockquote>
       </div>

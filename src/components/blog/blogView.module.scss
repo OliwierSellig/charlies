@@ -1,0 +1,83 @@
+.section {
+  background-image: radial-gradient(
+      circle,
+      rgba(18, 18, 18, 0.6) 0%,
+      rgba(18, 18, 18, 1) 100%
+    ),
+    url("/img/blog/blog-post-background.avif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 16rem 0;
+}
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  background-color: var(--color-primary-black);
+  box-shadow: 2rem 0 4rem rgba(#000, 0.3);
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4.2rem;
+}
+
+.cover {
+  width: 100%;
+  aspect-ratio: 16/7;
+  object-fit: cover;
+}
+
+.headingBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 3.6rem;
+  padding: 0 2.4rem;
+}
+
+.heading {
+  font-size: 5.2rem;
+  font-family: "Caveat", cursive;
+  color: var(--color-primary-yellow);
+  line-height: 1.1;
+  letter-spacing: 0.3px;
+}
+
+.date {
+  font-size: 3.2rem;
+  font-family: "Caveat", cursive;
+  color: var(--color-primary-white-shade-1);
+}
+
+.text {
+  font-size: 2.2rem;
+  line-height: 1.5;
+  padding: 0 2.4rem 4.8rem;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4.8rem 0;
+  border-top: 2px solid var(--color-primary-white-shade-2);
+  &__heading {
+    font-size: 4.6rem;
+    font-family: "Caveat", cursive;
+    line-height: 1.1;
+    letter-spacing: 0.3px;
+    margin-bottom: 3.2rem;
+  }
+}
+
+.btnBox {
+  display: flex;
+  gap: 2.4rem;
+}

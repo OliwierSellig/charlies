@@ -1,4 +1,5 @@
 import styles from "./mailSent.module.scss";
+import Button from "../global/Button";
 
 function MailSent({ refreshEmail, fullName }) {
   return (
@@ -15,6 +16,9 @@ function MailSent({ refreshEmail, fullName }) {
           src="/svg/smile-white.svg"
           alt="Smiling Face"
         />
+        <Button size="lg" colorOnFocus="yellow" handleClick={refreshEmail}>
+          Continue
+        </Button>
       </div>
     </div>
   );

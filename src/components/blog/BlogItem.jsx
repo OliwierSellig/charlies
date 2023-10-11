@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styles from "./blogItem.module.scss";
 
-function BlogItem({ id, tile, date, image, children }) {
+function BlogItem({ id, title, date, image, children }) {
   return (
     <li>
       <NavLink
@@ -14,7 +14,7 @@ function BlogItem({ id, tile, date, image, children }) {
         }}
         className={styles.item}
       >
-        <h3 className={styles.title}>{tile}</h3>
+        <h3 className={styles.title}>{title}</h3>
         <div className={styles.box}>
           <p className={styles.description}>{children}</p>
           <span className={styles.date}>{date}</span>

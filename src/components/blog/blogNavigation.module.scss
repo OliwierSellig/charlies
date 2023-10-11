@@ -85,3 +85,8 @@
     grid-column: 1/-1;
   }
 }
+
+.active {
+  color: var(--color-primary-yellow);
+  border-color: var(--color-primary-yellow);
+}

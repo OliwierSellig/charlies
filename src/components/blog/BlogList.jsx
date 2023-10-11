@@ -3,10 +3,10 @@ import ListNav from "./ListNav";
 import styles from "./blogList.module.scss";
 import NoResults from "./NoResults.jsx";
 import LoadingSpinner from "../global/LoadingSpinner";
-import { usePosts } from "../../hooks/usePosts";
+import { useBlog } from "../../context/BlogContext";
 
 function BlogList() {
-  const { isLoading, posts, count } = usePosts();
+  const { isLoading, posts } = useBlog();
 
   return (
     <>
@@ -16,14 +16,14 @@ function BlogList() {
         </div>
       )}
 
-      {!isLoading && posts.length > 0 && (
+      {!isLoading && posts?.length > 0 && (
         <>
           <ul className={styles.list}>
             {posts.map((post) => (
               <BlogItem
                 key={post.id}
                 id={post.id}
-                tile={post.title}
+                title={post.title}
                 date={post.publish_date}
                 image={post.image}
               >
@@ -31,10 +31,10 @@ function BlogList() {
               </BlogItem>
             ))}
           </ul>
-          <ListNav count={count} />
+          <ListNav />
         </>
       )}
-      {!isLoading && !posts.length && <NoResults />}
+      {!isLoading && !posts?.length && <NoResults />}
     </>
   );
 }

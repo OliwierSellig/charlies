@@ -1,51 +1,31 @@
 import { useSearchParams } from "react-router-dom";
+import { useBlog } from "../../context/BlogContext";
 import styles from "./listNav.module.scss";
 
-function ListNav({ count }) {
-  const [searchParams, setSearchParams] = useSearchParams();
+function ListNav() {
+  const [searchParams] = useSearchParams();
+  const currentPage = Number(searchParams.get("page")) || 1;
 
-  const currentPage = searchParams.get("page") || 1;
-
-  function canGoPrev() {
-    return Number(currentPage) !== 1;
-  }
-
-  function canGoNext() {
-    return Math.ceil(9 * currentPage) < count;
-  }
-
-  function goPrev() {
-    if (canGoPrev()) {
-      searchParams.set("page", Number(currentPage) - 1);
-      setSearchParams(searchParams);
-    }
-  }
-
-  function goNext() {
-    if (canGoNext()) {
-      searchParams.set("page", Number(currentPage) + 1);
-      setSearchParams(searchParams);
-    }
-  }
+  const { canGoNext, goNext, canGoPrev, goPrev } = useBlog();
 
   return (
     <nav className={styles.container}>
       <button
         className={`${styles.btn} ${styles.btn__prev} ${
-          !canGoPrev() ? styles.disabled__prev : ""
+          !canGoPrev(currentPage) ? styles.disabled__prev : ""
         }`}
         aria-label="See Previous"
-        onClick={goPrev}
-        disabled={!canGoPrev()}
+        onClick={() => goPrev(currentPage)}
+        disabled={!canGoPrev(currentPage)}
       />
       <span className={styles.number}>{currentPage}</span>
       <button
         className={`${styles.btn} ${styles.btn__next} ${
-          !canGoNext() ? styles.disabled__next : ""
+          !canGoNext(currentPage) ? styles.disabled__next : ""
         }`}
         aria-label="See Next"
-        onClick={goNext}
-        disabled={!canGoNext()}
+        onClick={() => goNext(currentPage)}
+        disabled={!canGoNext(currentPage)}
       />
     </nav>
   );

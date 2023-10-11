@@ -9,19 +9,21 @@ function HistoryIntro() {
         <li className={styles.item}>
           <span className={styles.year}>1907</span>
           <span className={styles.text}>
-            Opening of the first chocolate shop
+            Charlie&apos;s opens it&apos;s doors in Olympia
           </span>
         </li>
         <li className={styles.line} />
         <li className={styles.item}>
-          <span className={styles.year}>1909</span>
-          <span className={styles.text}>Moving back to Washington</span>
+          <span className={styles.year}>1915</span>
+          <span className={styles.text}>
+            The shops expands it&apos;s products line
+          </span>
         </li>
         <li className={styles.line} />
         <li className={styles.item}>
-          <span className={styles.year}>1912</span>
+          <span className={styles.year}>1923</span>
           <span className={styles.text}>
-            The first ever expansion of the staff
+            A great idea in time of prohibition
           </span>
         </li>
         <li className={styles.line} />

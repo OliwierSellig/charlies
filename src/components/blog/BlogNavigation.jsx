@@ -1,11 +1,19 @@
 import { useSearchParams } from "react-router-dom";
 import styles from "./blogNavigation.module.scss";
+import { useBlog } from "../../context/BlogContext";
+import { useEffect } from "react";
 
 function BlogNavigation() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const { query, setQuery } = useBlog();
+
+  useEffect(() => {
+    setQuery("");
+  }, [setQuery]);
 
   function handleClick(value) {
     searchParams.set("type", value);
+    searchParams.set("page", 1);
     setSearchParams(searchParams);
   }
 
@@ -15,11 +23,17 @@ function BlogNavigation() {
         className={styles.input}
         placeholder="Search for posts"
         type="text"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
       />
       <ul className={styles.list}>
         <li className={styles.all}>
           <button
-            className={`${styles.link}`}
+            className={`${styles.link} ${
+              searchParams.get("type") === "all" || !searchParams.get("type")
+                ? styles.active
+                : ""
+            }`}
             onClick={() => handleClick("all")}
           >
             All
@@ -27,7 +41,9 @@ function BlogNavigation() {
         </li>
         <li>
           <button
-            className={styles.link}
+            className={`${styles.link} ${
+              searchParams.get("type") === "recipes" ? styles.active : ""
+            }`}
             onClick={() => handleClick("recipes")}
           >
             Recipes
@@ -35,19 +51,31 @@ function BlogNavigation() {
         </li>
         <li>
           <button
-            className={styles.link}
+            className={`${styles.link} ${
+              searchParams.get("type") === "ecology" ? styles.active : ""
+            }`}
             onClick={() => handleClick("ecology")}
           >
             Ecology
           </button>
         </li>
         <li>
-          <button className={styles.link} onClick={() => handleClick("cocoa")}>
+          <button
+            className={`${styles.link} ${
+              searchParams.get("type") === "cocoa" ? styles.active : ""
+            }`}
+            onClick={() => handleClick("cocoa")}
+          >
             Our Cocoa
           </button>
         </li>
         <li>
-          <button className={styles.link} onClick={() => handleClick("news")}>
+          <button
+            className={`${styles.link} ${
+              searchParams.get("type") === "news" ? styles.active : ""
+            }`}
+            onClick={() => handleClick("news")}
+          >
             News
           </button>
         </li>

@@ -52,6 +52,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   transition: var(--transition-fast);
+  z-index: 10;
 
   @media only screen and (max-width: 1330px) {
     top: 100%;

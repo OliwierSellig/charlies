@@ -78,7 +78,7 @@ function Footer() {
             <li className={styles.contact__item}>
               <img
                 className={styles.contact__icon}
-                src="/svg/location-yellow.svg"
+                src="/svg/mail-yellow.svg"
                 alt="Email"
               />
               <div className={styles.contact__text}>

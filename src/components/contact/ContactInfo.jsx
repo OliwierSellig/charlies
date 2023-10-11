@@ -33,7 +33,7 @@ function ContactInfo() {
         <li className={styles.item}>
           <img
             className={styles.icon}
-            src="/svg/location-yellow.svg"
+            src="/svg/mail-yellow.svg"
             alt="Our Email"
           />
           <a href="mailto:info@charlies.com" className={styles.link}>

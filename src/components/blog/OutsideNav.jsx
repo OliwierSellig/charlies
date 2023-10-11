@@ -2,7 +2,7 @@ import LoadingSpinner from "../global/LoadingSpinner";
 import BlogItem from "./BlogItem";
 import styles from "./outsideNav.module.scss";
 
-function OutsideNav({ id, posts, isLoading }) {
+function OutsideNav({ posts, isLoading }) {
   return (
     <nav className={styles.nav}>
       <h3 className={styles.heading}>You might also like:</h3>

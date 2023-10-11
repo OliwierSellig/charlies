@@ -9,6 +9,7 @@ import BlogView from "./components/blog/BlogView";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { BlogProvider } from "./context/BlogContext";
+import ScrollToTop from "./services/ScrollToTop";
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 60 * 1000 } },
@@ -19,6 +20,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
       <BrowserRouter>
+        <ScrollToTop />
         <BlogProvider>
           <Routes>
             <Route element={<AppLayout />}>

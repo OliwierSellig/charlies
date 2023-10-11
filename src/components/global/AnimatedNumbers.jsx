@@ -1,7 +1,6 @@
 import { useSpring, animated } from "react-spring";
 
 function AnimatedNumber({ n }) {
-  console.log(parseFloat(n));
   const { number } = useSpring({
     from: { number: 0 },
     number: parseFloat(n),

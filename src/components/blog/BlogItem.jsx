@@ -16,7 +16,7 @@ function BlogItem({ id, title, date, image, children }) {
       >
         <h3 className={styles.title}>{title}</h3>
         <div className={styles.box}>
-          <p className={styles.description}>{children}</p>
+          <p className={styles.description}>{children.slice(0, 100)}...</p>
           <span className={styles.date}>{date}</span>
         </div>
       </NavLink>

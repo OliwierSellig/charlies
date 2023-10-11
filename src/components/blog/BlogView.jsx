@@ -6,6 +6,7 @@ import OutsideNav from "./OutsideNav";
 import { useNewsestPosts } from "../../hooks/useNewestPosts";
 import { useEffect, useState } from "react";
 import { useBlog } from "../../context/BlogContext";
+import NoPostFound from "./NoPostFound";
 
 function BlogView() {
   const { isLoading, post } = usePost();
@@ -15,11 +16,11 @@ function BlogView() {
   const activePost = post?.at(0);
 
   useEffect(() => {
+    if (!post?.length) return;
+
     const filtered = newest?.filter((p) => p.id !== post?.at(0).id);
     setFilteredPosts(filtered);
   }, [newest, post]);
-
-  console.log(getRandomID(filteredPosts));
 
   return (
     <section className={styles.section}>
@@ -29,7 +30,7 @@ function BlogView() {
             <LoadingSpinner />
           </div>
         )}
-        {!isLoading && (
+        {!isLoading && activePost && (
           <>
             <header className={styles.header}>
               <img
@@ -70,12 +71,12 @@ function BlogView() {
             </div>
           </>
         )}
+        {!isLoading && !activePost && <NoPostFound />}
       </article>
-      <OutsideNav
-        id={activePost?.id}
-        posts={filteredPosts}
-        isLoading={loadingNewest}
-      />
+
+      {!isLoading && activePost && (
+        <OutsideNav posts={filteredPosts} isLoading={loadingNewest} />
+      )}
     </section>
   );
 }

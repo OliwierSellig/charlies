@@ -27,13 +27,14 @@ function BlogList() {
                 date={post.publish_date}
                 image={post.image}
               >
-                {post.content.slice(0, 100)}...
+                {post.content}
               </BlogItem>
             ))}
           </ul>
           <ListNav />
         </>
       )}
+
       {!isLoading && !posts?.length && <NoResults />}
     </>
   );

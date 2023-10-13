@@ -1,0 +1,36 @@
+.background {
+  background-image: radial-gradient(
+      circle,
+      rgba(18, 18, 18, 0.7) 0%,
+      rgba(18, 18, 18, 1) 100%
+    ),
+    url("/img/packages/choose-package-lg.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 18rem 0 12rem;
+
+  @media only screen and (max-resolution: 191dpi),
+    only screen and (max-width: 1200px) {
+    background-image: radial-gradient(
+        circle,
+        rgba(18, 18, 18, 0.7) 0%,
+        rgba(18, 18, 18, 1) 100%
+      ),
+      url("/img/packages/choose-package-md.webp");
+  }
+
+  @media only screen and (max-width: 600px) {
+    background-image: radial-gradient(
+        circle,
+        rgba(18, 18, 18, 0.7) 0%,
+        rgba(18, 18, 18, 1) 100%
+      ),
+      url("/img/packages/choose-package-sm.webp");
+  }
+}
+
+.container {
+  max-width: 140rem;
+  margin: 0 auto;
+}

@@ -1,0 +1,21 @@
+.list {
+  border: 2px solid var(--color-primary-white);
+}
+
+.item {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  &:not(:last-child) {
+    border-bottom: 2px solid var(--color-primary-white);
+  }
+}
+
+.box {
+  font-size: 2rem;
+  padding: 6px 1.4rem;
+
+  &:first-child {
+    border-right: 2px solid var(--color-primary-white);
+  }
+}

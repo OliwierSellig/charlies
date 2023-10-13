@@ -10,6 +10,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { BlogProvider } from "./context/BlogContext";
 import ScrollToTop from "./services/ScrollToTop";
+import ChoosePackage from "./components/packages/choose/ChoosePackage";
+import CreatePackage from "./components/packages/create/CreatePackage";
+import PackagesBackgrond from "./components/packages/PackagesBackgrond";
+import Packages from "./pages/Packages";
+import Additions from "./components/packages/additions/Additions";
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 60 * 1000 } },
@@ -28,6 +33,14 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:id" element={<BlogView />} />
+              <Route path="/packages" element={<Packages />}>
+                <Route index element={<ChoosePackage />} />
+                <Route path="create-package" element={<CreatePackage />} />
+                <Route
+                  path="create-package/additions"
+                  element={<Additions />}
+                />
+              </Route>
             </Route>
             <Route element={<AppLayout staticHeader={true} />}>
               <Route path="/contact" element={<Contact />} />

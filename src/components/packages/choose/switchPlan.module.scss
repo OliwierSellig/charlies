@@ -1,0 +1,66 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  background-color: #151515;
+  box-shadow: 2rem 0 4rem rgba(#000, 0.2);
+  border-radius: 13px;
+  overflow: hidden;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 3.2rem 1.2rem;
+  cursor: pointer;
+  border-radius: 13px;
+  color: var(--color-primary-white-shade-1);
+
+  &:focus {
+    & .name,
+    & .price {
+      color: var(--color-primary-white);
+    }
+  }
+}
+
+.name {
+  font-size: 2rem;
+  transition: var(--transition-medium);
+}
+
+.discount {
+  position: relative;
+}
+
+.price {
+  font-size: 2.2rem;
+  font-weight: 600;
+  transition: var(--transition-medium);
+  &__raw {
+    position: absolute;
+    font-size: 1.4rem;
+    top: -14px;
+    right: 0;
+    color: var(--color-primary-white-shade-2);
+
+    &::before {
+      content: "";
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-100%);
+      left: 0;
+      background-color: var(--color-primary-white-shade-2);
+      border-radius: 50%;
+    }
+  }
+}
+
+.active {
+  background-color: var(--color-primary-yellow-shade-2);
+  color: var(--color-primary-white);
+}

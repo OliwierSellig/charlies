@@ -41,7 +41,7 @@ function Order() {
           size="md"
           colorOnFocus="yellow"
           isFilled={false}
-          goTo="/treats"
+          goTo="/packages"
         >
           Choose a treat
         </Button>

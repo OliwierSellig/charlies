@@ -1,0 +1,32 @@
+.item {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  background-color: #151515;
+  border-radius: 9px;
+  overflow: hidden;
+  box-shadow: 2rem 0 4rem rgba(#000, 0.2);
+  margin-bottom: 1.2rem;
+  gap: 2.4rem;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: center;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.quantity {
+  font-size: 1.6rem;
+}

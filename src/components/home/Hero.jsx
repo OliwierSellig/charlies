@@ -12,7 +12,7 @@ function Hero() {
               size="md"
               isLink={true}
               colorOnFocus="yellow"
-              goTo="/treats"
+              goTo="/packages"
             >
               Choose a treat
             </Button>

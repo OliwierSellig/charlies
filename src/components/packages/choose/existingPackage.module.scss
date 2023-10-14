@@ -1,3 +1,5 @@
+@import "../../../animations.scss";
+
 .container {
   width: 100%;
   display: flex;
@@ -6,11 +8,30 @@
   background-color: rgba(#121212, 0.95);
   border-radius: 7px;
   padding: 2.4rem;
+  animation: fadeIn 2s;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    max-width: 75rem;
+    justify-self: center;
+  }
 
   & a {
     align-self: center;
     width: 100%;
     text-align: center;
+  }
+
+  &:last-child {
+    @media only screen and (max-width: 900px) {
+      grid-column: 1/-1;
+      justify-self: center;
+      width: 50%;
+    }
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+      max-width: 75rem;
+    }
   }
 }
 
@@ -20,6 +41,10 @@
   color: var(--color-primary-yellow);
   margin-bottom: 0.8rem;
   letter-spacing: 0.3px;
+
+  @media only screen and (max-width: 768px) {
+    margin-bottom: 2.4rem;
+  }
 }
 
 .description {
@@ -31,7 +56,4 @@
 .list {
   gap: 1.2rem;
   margin-bottom: 3.2rem;
-}
-
-.price {
 }

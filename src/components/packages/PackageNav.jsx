@@ -1,13 +1,10 @@
 import styles from "./packageNav.module.scss";
 import Button from "../global/Button";
-import OrderDetails from "./OrderDetails";
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
+import SeeDetails from "./SeeDetails";
 
 function PackageNav() {
   const location = useLocation();
-  const [seeOrderDetails, setSeeOrderDetails] = useState(false);
-
   const isSeeingAdditions = location.pathname.endsWith("additions");
 
   return (
@@ -22,12 +19,7 @@ function PackageNav() {
           {isSeeingAdditions ? "Back to Main" : "Go Back"}
         </Button>
         <div className={styles.info}>
-          <button
-            className={styles.details}
-            onClick={() => setSeeOrderDetails(true)}
-          >
-            See details
-          </button>
+          <SeeDetails />
           <div className={styles.item}>
             <span className={styles.number}>3/5</span>
             <div className={styles.price}>
@@ -47,9 +39,6 @@ function PackageNav() {
           {isSeeingAdditions ? "Go to Checkout" : "See Additions"}
         </Button>
       </nav>
-      {seeOrderDetails && (
-        <OrderDetails close={() => setSeeOrderDetails(false)} />
-      )}
     </>
   );
 }

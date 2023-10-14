@@ -22,6 +22,10 @@
 .text {
   font-size: 1.6rem;
   color: var(--color-primary-white-shade-1);
+
+  @media only screen and (max-width: 420px) {
+    display: none;
+  }
 }
 
 .size {

@@ -1,15 +1,4 @@
-.background {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  width: 100vw;
-  z-index: 500;
-  background-image: linear-gradient(
-    rgba(21, 21, 21, 0.5),
-    rgba(21, 21, 21, 0.5)
-  );
-}
+@import "../../animations.scss";
 
 .container {
   position: absolute;
@@ -21,6 +10,14 @@
   box-shadow: -1.6rem 0px 3.2rem -3rem rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
+  min-width: 70rem;
+  animation: moveFromRight 0.3s;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    min-width: auto;
+    box-shadow: none;
+  }
 }
 .header {
   display: flex;
@@ -29,6 +26,10 @@
   padding-bottom: 1.2rem;
   border-bottom: 1px solid var(--color-primary-white-shade-3);
   padding: 4.8rem 4.8rem 2.4rem;
+
+  @media only screen and (max-width: 520px) {
+    padding: 3.6rem 3.6rem 2.4rem;
+  }
 }
 
 .heading {
@@ -56,6 +57,10 @@
 .box {
   padding: 3.6rem 5.2rem;
   overflow-y: scroll;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &::-webkit-scrollbar {
     width: 8px;
@@ -73,6 +78,20 @@
   &::-webkit-scrollbar-thumb:hover {
     background: #444;
   }
+
+  @media (hover: none) {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 520px) {
+    padding: 3.6rem 4.2rem;
+  }
+
+  @media only screen and (max-width: 400px) {
+    padding: 2.4rem;
+  }
 }
 
 .more {
@@ -80,6 +99,11 @@
   grid-template-columns: max-content 1fr;
   gap: 2.4rem;
   align-items: center;
+
+  @media only screen and (max-width: 520px) {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
 }
 
 .text {

@@ -1,42 +1,54 @@
+@import "../../animations.scss";
+
 .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 2.4rem 3.2rem 0;
+
+  & a {
+    animation: fadeIn 1s;
+  }
+
+  @media only screen and (max-width: 1400px) {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    background-color: var(--color-secondary-black);
+    z-index: 400;
+    padding: 2.4rem;
+  }
+
+  @media only screen and (max-width: 800px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.2rem;
+
+    & a {
+      text-align: center;
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  @media only screen and (max-width: 480px) {
+    padding: 1.8rem;
+  }
 }
 
 .info {
   display: flex;
   align-items: center;
   gap: 2.4rem;
-}
 
-.details {
-  font-size: 2.4rem;
-  display: flex;
-  gap: 1.2rem;
-  align-items: center;
-  cursor: pointer;
-  transition: var(--transition-fast);
-  &::before {
-    content: "";
-    display: block;
-    width: 4rem;
-    height: 4rem;
-    background-image: url("/svg/details-white.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    transition: var(--transition-fast);
-  }
-
-  &:hover,
-  &:focus {
-    color: var(--color-primary-yellow);
-
-    &::before {
-      background-image: url("/svg/details-yellow.svg");
-    }
+  @media only screen and (max-width: 800px) {
+    grid-row: 1/2;
+    grid-column: 1/-1;
+    justify-content: space-around;
+    margin-bottom: 1.2rem;
   }
 }
 

@@ -6,24 +6,10 @@
   box-shadow: 2rem 0 4rem rgba(#000, 0.2);
   border-radius: 9px;
   overflow: hidden;
-}
 
-.btn {
-  cursor: pointer;
-
-  &:hover,
-  &:focus {
-    & .img {
-      transform: scale(1.1);
-    }
+  & img {
+    aspect-ratio: 16/9;
   }
-}
-
-.img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  transition: var(--transition-fast);
 }
 
 .container {

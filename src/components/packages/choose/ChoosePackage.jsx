@@ -10,11 +10,11 @@ function ChoosePackage() {
       <span className={styles.or}>or</span>
       <p className={styles.subheading}>Try one of our bestseller proposals</p>
       <h2 className={styles.heading}>Choose existing package</h2>
-      <div className={styles.box}>
+      <ul className={styles.box}>
         <ExistingPackage />
         <ExistingPackage />
         <ExistingPackage />
-      </div>
+      </ul>
     </div>
   );
 }

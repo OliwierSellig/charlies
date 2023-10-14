@@ -5,7 +5,7 @@ import styles from "./existingPackage.module.scss";
 
 function ExistingPackage() {
   return (
-    <div className={styles.container}>
+    <li className={styles.container}>
       <h3 className={styles.heading}>Standard</h3>
       <p className={styles.description}>
         Charlie&apos;s standard is made for all of those who are looking for
@@ -21,7 +21,7 @@ function ExistingPackage() {
       <Button isLink={true} colorOnFocus="yellow" size="lg">
         Choose Standard
       </Button>
-    </div>
+    </li>
   );
 }
 

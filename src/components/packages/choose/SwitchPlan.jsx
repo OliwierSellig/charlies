@@ -10,7 +10,9 @@ function SwitchPlan({ marginBottom = 0 }) {
       className={styles.container}
     >
       <button
-        className={`${styles.box} ${activePlan === 1 ? styles.active : ""}`}
+        className={`${styles.box} ${styles.box__1} ${
+          activePlan === 1 ? styles.active : ""
+        }`}
         onClick={() => setActivePlan(1)}
       >
         <span className={styles.name}>Standard</span>
@@ -26,6 +28,10 @@ function SwitchPlan({ marginBottom = 0 }) {
           <span className={styles.price__raw}>$159.99</span>
         </div>
       </button>
+      <div
+        style={{ transform: `translateX(${activePlan === 2 ? "100" : "0"}%)` }}
+        className={styles.background}
+      />
     </div>
   );
 }

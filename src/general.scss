@@ -99,7 +99,6 @@ canvas {
 html {
   font-size: 62.5%;
   overflow-x: hidden;
-  overflow-y: hidden;
 
   @media only screen and (max-width: 1200px) {
     font-size: 56.25%;
@@ -163,8 +162,7 @@ h1 {
 
 :root {
   --color-primary-yellow: #f0c76e;
-  --color-primary-yellow-shade-1: #c09f58;
-  --color-primary-yellow-shade-2: #a88b4d;
+  --color-primary-yellow-shade-1: #766136;
   --color-primary-white: #e7e7e7;
   --color-primary-white-shade-1: #a2a2a2;
   --color-primary-white-shade-2: #747474;
@@ -174,4 +172,8 @@ h1 {
   --transition-long: all 0.4s;
   --transition-medium: all 0.3s;
   --transition-fast: all 0.2s;
+}
+
+.modal {
+  overflow-y: hidden;
 }

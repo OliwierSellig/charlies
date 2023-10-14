@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   width: 100%;
@@ -9,6 +10,7 @@
 }
 
 .box {
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,6 +19,7 @@
   cursor: pointer;
   border-radius: 13px;
   color: var(--color-primary-white-shade-1);
+  background-color: transparent;
 
   &:focus {
     & .name,
@@ -44,7 +47,7 @@
     font-size: 1.4rem;
     top: -14px;
     right: 0;
-    color: var(--color-primary-white-shade-2);
+    color: var(--color-primary-white-shade-);
 
     &::before {
       content: "";
@@ -59,8 +62,16 @@
     }
   }
 }
+.background {
+  border-radius: 13px;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background-color: var(--color-primary-yellow-shade-1);
+  z-index: 5;
+  transition: var(--transition-medium);
+}
 
 .active {
-  background-color: var(--color-primary-yellow-shade-2);
   color: var(--color-primary-white);
 }

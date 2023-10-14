@@ -1,3 +1,5 @@
+@import "../../animations.scss";
+
 .container {
   width: 100%;
   background-color: rgba(#121212, 0.95);
@@ -7,6 +9,11 @@
   max-height: 80vh;
   display: flex;
   flex-direction: column;
+
+  @media only screen and (max-width: 1400px) {
+    max-height: none;
+    padding: 14rem 2.4rem 8rem;
+  }
 }
 
 .heading {
@@ -16,6 +23,11 @@
   color: var(--color-primary-yellow);
   letter-spacing: 0.5px;
   margin-bottom: 2.4rem;
+  animation: fadeInLeft 1s;
+
+  @media only screen and (max-width: 800px) {
+    margin-bottom: 3.6rem;
+  }
 }
 
 .content {
@@ -35,5 +47,16 @@
 
   &::-webkit-scrollbar-thumb:hover {
     background: #444;
+  }
+
+  @media (hover: none) {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 1400px) {
+    overflow-y: visible;
+    flex-grow: 1;
   }
 }

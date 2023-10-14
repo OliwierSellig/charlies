@@ -6,7 +6,7 @@ function OwnPackage() {
     <div className={styles.container}>
       <img
         className={styles.img}
-        src="/img/packages/package-own.jpg"
+        src="/img/packages/package-own.webp"
         alt="Package"
       />
       <div className={styles.info}>

@@ -1,13 +1,13 @@
 import MainItem from "./MainItem";
 import styles from "./mainList.module.scss";
 
-function MainList({ ln, children }) {
+function MainList({ title, children }) {
   return (
     <li className={styles.container}>
-      <h3 className={styles.heading}>{children}</h3>
+      <h3 className={styles.heading}>{title}</h3>
       <ul className={styles.list}>
-        {Array.from({ length: ln }, (_, i) => (
-          <MainItem key={i} />
+        {children.map((product, i) => (
+          <MainItem key={i} product={product} />
         ))}
       </ul>
     </li>

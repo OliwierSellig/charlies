@@ -2,20 +2,16 @@ import Modal from "../global/Modal";
 import ProductDetails from "./ProductDetails";
 import styles from "./openProductDetails.module.scss";
 
-function OpenProductDetails() {
+function OpenProductDetails({ product }) {
   return (
     <Modal>
       <Modal.Open opens="product-details">
         <button className={styles.btn} aria-label="See product details">
-          <img
-            className={styles.img}
-            src="/img/packages/test-item.jpg"
-            alt="Chocolate"
-          />
+          <img className={styles.img} src={product.image} alt={product.name} />
         </button>
       </Modal.Open>
       <Modal.Window name="product-details">
-        <ProductDetails />
+        <ProductDetails product={product} />
       </Modal.Window>
     </Modal>
   );

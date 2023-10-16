@@ -15,10 +15,6 @@ function OrderDetails({ onCloseModal }) {
           <OrderList title="Main" amount={79.99} />
           <OrderList title="Additions" amount={14.98} />
         </div>
-        <div className={styles.more}>
-          <p className={styles.text}>Hungry for more?</p>
-          <SwitchPlan />
-        </div>
       </div>
       <OrderDetailsSummary />
     </div>

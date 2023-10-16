@@ -1,8 +1,13 @@
+import { useEffect } from "react";
+import { useCart } from "../../../context/CartContext";
+import { usePackages } from "../../../hooks/usePackages";
 import ExistingPackage from "./ExistingPackage";
 import OwnPackage from "./OwnPackage";
 import styles from "./choosePackage.module.scss";
 
 function ChoosePackage() {
+  const { isLoading, packages } = usePackages();
+
   return (
     <div className={styles.container}>
       <h2 className={styles.heading}>Choose option for you</h2>
@@ -11,9 +16,8 @@ function ChoosePackage() {
       <p className={styles.subheading}>Try one of our bestseller proposals</p>
       <h2 className={styles.heading}>Choose existing package</h2>
       <ul className={styles.box}>
-        <ExistingPackage />
-        <ExistingPackage />
-        <ExistingPackage />
+        {!isLoading &&
+          packages.map((p, i) => <ExistingPackage key={i} exPackage={p} />)}
       </ul>
     </div>
   );

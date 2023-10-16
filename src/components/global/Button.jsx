@@ -15,6 +15,7 @@ function Button({
     return (
       <Link
         to={goTo}
+        onClick={() => handleClick?.()}
         className={`${styles.btn} ${styles[`focus__${colorOnFocus}`]} ${
           styles[`size__${size}`]
         }`}
@@ -28,7 +29,10 @@ function Button({
       className={`${styles.btn} ${styles[`focus__${colorOnFocus}`]} ${
         styles[`size__${size}`]
       }`}
-      onClick={goTo ? () => navigate(goTo) : handleClick}
+      onClick={() => {
+        if (goTo) navigate(goTo);
+        handleClick?.();
+      }}
     >
       {children}
     </button>

@@ -1,16 +1,16 @@
 import styles from "./packageItem.module.scss";
 
-function PackageItem() {
+function PackageItem({ product, enlarged }) {
+  const quantity = (enlarged ? 2 : 1) * (product.type === "cake" ? 1 : 2);
+
   return (
     <li className={styles.item}>
-      <img
-        className={styles.img}
-        src="/img/packages/test-item.jpg"
-        alt="Chocolate"
-      />
+      <img className={styles.img} src={product.image} alt={product.name} />
       <div className={styles.text}>
-        <span className={styles.name}>Dark Chocolate</span>
-        <span className={styles.quantity}>2 x 120g</span>
+        <span className={styles.name}>{product.name}</span>
+        <span className={styles.quantity}>
+          {quantity} x {product.quantity}g
+        </span>
       </div>
     </li>
   );

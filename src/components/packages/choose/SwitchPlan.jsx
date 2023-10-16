@@ -1,7 +1,8 @@
 import { useState } from "react";
 import styles from "./switchPlan.module.scss";
+import { useCart } from "../../../context/CartContext";
 
-function SwitchPlan({ marginBottom = 0 }) {
+function SwitchPlan({ marginBottom = 0, onDeActive, onActive }) {
   const [activePlan, setActivePlan] = useState(1);
 
   return (
@@ -13,14 +14,20 @@ function SwitchPlan({ marginBottom = 0 }) {
         className={`${styles.box} ${styles.box__1} ${
           activePlan === 1 ? styles.active : ""
         }`}
-        onClick={() => setActivePlan(1)}
+        onClick={() => {
+          setActivePlan(1);
+          onDeActive();
+        }}
       >
         <span className={styles.name}>Standard</span>
         <span className={styles.price}>$79.99</span>
       </button>
       <button
         className={`${styles.box} ${activePlan === 2 ? styles.active : ""}`}
-        onClick={() => setActivePlan(2)}
+        onClick={() => {
+          setActivePlan(2);
+          onActive();
+        }}
       >
         <span className={styles.name}>Enlarged</span>
         <div className={styles.discount}>

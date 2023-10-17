@@ -16,9 +16,13 @@ function DirectMail() {
     setMessage("");
   }
 
+  function checkMailInfo() {
+    return Boolean(fullName && email && message);
+  }
+
   function sentEmail(e) {
     e.preventDefault();
-    if (!fullName || !email || !message) return;
+    if (!checkMailInfo) return;
     setIsMailSent(true);
   }
 
@@ -62,10 +66,10 @@ function DirectMail() {
           onChange={(e) => setMessage(e.target.value)}
         ></textarea>
         <Button
-          isLink={false}
           size="md"
           colorOnFocus="yellow"
           handleClick={sentEmail}
+          disabled={!checkMailInfo()}
         >
           Mail us!
         </Button>

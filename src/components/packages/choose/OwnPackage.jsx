@@ -1,7 +1,10 @@
 import styles from "./ownPackage.module.scss";
 import Button from "../../global/Button";
+import { useCart } from "../../../context/CartContext";
 
 function OwnPackage() {
+  const { createCustomPackage, CUSTOM_PACKAGE_PRICE } = useCart();
+
   return (
     <div className={styles.container}>
       <img
@@ -21,12 +24,13 @@ function OwnPackage() {
         </div>
       </div>
       <div className={styles.cta}>
-        <span className={styles.price}>$97.99</span>
+        <span className={styles.price}>${CUSTOM_PACKAGE_PRICE.normal}</span>
         <Button
           isLink={true}
           colorOnFocus="yellow"
           size="lg"
           goTo="create-package"
+          handleClick={createCustomPackage}
         >
           See treats
         </Button>

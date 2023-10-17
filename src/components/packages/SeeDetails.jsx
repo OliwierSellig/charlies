@@ -1,6 +1,6 @@
 import styles from "./seeDetails.module.scss";
 import Modal from "../global/Modal";
-import OrderDetails from "./OrderDetails";
+import OrderDetails from "./orderDetails/OrderDetails";
 
 function SeeDetails() {
   return (

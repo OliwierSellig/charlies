@@ -1,11 +1,11 @@
-import { useState } from "react";
-import AddButton from "../../global/AddButton";
-import ProductDetails from "../ProductDetails";
 import styles from "./mainItem.module.scss";
 import OpenProductDetails from "../OpenProductDetails";
+import QuantityButtons from "../../global/QuantityButtons";
+import { useCart } from "../../../context/CartContext";
 
 function MainItem({ product }) {
-  const [viewDetails, setViewDetails] = useState(false);
+  const { addToMain, removeFromMain, isMainFull, getSingleAmountMain } =
+    useCart();
 
   return (
     <>
@@ -13,10 +13,17 @@ function MainItem({ product }) {
         <OpenProductDetails product={product} />
         <div className={styles.info}>
           <span className={styles.name}>{product.name}</span>
-          <span className={styles.quantity}>{`2 x ${product.quantity}g`}</span>
+          <span className={styles.quantity}>{`${
+            product.type === "cake" ? 1 : 2
+          } x ${product.quantity}g`}</span>
         </div>
-        <AddButton />
-        {viewDetails && <ProductDetails setView={setViewDetails} />}
+        <QuantityButtons
+          size={5.2}
+          amount={getSingleAmountMain(product)}
+          onAdd={() => addToMain(product)}
+          onRemove={() => removeFromMain(product)}
+          disabled={isMainFull}
+        />
       </li>
     </>
   );

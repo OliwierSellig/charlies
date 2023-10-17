@@ -1,5 +1,5 @@
 import Modal from "../global/Modal";
-import ProductDetails from "./ProductDetails";
+import ProductDetails from "./productDetails/ProductDetails";
 import styles from "./openProductDetails.module.scss";
 
 function OpenProductDetails({ product }) {

@@ -10,12 +10,12 @@ import { useNavigate } from "react-router-dom";
 
 function Additions() {
   const { products, isLoading } = useProducts(["addition"]);
-  const { main } = useCart();
+  const { mainReady } = useCart();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!main.length) navigate("/packages/create-package");
-  }, [main.length, navigate]);
+    if (!mainReady) navigate("/packages/create-package");
+  }, [mainReady, navigate]);
 
   return (
     <PackageEditContainer title="Something extra?">

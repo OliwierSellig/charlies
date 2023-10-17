@@ -60,6 +60,11 @@
 
 .number {
   font-size: 5.4rem;
+  transition: var(--transition-fast);
+
+  &__full {
+    color: var(--color-primary-yellow);
+  }
 }
 
 .price {

@@ -1,10 +1,11 @@
 import PackageEditContainer from "../PackageEditContainer";
-import SwitchPlan from "../choose/SwitchPlan";
+import SwitchPlan from "../SwitchPlan";
 import MainList from "./MainList";
 import LoadingSpinner from "../../global/LoadingSpinner";
 import styles from "./createPackage.module.scss";
 import { useProducts } from "../../../hooks/useProducts";
 import NoProductsFound from "../NoProductsFound";
+import { useCart } from "../../../context/CartContext";
 
 function CreatePackage() {
   const { products, isLoading } = useProducts(
@@ -12,9 +13,13 @@ function CreatePackage() {
     ["addition"]
   );
 
-  function filterByType(type) {
-    return products.filter((product) => product.type === type);
-  }
+  const {
+    isEnlarged,
+    setEnlarged,
+    setMainPrice,
+    CUSTOM_PACKAGE_PRICE,
+    filterByType,
+  } = useCart();
 
   return (
     <PackageEditContainer title="Create your package">
@@ -38,7 +43,20 @@ function CreatePackage() {
           </ul>
           <div className={styles.box}>
             <h4 className={styles.more}>Hungry for more?</h4>
-            <SwitchPlan marginBottom={0} />
+            <SwitchPlan
+              normalPrice={CUSTOM_PACKAGE_PRICE.normal}
+              enlargedPrice={CUSTOM_PACKAGE_PRICE.enlarged}
+              enlargedPriceRaw={CUSTOM_PACKAGE_PRICE.raw}
+              onActive={() => {
+                setEnlarged(true);
+                setMainPrice(CUSTOM_PACKAGE_PRICE.enlarged);
+              }}
+              onDeActive={() => {
+                setEnlarged(false);
+                setMainPrice(CUSTOM_PACKAGE_PRICE.normal);
+              }}
+              switched={isEnlarged}
+            />
           </div>
         </>
       )}

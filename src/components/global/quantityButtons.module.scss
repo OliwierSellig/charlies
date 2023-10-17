@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.btn {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: var(--transition-medium);
+  cursor: pointer;
+
+  &__add {
+    background-image: url("/svg/add-white.svg");
+
+    &:hover,
+    &:focus {
+      background-image: url("/svg/add-yellow.svg");
+    }
+
+    &__disabled {
+      background-image: url("/svg/add-grey.svg");
+      cursor: default;
+
+      &:hover,
+      &:focus {
+        background-image: url("/svg/add-grey.svg");
+      }
+    }
+  }
+
+  &__remove {
+    background-image: url("/svg/remove-white.svg");
+
+    &:hover,
+    &:focus {
+      background-image: url("/svg/remove-yellow.svg");
+    }
+  }
+}
+
+.amount {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}

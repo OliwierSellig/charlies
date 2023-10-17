@@ -1,6 +1,5 @@
-import { useEffect } from "react";
-import { useCart } from "../../../context/CartContext";
 import { usePackages } from "../../../hooks/usePackages";
+import LoadingSpinner from "../../global/LoadingSpinner";
 import ExistingPackage from "./ExistingPackage";
 import OwnPackage from "./OwnPackage";
 import styles from "./choosePackage.module.scss";
@@ -16,6 +15,12 @@ function ChoosePackage() {
       <p className={styles.subheading}>Try one of our bestseller proposals</p>
       <h2 className={styles.heading}>Choose existing package</h2>
       <ul className={styles.box}>
+        {isLoading &&
+          Array.from({ length: 3 }, (_, i) => (
+            <li key={i} className={styles.loader}>
+              <LoadingSpinner />
+            </li>
+          ))}
         {!isLoading &&
           packages.map((p, i) => <ExistingPackage key={i} exPackage={p} />)}
       </ul>

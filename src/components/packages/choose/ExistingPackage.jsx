@@ -1,6 +1,6 @@
 import { useProductsID } from "../../../hooks/useProductsID";
 import Button from "../../global/Button";
-import SwitchPlan from "./SwitchPlan";
+import SwitchPlan from "../SwitchPlan";
 import styles from "./existingPackage.module.scss";
 import PackageItem from "./PackageItem";
 import LoadingSpinner from "../../global/LoadingSpinner";
@@ -10,13 +10,12 @@ import { useCart } from "../../../context/CartContext";
 function ExistingPackage({ exPackage }) {
   const { isLoading, products } = useProductsID(exPackage?.products);
 
-  const { addPackage, setEnlarged } = useCart();
+  const { createExistingPackage } = useCart();
 
   const [enlargedPackage, setEnlargedPackage] = useState(false);
 
   function onChoosingPackage() {
-    addPackage(products);
-    setEnlarged(enlargedPackage);
+    createExistingPackage(products, enlargedPackage, exPackage);
   }
 
   return (
@@ -39,6 +38,10 @@ function ExistingPackage({ exPackage }) {
         marginBottom={3.2}
         onActive={() => setEnlargedPackage(true)}
         onDeActive={() => setEnlargedPackage(false)}
+        normalPrice={exPackage.price}
+        enlargedPrice={exPackage.enlarged_price - 10}
+        enlargedPriceRaw={exPackage.enlarged_price}
+        switched={enlargedPackage}
       />
       <Button
         isLink={true}

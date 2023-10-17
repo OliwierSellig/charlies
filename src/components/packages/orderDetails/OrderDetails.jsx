@@ -1,9 +1,11 @@
+import { useCart } from "../../../context/CartContext";
 import OrderDetailsSummary from "./OrderDetailsSummary";
 import OrderList from "./OrderList";
-import SwitchPlan from "./choose/SwitchPlan";
 import styles from "./orderDetails.module.scss";
 
 function OrderDetails({ onCloseModal }) {
+  const { mainPrice, getAdditionPrice, main, additions } = useCart();
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -12,8 +14,12 @@ function OrderDetails({ onCloseModal }) {
       </header>
       <div className={styles.box}>
         <div className={styles.lists}>
-          <OrderList title="Main" amount={79.99} />
-          <OrderList title="Additions" amount={14.98} />
+          <OrderList title="Main" amount={mainPrice} list={main} />
+          <OrderList
+            title="Additions"
+            amount={getAdditionPrice()}
+            list={additions}
+          />
         </div>
       </div>
       <OrderDetailsSummary />

@@ -47,3 +47,16 @@
     }
   }
 }
+
+.disabled {
+  color: var(--color-primary-white-shade-2);
+  border: 2px solid var(--color-primary-white-shade-2);
+  cursor: default;
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    border: 2px solid var(--color-primary-white-shade-2);
+    color: var(--color-primary-white-shade-2);
+  }
+}

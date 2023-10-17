@@ -41,8 +41,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-
   width: 100%;
+  min-height: 95rem;
 
   &::-webkit-scrollbar {
     height: 8px;
@@ -74,4 +74,17 @@
     grid-template-columns: 1fr;
     gap: 4.2rem;
   }
+}
+
+.loader {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(#121212, 0.95);
+  border-radius: 7px;
+  padding: 2.4rem;
+  animation: fadeIn 2s;
+  min-height: 95rem;
 }

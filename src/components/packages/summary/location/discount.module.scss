@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2.4rem;
+  cursor: pointer;
+}
+
+.heading {
+  font-size: 3.3rem;
+  letter-spacing: 0.2px;
+}
+
+.icon {
+  width: 4.8rem;
+  height: 4.8rem;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+
+  @media only screen and (max-width: 520px) {
+    flex-direction: column;
+  }
+}
+
+.input {
+  font-size: 2.6rem;
+  padding: 0.8rem 2.4rem;
+  border: 2px solid var(--color-primary-white-shade-2);
+  transition: var(--transition-fast);
+
+  &::placeholder {
+    color: var(--color-primary-white-shade-2);
+  }
+
+  &:focus {
+    border: 2px solid var(--color-primary-yellow);
+  }
+}

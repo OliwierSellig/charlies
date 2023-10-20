@@ -1,0 +1,66 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+
+  cursor: pointer;
+  transition: var(--transition-medium);
+
+  &:hover,
+  &:focus {
+    & .title {
+      color: var(--color-primary-yellow);
+    }
+
+    & .number {
+      border: 3px solid var(--color-primary-yellow);
+      color: var(--color-primary-yellow);
+    }
+
+    & .btn {
+      background-image: url("/svg/arrow-prev-yellow.svg");
+    }
+  }
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  transition: var(--transition-medium);
+}
+
+.number {
+  font-size: 3.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5.2rem;
+  height: 5.2rem;
+  border: 3px solid var(--color-primary-white);
+  border-radius: 50%;
+  transition: var(--transition-medium);
+}
+
+.title {
+  font-size: 4.6rem;
+  font-family: "Caveat", cursive;
+  transition: var(--transition-medium);
+}
+
+.btn {
+  width: 6rem;
+  height: 6rem;
+  cursor: pointer;
+  background-image: url("/svg/arrow-prev-white.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: var(--transition-medium);
+
+  &:focus {
+    background-image: url("/svg/arrow-prev-yellow.svg");
+  }
+}

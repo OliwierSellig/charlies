@@ -253,8 +253,8 @@ function CartProvider({ children }) {
     dispatch({ type: "clearedCart" });
   }
 
-  function filterByType(type) {
-    return products.filter((product) => product.type === type);
+  function filterByType(list, type) {
+    return list.filter((product) => product.type === type);
   }
 
   return (

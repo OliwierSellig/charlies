@@ -1,0 +1,43 @@
+@import "../../animations.scss";
+
+.container {
+  position: relative;
+  align-items: center;
+  gap: 1.2rem;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+
+  &:hover,
+  &:focus {
+    & .label {
+      color: var(--color-primary-white-shade-2);
+    }
+  }
+}
+
+.input {
+  position: absolute;
+  z-index: -10;
+}
+
+.box {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  border: 2px solid #c09f58;
+}
+
+.checked {
+  background-image: url("/svg/check-yellow.svg"),
+    linear-gradient(90deg, rgba(192, 159, 88, 1) 0%, rgba(192, 159, 88, 1) 100%);
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.label {
+  font-size: 1.6rem;
+  color: var(--color-primary-white-shade-1);
+}

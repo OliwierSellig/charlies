@@ -1,0 +1,36 @@
+.container {
+  margin-bottom: 3.3rem;
+}
+
+.heading {
+  font-size: 3.4rem;
+  margin-bottom: 3.2rem;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+
+  @media only screen and (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 3.6rem;
+
+    & li:last-child {
+      grid-column: 1/-1;
+      width: 50%;
+      justify-self: center;
+    }
+  }
+
+  @media only screen and (max-width: 680px) {
+    grid-template-columns: 1fr;
+
+    & li,
+    & li:last-child {
+      width: 100%;
+      max-width: 46rem;
+      justify-self: center;
+    }
+  }
+}

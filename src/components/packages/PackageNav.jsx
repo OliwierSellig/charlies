@@ -64,10 +64,10 @@ function PackageNav() {
           isLink={true}
           colorOnFocus="yellow"
           size="md"
-          goTo={isSeeingAdditions ? "checkout" : "additions"}
+          goTo={isSeeingAdditions ? "summary" : "additions"}
           disabled={!mainReady}
         >
-          {isSeeingAdditions ? "Go to Checkout" : "See Additions"}
+          {isSeeingAdditions ? "Go to Summary" : "See Additions"}
         </Button>
       </nav>
     </>

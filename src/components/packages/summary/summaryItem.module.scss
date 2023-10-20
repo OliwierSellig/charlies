@@ -1,0 +1,41 @@
+.container {
+  background-color: #151515;
+  box-shadow: 2rem 0 4rem rgba(#151515, 0.1);
+  padding: 2.4rem;
+
+  @media only screen and (max-width: 768px) {
+    padding: 1.8rem;
+  }
+}
+
+.item {
+  width: 100%;
+  height: max-content;
+  max-height: 80rem;
+  transition: var(--transition-long);
+  opacity: 1;
+  visibility: visible;
+
+  @media only screen and (max-width: 680px) {
+    max-height: 130rem;
+    transition: all 0.6s;
+  }
+}
+
+.closed {
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.box {
+  padding: 4.8rem 2.4rem 2.4rem;
+
+  @media only screen and (max-width: 768px) {
+    padding: 3.6rem 2rem 2rem;
+  }
+
+  @media only screen and (max-width: 420px) {
+    padding: 2.8rem 1.2rem 1.6rem;
+  }
+}

@@ -1,0 +1,9 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  & li:first-child p {
+    font-weight: 700;
+  }
+}

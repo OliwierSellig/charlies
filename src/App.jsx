@@ -16,6 +16,7 @@ import CreatePackage from "./components/packages/create/CreatePackage";
 import Packages from "./pages/Packages";
 import Additions from "./components/packages/additions/Additions";
 import { CartProvider } from "./context/CartContext";
+import Checkout from "./components/packages/summary/Summary";
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 60 * 1000 } },
@@ -41,6 +42,10 @@ function App() {
                   <Route
                     path="create-package/additions"
                     element={<Additions />}
+                  />
+                  <Route
+                    path="create-package/additions/summary"
+                    element={<Checkout />}
                   />
                 </Route>
               </Route>

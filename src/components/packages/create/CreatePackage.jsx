@@ -29,16 +29,16 @@ function CreatePackage() {
         <>
           <ul className={styles.list}>
             <MainList ln={8} title="Shop's Classics">
-              {filterByType("classic")}
+              {filterByType(products, "classic")}
             </MainList>
             <MainList ln={8} title="Exclusive">
-              {filterByType("exclusive")}
+              {filterByType(products, "exclusive")}
             </MainList>
             <MainList ln={6} title="Cakes">
-              {filterByType("cake")}
+              {filterByType(products, "cake")}
             </MainList>
             <MainList ln={6} title="Seasonal">
-              {filterByType("seasonal")}
+              {filterByType(products, "seasonal")}
             </MainList>
           </ul>
           <div className={styles.box}>

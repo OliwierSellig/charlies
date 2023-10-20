@@ -1,0 +1,80 @@
+.btn {
+  width: 100%;
+  aspect-ratio: 16/5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: aliceblue;
+  border-radius: 1300px;
+  cursor: pointer;
+  transform: var(--transition-medium);
+  position: relative;
+  z-index: 100;
+
+  &:hover,
+  &:focus {
+    & .icon {
+      filter: grayscale(0);
+    }
+  }
+}
+
+.icon {
+  transition: var(--transition-medium);
+  width: 10rem;
+  height: 10rem;
+}
+
+.paypal,
+.mastercard,
+.stripe {
+  transition: var(--transition-medium);
+  filter: grayscale(1);
+  position: relative;
+
+  &::before {
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translate(50%, 0%);
+    font-size: 2rem;
+    z-index: -1;
+    opacity: 0;
+    transition: var(--transition-medium);
+  }
+
+  &:hover,
+  &:focus {
+    filter: grayscale(0);
+
+    &::before {
+      transform: translate(50%, 110%);
+      opacity: 1;
+    }
+  }
+}
+
+.paypal {
+  background: linear-gradient(-120deg, #003087, #009cde, #012169);
+
+  &::before {
+    content: "Paypal";
+  }
+}
+
+.mastercard {
+  background-image: linear-gradient(-120deg, #cc0000, #ff9900, #000066);
+
+  &::before {
+    content: "MasterCard";
+  }
+}
+
+.stripe {
+  background-image: linear-gradient(120deg, #5e46bf, #5533ff, #1ca8ff, #84f6d5);
+
+  &::before {
+    content: "Stripe";
+  }
+}

@@ -11,6 +11,10 @@
   aspect-ratio: 1/1;
   border-radius: 7px;
   overflow: hidden;
+
+  @media only screen and (max-width: 540px) {
+    aspect-ratio: 1/1.2;
+  }
 }
 
 .btn {

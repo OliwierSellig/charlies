@@ -6,8 +6,12 @@ import styles from "./createPackage.module.scss";
 import { useProducts } from "../../../hooks/useProducts";
 import NoProductsFound from "../NoProductsFound";
 import { useCart } from "../../../context/CartContext";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function CreatePackage() {
+  const navigate = useNavigate();
+
   const { products, isLoading } = useProducts(
     ["classic", "exclusive", "cake", "seasonal"],
     ["addition"]
@@ -19,7 +23,13 @@ function CreatePackage() {
     setMainPrice,
     CUSTOM_PACKAGE_PRICE,
     filterByType,
+    packageType,
   } = useCart();
+
+  useEffect(() => {
+    if (packageType === "existing")
+      navigate("/packages/create-package/additions");
+  }, [packageType, navigate]);
 
   return (
     <PackageEditContainer title="Create your package">

@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import styles from "./header.module.scss";
 import Logo from "./Logo";
 import { useEffect, useState } from "react";
+import OpenOrders from "./OpenOrders";
 
 function Header({ staticHeader = false }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,7 +54,7 @@ function Header({ staticHeader = false }) {
           Contact
         </NavLink>
 
-        <button className={styles.cart} aria-label="Open Cart" />
+        <OpenOrders />
       </nav>
       <button
         className={styles.mobile}

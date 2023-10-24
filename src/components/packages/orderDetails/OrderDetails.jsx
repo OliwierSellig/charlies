@@ -1,4 +1,5 @@
 import { useCart } from "../../../context/CartContext";
+import ModalListHeader from "../../global/ModalListHeader";
 import OrderDetailsSummary from "./OrderDetailsSummary";
 import OrderList from "./OrderList";
 import styles from "./orderDetails.module.scss";
@@ -8,10 +9,7 @@ function OrderDetails({ onCloseModal }) {
 
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
-        <h3 className={styles.heading}>Your Package</h3>
-        <button className={styles.close} onClick={onCloseModal} />
-      </header>
+      <ModalListHeader handleClose={onCloseModal}>Your Package</ModalListHeader>
       <div className={styles.box}>
         <div className={styles.lists}>
           <OrderList title="Main" amount={mainPrice} list={main} />

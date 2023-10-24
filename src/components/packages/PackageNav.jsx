@@ -8,7 +8,6 @@ import { useSummary } from "../../context/SummaryContext";
 
 function PackageNav() {
   const location = useLocation();
-  const navigate = useNavigate();
   const isSeeingAdditions = location.pathname.endsWith("additions");
   const inSummary = location.pathname.endsWith("summary");
   const { handleSubmit, pricingMethod, submitOrder, orderError } = useSummary();
@@ -20,13 +19,7 @@ function PackageNav() {
     getMainAmount,
     isMainFull,
     mainReady,
-    packageType,
   } = useCart();
-
-  useEffect(() => {
-    if (packageType === "existing")
-      navigate("/packages/create-package/additions");
-  }, [packageType, navigate]);
 
   return (
     <>
@@ -36,14 +29,12 @@ function PackageNav() {
           colorOnFocus="white"
           size="md"
           goTo={`/packages${
-            isSeeingAdditions && packageType === "custom"
-              ? "/create-package"
+            isSeeingAdditions || inSummary
+              ? `/create-package${inSummary ? "/additions" : ""}`
               : ""
           }`}
         >
-          {isSeeingAdditions && packageType === "custom"
-            ? "Back to Main"
-            : "Go Back"}
+          Go Back
         </Button>
         <div className={styles.info}>
           <SeeDetails />
@@ -63,25 +54,15 @@ function PackageNav() {
             </div>
           </div>
         </div>
-        {!isSeeingAdditions && !inSummary && (
+        {!inSummary && (
           <Button
             isLink={true}
             colorOnFocus="yellow"
             size="md"
-            goTo={"additions"}
-            disabled={!mainReady}
+            goTo={isSeeingAdditions ? "summary" : "additions"}
+            disabled={isSeeingAdditions ? false : !mainReady}
           >
-            Go to Summary
-          </Button>
-        )}
-        {isSeeingAdditions && (
-          <Button
-            isLink={true}
-            colorOnFocus="yellow"
-            size="md"
-            goTo={"summary"}
-          >
-            Go to Summary
+            {isSeeingAdditions ? "Go to Summary" : "See Additions"}
           </Button>
         )}
         {inSummary && (

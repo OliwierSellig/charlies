@@ -15,6 +15,15 @@
   min-height: 60rem;
   width: 80%;
   animation: fadeIn 0.4s;
+
+  @media only screen and (max-width: 720px) {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    background-color: rgba(#121212, 0.95);
+    justify-content: center;
+    padding: 1.2rem 3.2rem;
+  }
 }
 
 .header {
@@ -46,6 +55,14 @@
   &:hover,
   &:focus {
     background-image: url("/svg/close-square-yellow.svg");
+  }
+
+  @media only screen and (max-width: 720px) {
+    width: 6rem;
+    height: 6rem;
+    position: absolute;
+    top: 5%;
+    right: 5%;
   }
 }
 

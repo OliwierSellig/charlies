@@ -1,7 +1,6 @@
 @import "../../../animations.scss";
 
 .container {
-  width: max-content;
   background-color: rgba(#121212, 0.95);
   border-radius: 9px;
   padding: 6.4rem 8rem;
@@ -14,12 +13,21 @@
   & a {
     animation: fadeIn 3s;
   }
+
+  @media only screen and (max-width: 720px) {
+    padding: 4.8rem 3.2rem;
+    text-align: center;
+  }
 }
 .heading {
   font-size: 7rem;
   font-family: "Caveat", cursive;
   color: var(--color-primary-yellow);
   animation: fadeInLeft 2s;
+
+  @media only screen and (max-width: 720px) {
+    font-size: 6.4rem;
+  }
 }
 
 .subheading {
@@ -27,6 +35,10 @@
   color: var(--color-primary-white-shade-1);
   margin-bottom: 4.2rem;
   animation: fadeIn 2.5s;
+
+  @media only screen and (max-width: 720px) {
+    font-size: 2rem;
+  }
 }
 
 .return {
@@ -35,6 +47,10 @@
   gap: 1.2rem;
   margin-bottom: 2.8rem;
   animation: fadeIn 3s;
+
+  @media only screen and (max-width: 460px) {
+    flex-direction: column;
+  }
 }
 
 .text {

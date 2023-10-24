@@ -32,6 +32,7 @@
 
   @media only screen and (max-width: 520px) {
     flex-direction: column;
+    gap: 3.6rem;
   }
 }
 
@@ -64,6 +65,10 @@
   font-weight: 500;
   transition: var(--transition-medium);
   animation: fadeInTop, 10s;
+
+  @media only screen and (max-width: 520px) {
+    bottom: 45%;
+  }
 }
 
 .succes {

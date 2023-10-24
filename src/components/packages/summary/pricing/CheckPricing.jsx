@@ -6,7 +6,10 @@ import styles from "./checkPricing.module.scss";
 function CheckPricing() {
   const { register, getValues, errors, setValue } = useSummary();
 
-  const [checkedAll, setCheckedAll] = useState(false);
+  const [checkedList, setChecked] = useState({
+    req: false,
+    info: false,
+  });
 
   return (
     <ul className={styles.list}>
@@ -14,23 +17,39 @@ function CheckPricing() {
         <Checkbox
           label="I accept all the terms"
           handleClick={() => {
-            setCheckedAll((checked) => !checked);
-            setValue("req", !getValues().req);
-            setValue("info", !getValues().info);
+            setChecked(
+              checkedList.req && checkedList.info
+                ? { req: false, info: false }
+                : { req: true, info: true }
+            );
+            setValue("req", checkedList.req && checkedList.info ? false : true);
+            setValue(
+              "info",
+              checkedList.req && checkedList.info ? false : true
+            );
           }}
-          checked={checkedAll}
+          checked={checkedList.req && checkedList.info}
         >
-          <input type="checkbox" {...register("all")} />
+          <input type="checkbox" tabIndex={-1} {...register("all")} />
         </Checkbox>
       </li>
       <li>
         <Checkbox
           label="I accept the website regulations and privacy policy"
           error={errors?.req?.message}
-          checked={checkedAll}
+          checked={checkedList.req}
+          handleClick={() => {
+            setChecked({
+              all: checkedList.all,
+              req: !checkedList.req,
+              info: checkedList.info,
+            });
+            setValue("req", !getValues().req);
+          }}
         >
           <input
             type="checkbox"
+            tabIndex={-1}
             {...register("req", {
               validate: (value) => value || "You have to accept this terms",
             })}
@@ -42,9 +61,17 @@ function CheckPricing() {
           label="I want to receive information about offers, new products, and
           promotions. (phone call, text message, e-mail) I consent to receiving
           marketing information."
-          checked={checkedAll}
+          checked={checkedList.info}
+          handleClick={() => {
+            setChecked({
+              all: checkedList.all,
+              req: checkedList.req,
+              info: !checkedList.info,
+            });
+            setValue("info", !getValues().info);
+          }}
         >
-          <input type="checkbox" {...register("info")} />
+          <input type="checkbox" tabIndex={-1} {...register("info")} />
         </Checkbox>
       </li>
     </ul>

@@ -15,7 +15,7 @@ function Succes() {
       () => setTimer((time) => time - 1),
       INTERVAL_TIME
     );
-    if (!timer) navigate("/", { replace: true });
+    if (!timer) navigate("/");
 
     return () => clearInterval(interval);
   }, [timer, navigate]);
@@ -30,12 +30,7 @@ function Succes() {
         <p className={styles.text}>You will be returned to the homepage at: </p>
         <span className={styles.number}>{timer}</span>
       </div>
-      <Button
-        size="md"
-        colorOnFocus="yellow"
-        isLink={true}
-        goTo={("/", { repalce: true })}
-      >
+      <Button size="md" colorOnFocus="yellow" isLink={true} goTo="/">
         Homepage
       </Button>
     </div>

@@ -1,0 +1,52 @@
+.item {
+}
+
+.container {
+  width: 100%;
+  aspect-ratio: 16/7;
+  background-image: linear-gradient(
+      rgba(34, 34, 34, 0.9),
+      rgba(34, 34, 34, 0.9)
+    ),
+    url("/img/test.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 9px;
+  box-shadow: 2rem 0 4rem rgba(#121212, 0.2);
+  padding: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.box {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.name {
+  font-size: 3.8rem;
+  font-weight: 500;
+  font-family: "Caveat", cursive;
+}
+
+.delivery {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.date {
+}
+
+.type {
+  font-size: 1.8rem;
+}
+
+.price {
+}

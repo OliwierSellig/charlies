@@ -4,8 +4,19 @@ import DeliveryTime from "./time/DeliveryTime";
 import Pricing from "./pricing/Pricing";
 import SummaryItem from "./SummaryItem";
 import styles from "./summary.module.scss";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../../../context/CartContext";
+import { useEffect } from "react";
 
 function Summary() {
+  const navigate = useNavigate();
+
+  const { mainReady } = useCart();
+
+  useEffect(() => {
+    if (!mainReady) navigate("/packages/create-package");
+  }, [mainReady, navigate]);
+
   return (
     <PackageEditContainer title="Summary">
       <ul className={styles.list}>

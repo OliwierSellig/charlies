@@ -64,7 +64,7 @@ function CartProvider({ children }) {
 
   const { main, additions, isEnlarged, mainPrice, packageType } = state;
 
-  const { deliveryType, discount } = useSummary();
+  const { deliveryType, discount, clearSummary } = useSummary();
 
   const cartMax = 4 * (isEnlarged ? 2 : 1);
 
@@ -180,6 +180,7 @@ function CartProvider({ children }) {
 
   function createExistingPackage(productsPackage, enlarged = false, exPackage) {
     if (!productsPackage) return;
+    clearSummary();
     clearCart();
     setEnlarged(enlarged);
     setPackageType("existing");
@@ -195,6 +196,7 @@ function CartProvider({ children }) {
   }
 
   function createCustomPackage() {
+    clearSummary();
     clearCart();
     setPackageType("custom");
     setMainPrice(CUSTOM_PACKAGE_PRICE.normal);

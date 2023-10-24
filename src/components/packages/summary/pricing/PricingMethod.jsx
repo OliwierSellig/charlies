@@ -2,9 +2,9 @@ import MethodItem from "./MethodItem";
 import styles from "./pricingMethod.module.scss";
 
 const methodsList = [
-  { name: "PayPal", image: "/svg/paypal.svg" },
-  { name: "MasterCard", image: "/svg/mastercard.svg" },
-  { name: "Stripe", image: "/svg/stripe.svg" },
+  { name: "PayPal", slug: "paypal", image: "/svg/paypal.svg" },
+  { name: "MasterCard", slug: "mastercard", image: "/svg/mastercard.svg" },
+  { name: "Stripe", slug: "stripe", image: "/svg/stripe.svg" },
 ];
 
 function PricingMethod() {
@@ -13,7 +13,7 @@ function PricingMethod() {
       <h4 className={styles.heading}>Choose Pricing Method</h4>
       <ul className={styles.list}>
         {methodsList.map((method, i) => (
-          <MethodItem key={i} name={method.name} image={method.image} />
+          <MethodItem key={i} method={method} />
         ))}
       </ul>
     </div>

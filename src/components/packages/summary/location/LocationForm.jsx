@@ -1,3 +1,5 @@
+import { useSummary } from "../../../../context/SummaryContext";
+import FormRow from "./FormRow";
 import styles from "./locationForm.module.scss";
 
 const countryList = [
@@ -10,102 +12,111 @@ const countryList = [
 ];
 
 function LocationForm() {
+  const { register, errors } = useSummary();
+
   return (
     <>
       <h4 className={styles.heading}>Please, input your delivery data:</h4>
       <form className={styles.form}>
         <div className={styles.column}>
-          <div className={styles.box}>
-            <label className={styles.label} htmlFor="name">
-              Full Name
-            </label>
+          <FormRow id="name" error={errors?.name?.message} label="Full Name">
             <input
               className={styles.input}
               type="text"
               id="name"
               placeholder="Write your name"
+              {...register("name", { required: "This field is required" })}
             />
-          </div>
-          <div className={styles.box}>
-            <label className={styles.label} htmlFor="email">
-              Email
-            </label>
+          </FormRow>
+          <FormRow id="email" error={errors?.email?.message} label="Email">
             <input
               className={styles.input}
               type="email"
               id="email"
               placeholder="Write your email"
+              {...register("email", {
+                required: "This field is required",
+                validate: (value) =>
+                  value.includes("@") || "Wrong email template",
+              })}
             />
-          </div>
-          <div className={styles.box}>
-            <label className={styles.label} htmlFor="street">
-              Street Address
-            </label>
+          </FormRow>
+          <FormRow
+            id="street"
+            error={errors?.street?.message}
+            label="Street Address"
+          >
             <input
               className={styles.input}
               type="text"
               id="street"
               placeholder="Write your address"
+              {...register("street", { required: "This field is required" })}
             />
-          </div>
-          <div className={styles.box}>
-            <label className={styles.label} htmlFor="additional">
-              Additional Address
-            </label>
+          </FormRow>
+          <FormRow
+            id="additional"
+            error={errors?.additional?.message}
+            label="Additional Address"
+          >
             <input
               className={styles.input}
               type="text"
               id="additional"
               placeholder="(Optional)"
+              {...register("additional")}
             />
-          </div>
+          </FormRow>
         </div>
         <div className={styles.column}>
-          <div className={styles.box}>
-            <label className={styles.label} htmlFor="country">
-              Country
-            </label>
-            <select className={styles.select} id="country">
+          <FormRow id="country" label="Country">
+            <select
+              className={styles.select}
+              id="country"
+              {...register("country")}
+            >
               {countryList.map((country, i) => (
                 <option className={styles.option} key={i}>
                   {country}
                 </option>
               ))}
             </select>
-          </div>
-          <div className={styles.box}>
-            <label className={styles.label} htmlFor="region">
-              Province/Region
-            </label>
+          </FormRow>
+          <FormRow
+            id="region"
+            error={errors?.region?.message}
+            label="Province/Region"
+          >
             <input
               className={styles.input}
               type="text"
               id="region"
               placeholder="Write your region"
+              {...register("region", { required: "This field is required" })}
             />
-          </div>
-          <div className={styles.box}>
-            <label className={styles.label} htmlFor="city">
-              City
-            </label>
+          </FormRow>
+          <FormRow id="city" error={errors?.city?.message} label="City">
             <input
               className={styles.input}
               type="text"
               id="city"
               placeholder="Write your city"
+              {...register("city", { required: "This field is required" })}
             />
-          </div>
-          <div className={styles.box}>
-            <label className={styles.label} htmlFor="code">
-              Zip/Postal Code
-            </label>
+          </FormRow>
+          <FormRow
+            id="code"
+            error={errors?.code?.message}
+            label="Zip/Postal Code"
+          >
             <input
               className={styles.input}
               type="text"
               id="code"
               placeholder="Write your code"
+              {...register("code", { required: "This field is required" })}
             />
-          </div>
+          </FormRow>
         </div>
       </form>
     </>

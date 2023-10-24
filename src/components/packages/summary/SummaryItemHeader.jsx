@@ -1,6 +1,9 @@
+import { useSummary } from "../../../context/SummaryContext";
 import styles from "./summaryItemHeader.module.scss";
 
-function SummaryItemHeader({ children, number, openItem, checkIfOpen }) {
+function SummaryItemHeader({ children, number }) {
+  const { checkIfOpen, openItem } = useSummary();
+
   return (
     <header className={styles.container} onClick={() => openItem(number)}>
       <div className={styles.heading}>

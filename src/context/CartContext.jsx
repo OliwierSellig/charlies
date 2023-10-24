@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
+import { useSummary } from "./SummaryContext";
 
 const CartContext = createContext();
 
@@ -63,11 +64,15 @@ function CartProvider({ children }) {
 
   const { main, additions, isEnlarged, mainPrice, packageType } = state;
 
+  const { deliveryType, discount } = useSummary();
+
   const cartMax = 4 * (isEnlarged ? 2 : 1);
 
   const isMainFull = cartMax <= getMainAmount();
 
   const mainReady = cartMax === getMainAmount();
+
+  const deliveryCost = deliveryType === "once" ? 7.99 : 0;
 
   // -----------------------------------------------------------
   // Saving to local storage
@@ -234,7 +239,10 @@ function CartProvider({ children }) {
   }
 
   function getFullPrice() {
-    return (Number(mainPrice) + Number(getAdditionPrice())).toFixed(2);
+    return (
+      (Number(mainPrice) + Number(getAdditionPrice()) + deliveryCost) *
+      (discount || 1)
+    ).toFixed(2);
   }
 
   function getSingleAmountMain(product) {
@@ -268,6 +276,7 @@ function CartProvider({ children }) {
         cartMax,
         isMainFull,
         mainReady,
+        deliveryCost,
         CUSTOM_PACKAGE_PRICE,
         checkInMain,
         addToMain,

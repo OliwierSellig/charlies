@@ -1,0 +1,11 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.item {
+  font-size: 1.8rem;
+  font-weight: 500;
+}

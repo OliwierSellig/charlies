@@ -9,6 +9,7 @@ function OrderDetailsSummary() {
     mainPrice,
     getAdditionPrice,
     getFullPrice,
+    deliveryCost,
   } = useCart();
 
   return (
@@ -27,7 +28,7 @@ function OrderDetailsSummary() {
       </div>
       <div className={styles.price}>
         <span className={styles.partial}>
-          ${mainPrice} + ${getAdditionPrice()}
+          ${mainPrice} + ${getAdditionPrice()} + ${deliveryCost}
         </span>
         <span className={styles.full}>${getFullPrice()}</span>
       </div>

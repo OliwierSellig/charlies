@@ -1,16 +1,13 @@
+import { useSummary } from "../../../context/SummaryContext";
 import SummaryItemHeader from "./SummaryItemHeader";
 import styles from "./summaryItem.module.scss";
 
-function SummaryItem({ children, title, number, checkIfOpen, openItem }) {
+function SummaryItem({ children, title, number }) {
+  const { checkIfOpen } = useSummary();
+
   return (
     <li className={styles.container}>
-      <SummaryItemHeader
-        number={number}
-        openItem={openItem}
-        checkIfOpen={checkIfOpen}
-      >
-        {title}
-      </SummaryItemHeader>
+      <SummaryItemHeader number={number}>{title}</SummaryItemHeader>
       <div
         className={`${styles.item} ${checkIfOpen(number) ? "" : styles.closed}`}
       >

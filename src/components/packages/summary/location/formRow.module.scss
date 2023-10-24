@@ -1,0 +1,23 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-bottom: 3.2rem;
+  position: relative;
+}
+
+.label {
+  font-size: 2rem;
+  margin-bottom: 3px;
+  cursor: pointer;
+}
+
+.error {
+  position: absolute;
+  color: var(--color-error-red);
+  font-size: 1.6rem;
+  font-weight: 500;
+  left: 0;
+  bottom: 0;
+  transform: translateY(110%);
+}

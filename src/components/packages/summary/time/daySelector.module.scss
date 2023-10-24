@@ -1,0 +1,111 @@
+@import "../../../../animations.scss";
+
+.container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  background-color: rgba(#121212, 0.8);
+  padding: 3.2rem 4.8rem;
+  border-radius: 7px;
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  max-width: 80rem;
+  min-height: 60rem;
+  width: 80%;
+  animation: fadeIn 0.4s;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4.8rem;
+  margin-bottom: 1.8rem;
+}
+
+.heading {
+  font-size: 4.6rem;
+  font-family: "Caveat", cursive;
+  letter-spacing: 0.3px;
+  color: var(--color-primary-yellow);
+  transition: var(--transition-fast);
+}
+
+.close {
+  width: 4.8rem;
+  height: 4.8rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("/svg/close-square-white.svg");
+  transition: var(--transition-fast);
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-image: url("/svg/close-square-yellow.svg");
+  }
+}
+
+.months {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 2.4rem;
+}
+
+.month {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.btn {
+  width: 4.8rem;
+  height: 4.8rem;
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: var(--transition-fast);
+
+  &__prev {
+    background-image: url("/svg/arrow-prev-white.svg");
+
+    &:hover,
+    &:focus {
+      background-image: url("/svg/arrow-prev-yellow.svg");
+    }
+
+    &__disabled {
+      background-image: url("/svg/arrow-prev-grey.svg");
+      cursor: default;
+
+      &:hover,
+      &:focus {
+        background-image: url("/svg/arrow-prev-grey.svg");
+      }
+    }
+  }
+
+  &__next {
+    background-image: url("/svg/arrow-next-white.svg");
+
+    &:hover,
+    &:focus {
+      background-image: url("/svg/arrow-next-yellow.svg");
+    }
+
+    &__disabled {
+      background-image: url("/svg/arrow-next-grey.svg");
+      cursor: default;
+
+      &:hover,
+      &:focus {
+        background-image: url("/svg/arrow-next-grey.svg");
+      }
+    }
+  }
+}

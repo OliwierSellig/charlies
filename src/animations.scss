@@ -32,6 +32,18 @@
   }
 }
 
+@keyframes fadeInTop {
+  0% {
+    transform: translateY(-18px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
 @keyframes moveFromRight {
   0% {
     transform: translateX(100%);

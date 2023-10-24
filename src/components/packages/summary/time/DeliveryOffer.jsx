@@ -1,9 +1,17 @@
+import { useSummary } from "../../../../context/SummaryContext";
 import styles from "./deliveryOffer.module.scss";
 
-function DeliveryOffer({ title, children, icon }) {
+function DeliveryOffer({ title, children, icon, type }) {
+  const { deliveryType, setDeliveryType } = useSummary();
+
   return (
     <li>
-      <button className={styles.container}>
+      <button
+        className={`${styles.container} ${
+          deliveryType === type ? styles.selected : ""
+        }`}
+        onClick={() => setDeliveryType(type)}
+      >
         <div className={styles.box}>
           <h4 className={styles.heading}>{title}</h4>
           <p className={styles.description}>{children}</p>

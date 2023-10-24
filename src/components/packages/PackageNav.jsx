@@ -4,11 +4,14 @@ import { useLocation, useNavigate } from "react-router-dom";
 import SeeDetails from "./SeeDetails";
 import { useCart } from "../../context/CartContext";
 import { useEffect } from "react";
+import { useSummary } from "../../context/SummaryContext";
 
 function PackageNav() {
   const location = useLocation();
   const navigate = useNavigate();
   const isSeeingAdditions = location.pathname.endsWith("additions");
+  const inSummary = location.pathname.endsWith("summary");
+  const { handleSubmit, pricingMethod, submitOrder, orderError } = useSummary();
   const {
     mainPrice,
     getAdditionPrice,
@@ -60,15 +63,37 @@ function PackageNav() {
             </div>
           </div>
         </div>
-        <Button
-          isLink={true}
-          colorOnFocus="yellow"
-          size="md"
-          goTo={isSeeingAdditions ? "summary" : "additions"}
-          disabled={!mainReady}
-        >
-          {isSeeingAdditions ? "Go to Summary" : "See Additions"}
-        </Button>
+        {!isSeeingAdditions && !inSummary && (
+          <Button
+            isLink={true}
+            colorOnFocus="yellow"
+            size="md"
+            goTo={"additions"}
+            disabled={!mainReady}
+          >
+            Go to Summary
+          </Button>
+        )}
+        {isSeeingAdditions && (
+          <Button
+            isLink={true}
+            colorOnFocus="yellow"
+            size="md"
+            goTo={"summary"}
+          >
+            Go to Summary
+          </Button>
+        )}
+        {inSummary && (
+          <Button
+            handleClick={handleSubmit(submitOrder, orderError)}
+            colorOnFocus="yellow"
+            size="md"
+            disabled={!pricingMethod}
+          >
+            Checkout
+          </Button>
+        )}
       </nav>
     </>
   );

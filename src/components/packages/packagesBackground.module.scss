@@ -10,6 +10,8 @@
   background-size: cover;
   padding: 18rem 0 12rem;
   min-height: 80vh;
+  display: flex;
+  align-items: center;
 
   @media only screen and (max-resolution: 191dpi),
     only screen and (max-width: 1200px) {
@@ -34,6 +36,7 @@
 .container {
   max-width: 140rem;
   margin: 0 auto;
+  height: 100%;
 }
 
 .responsive {

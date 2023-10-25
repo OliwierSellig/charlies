@@ -1,0 +1,29 @@
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 2.4rem;
+  transition: var(--transition-medium);
+
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 4.2rem;
+    height: 4.2rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("/svg/details-white.svg");
+    transition: var(--transition-medium);
+  }
+
+  &:focus,
+  &:hover {
+    color: var(--color-primary-yellow);
+
+    &:after {
+      background-image: url("/svg/details-yellow.svg");
+    }
+  }
+}

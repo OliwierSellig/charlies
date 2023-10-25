@@ -22,13 +22,13 @@ function OrderDetails({ onCloseModal }) {
           title="Main"
           amount={mainPrice}
           list={main}
-          getSingleAmount={getSingleAmountMain}
+          singleAmount={getSingleAmountMain}
         />
         <OrderList
           title="Additions"
           amount={getAdditionPrice()}
           list={additions}
-          getSingleAmount={getSingleAmountAdditions}
+          singleAmount={getSingleAmountAdditions}
         />
       </div>
       <OrderDetailsSummary />

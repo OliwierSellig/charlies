@@ -37,7 +37,13 @@ function Window({ name, children }) {
   useEffect(() => {
     if (openName) document.documentElement.classList.add("modal");
 
-    if (!openName && document.documentElement.classList.contains("modal"))
+    if (
+      !openName &&
+      document.documentElement.classList.contains("modal") &&
+      [...document.body.children].filter((el) =>
+        el.outerHTML.startsWith("<div")
+      ).length < 2
+    )
       document.documentElement.classList.remove("modal");
   }, [openName]);
 

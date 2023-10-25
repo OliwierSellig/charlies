@@ -1,9 +1,9 @@
 import styles from "./packageNav.module.scss";
 import Button from "../global/Button";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import SeeDetails from "./SeeDetails";
 import { useCart } from "../../context/CartContext";
-import { useEffect } from "react";
+
 import { useSummary } from "../../context/SummaryContext";
 
 function PackageNav() {
@@ -12,6 +12,8 @@ function PackageNav() {
   const inSummary = location.pathname.endsWith("summary");
   const { handleSubmit, pricingMethod, submitOrder, orderError } = useSummary();
   const {
+    main,
+    additions,
     mainPrice,
     getAdditionPrice,
     getFullPrice,
@@ -19,6 +21,8 @@ function PackageNav() {
     getMainAmount,
     isMainFull,
     mainReady,
+    discount,
+    deliveryCost,
   } = useCart();
 
   return (
@@ -67,7 +71,20 @@ function PackageNav() {
         )}
         {inSummary && (
           <Button
-            handleClick={handleSubmit(submitOrder, orderError)}
+            handleClick={handleSubmit(
+              () =>
+                submitOrder(
+                  { main, additions },
+                  {
+                    mainPrice,
+                    additionsPrice: getAdditionPrice(),
+                    fullPrice: getFullPrice(),
+                    deliveryCost,
+                    discount,
+                  }
+                ),
+              orderError
+            )}
             colorOnFocus="yellow"
             size="md"
             disabled={!pricingMethod}

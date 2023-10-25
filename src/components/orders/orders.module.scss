@@ -13,9 +13,12 @@
   animation: moveFromRight 0.3s;
   display: flex;
   flex-direction: column;
-}
 
-.box {
+  @media only screen and (max-width: 768px) {
+    max-width: none;
+    min-width: max-content;
+    width: 100%;
+  }
 }
 
 .list {
@@ -45,5 +48,19 @@
     &::-webkit-scrollbar {
       display: none;
     }
+  }
+
+  @media only screen and (max-width: 768px) {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  @media only screen and (max-width: 520px) {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  @media only screen and (max-width: 330px) {
+    padding: 3.6rem 2.4rem;
   }
 }

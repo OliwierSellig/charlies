@@ -297,6 +297,7 @@ function CartProvider({ children }) {
         getSingleAmountAdditions,
         clearCart,
         filterByType,
+        discount,
       }}
     >
       {children}

@@ -1,6 +1,8 @@
 import styles from "./orderListItem.module.scss";
 
-function OrderListItem({ product, getSingleAmount }) {
+function OrderListItem({ product, singleAmount }) {
+  console.log(product);
+  console.log(singleAmount?.(product));
   return (
     <li className={styles.item}>
       <img
@@ -14,7 +16,7 @@ function OrderListItem({ product, getSingleAmount }) {
       </span>
       <span className={styles.bought}>
         Cart:&nbsp;
-        {getSingleAmount?.(product) || 1}
+        {singleAmount?.(product)}
       </span>
     </li>
   );

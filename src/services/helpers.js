@@ -5,6 +5,14 @@ export function numberToDoubleDigit(number) {
   return `0${number}`;
 }
 
+export function formatDate(rawDate) {
+  const date = !rawDate?.$D && rawDate?.$D !== 0 ? dayjs(rawDate) : rawDate;
+  const day = numberToDoubleDigit(date.date());
+  const month = numberToDoubleDigit(date.month() + 1);
+  const year = date.year();
+  return `${day}.${month}.${year}`;
+}
+
 export function getMonthName(number) {
   const monthList = [
     "January",
@@ -58,4 +66,9 @@ export function checkIfAbleDate(activeDate, day, fastest) {
     return false;
 
   return true;
+}
+
+export function firstLetterUpperCase(text) {
+  if (typeof text !== "string" || !text.length) return;
+  return `${text.at(0).toUpperCase()}${text.slice(1)}`;
 }

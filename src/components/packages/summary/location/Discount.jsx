@@ -68,7 +68,7 @@ function Discount() {
         )}
         {Boolean(discount) && (
           <p className={styles.succes}>
-            Congratulations, your discount is {discountToPercentage()}
+            Congratulations, your discount is {discountToPercentage(discount)}
           </p>
         )}
 

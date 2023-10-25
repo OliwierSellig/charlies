@@ -8,7 +8,7 @@ function DeleteOrder({ setIsDeletingOrder }) {
   return (
     <div className={styles.container}>
       <h3 className={styles.heading}>
-        Do you really want to delete thi package?
+        Do you really want to delete this package?
       </h3>
       <label className={styles.subheading}>
         Type 'DELETE' to confirm the deletion.

@@ -19,6 +19,7 @@ import { CartProvider } from "./context/CartContext";
 import Summary from "./components/packages/summary/Summary";
 import { SummaryProvider } from "./context/SummaryContext";
 import Succes from "./components/packages/succes/Succes";
+import { OrdersProvider } from "./context/OrdersContext";
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 60 * 1000 } },
@@ -30,40 +31,45 @@ function App() {
       <ReactQueryDevtools initialIsOpen={false} />
       <BrowserRouter>
         <ScrollToTop />
-        <SummaryProvider>
-          <CartProvider>
-            <BlogProvider>
-              <Routes>
-                <Route element={<AppLayout />}>
-                  <Route index path="/" element={<Home />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/blog" element={<Blog />} />
-                  <Route path="/blog/:id" element={<BlogView />} />
-                  <Route path="/packages" element={<Packages />}>
-                    <Route index element={<ChoosePackage />} />
-                    <Route path="create-package" element={<CreatePackage />} />
-                    <Route
-                      path="create-package/additions"
-                      element={<Additions />}
-                    />
-                    <Route
-                      path="create-package/additions/summary"
-                      element={<Summary />}
-                    />{" "}
-                    <Route
-                      path="create-package/additions/summary/succes"
-                      element={<Succes />}
-                    />
+        <OrdersProvider>
+          <SummaryProvider>
+            <CartProvider>
+              <BlogProvider>
+                <Routes>
+                  <Route element={<AppLayout />}>
+                    <Route index path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/blog" element={<Blog />} />
+                    <Route path="/blog/:id" element={<BlogView />} />
+                    <Route path="/packages" element={<Packages />}>
+                      <Route index element={<ChoosePackage />} />
+                      <Route
+                        path="create-package"
+                        element={<CreatePackage />}
+                      />
+                      <Route
+                        path="create-package/additions"
+                        element={<Additions />}
+                      />
+                      <Route
+                        path="create-package/additions/summary"
+                        element={<Summary />}
+                      />{" "}
+                      <Route
+                        path="create-package/additions/summary/succes"
+                        element={<Succes />}
+                      />
+                    </Route>
                   </Route>
-                </Route>
-                <Route element={<AppLayout staticHeader={true} />}>
-                  <Route path="/contact" element={<Contact />} />
-                </Route>
-                <Route path="*" element={<PageNotFound />} />
-              </Routes>
-            </BlogProvider>
-          </CartProvider>
-        </SummaryProvider>
+                  <Route element={<AppLayout staticHeader={true} />}>
+                    <Route path="/contact" element={<Contact />} />
+                  </Route>
+                  <Route path="*" element={<PageNotFound />} />
+                </Routes>
+              </BlogProvider>
+            </CartProvider>
+          </SummaryProvider>
+        </OrdersProvider>
       </BrowserRouter>
     </QueryClientProvider>
   );

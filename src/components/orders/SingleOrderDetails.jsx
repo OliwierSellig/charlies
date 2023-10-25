@@ -8,6 +8,7 @@ import dayjs from "dayjs";
 import DaySelector from "../global/DaySelector";
 import { useSummary } from "../../context/SummaryContext";
 import SingleOrderDateChange from "./SingleOrderDateChange";
+import { useOrders } from "../../context/OrdersContext";
 
 const productsList = [
   {
@@ -36,26 +37,39 @@ const productsList = [
   },
 ];
 
-function SingleOrderDetails() {
+function SingleOrderDetails({ onCloseModal, order }) {
   const { fastestDate } = useSummary();
+  const { getProductNumber } = useOrders();
 
   const [isDeletingOrder, setIsDeletingOrder] = useState(false);
   const [isChangingOrder, setIsChangingOrder] = useState(false);
-  const [deliveryDate, setDeliveryDate] = useState(dayjs());
-
-  console.log(deliveryDate);
 
   return (
     <div className={styles.container}>
-      <button className={styles.close} aria-label="Close this window" />
-      <SingleOrderHeader />
+      <button
+        className={styles.close}
+        onClick={onCloseModal}
+        aria-label="Close this window"
+      />
+      <SingleOrderHeader order={order} />
       <div className={styles.box}>
-        <OrderList title="Main" amount={79.99} list={productsList} />
-        <OrderList title="Additional" amount={24.99} list={productsList} />
+        <OrderList
+          title="Main"
+          amount={order.prices.mainPrice}
+          list={order.cart.main}
+          singleAmount={getProductNumber}
+        />
+        <OrderList
+          title="Additional"
+          amount={order.prices.additionsPrice}
+          list={order.cart.additions}
+          singleAmount={getProductNumber}
+        />
       </div>
       <SingleOrderActions
         setIsDeletingOrder={setIsDeletingOrder}
         setIsChangingOrder={setIsChangingOrder}
+        singleAmount={getProductNumber}
       />
       {isDeletingOrder && (
         <DeleteOrder setIsDeletingOrder={setIsDeletingOrder} />

@@ -1,20 +1,37 @@
+import { firstLetterUpperCase, formatDate } from "../../services/helpers";
+import OpenSingleOrder from "./OpenSingleOrder";
 import styles from "./orderItem.module.scss";
 
-function OrderItem() {
+function OrderItem({ order }) {
+  const {
+    id,
+    date,
+    cover,
+    deliveryType,
+    prices: { fullPrice },
+  } = order;
+
   return (
     <li>
-      <div className={styles.item}>
-        <h4 className={styles.name}>Custom Package #1634</h4>
+      <div
+        style={{
+          backgroundImage: `linear-gradient(rgba(34, 34, 34, 0.9),rgba(34, 34, 34, 0.9)),url("${cover}")`,
+        }}
+        className={styles.item}
+      >
+        <h4 className={styles.name}>Package #{id || "0000"}</h4>
         <div className={styles.box}>
           <div className={styles.delivery}>
-            <span className={styles.date}>25.10.2023</span>
+            <span className={styles.date}>{formatDate(date)}</span>
             <span>-</span>
-            <span className={styles.type}>Recurring</span>
+            <span className={styles.type}>
+              {firstLetterUpperCase(deliveryType)}
+            </span>
           </div>
-          <span className={styles.price}>$129.99</span>
+          <span className={styles.price}>${fullPrice}</span>
         </div>
         <div className={styles.options}>
-          <button className={styles.btn}>Check Details</button>
+          <OpenSingleOrder order={order} />
         </div>
       </div>
     </li>

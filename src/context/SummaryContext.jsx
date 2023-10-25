@@ -3,6 +3,7 @@ import { createContext, useContext, useReducer } from "react";
 import { useDiscounts } from "../hooks/useDiscounts";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useOrders } from "./OrdersContext";
 
 const SummaryContext = createContext();
 
@@ -43,6 +44,8 @@ function reducer(state, action) {
 
 function SummaryProvider({ children }) {
   const navigate = useNavigate();
+
+  const { addNewOrder } = useOrders();
 
   const {
     register,
@@ -112,7 +115,7 @@ function SummaryProvider({ children }) {
     dispatch({ type: "discountSet", payload: 0 });
   }
 
-  function discountToPercentage() {
+  function discountToPercentage(discount) {
     return `${Math.ceil((1 - discount) * 100)}%`;
   }
 
@@ -128,9 +131,9 @@ function SummaryProvider({ children }) {
   // On order submition
   // -----------------------------------------------------------
 
-  function submitOrder(data) {
-    console.log(data);
-    navigate("/packages/create-package/additions/summary/succes");
+  function submitOrder(cart, prices) {
+    addNewOrder(cart, prices, deliveryDate, deliveryType);
+    // navigate("/packages/create-package/additions/summary/succes");
   }
 
   function orderError(errors) {

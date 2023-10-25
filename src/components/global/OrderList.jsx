@@ -1,7 +1,8 @@
 import OrderListItem from "./OrderListItem";
 import styles from "./orderList.module.scss";
 
-function OrderList({ title, amount, list, getSingleAmount }) {
+function OrderList({ title, amount, list, singleAmount }) {
+  console.log(list);
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -24,7 +25,7 @@ function OrderList({ title, amount, list, getSingleAmount }) {
             <OrderListItem
               key={i}
               product={product}
-              getSingleAmount={getSingleAmount}
+              singleAmount={singleAmount}
             />
           ))}
         </ul>

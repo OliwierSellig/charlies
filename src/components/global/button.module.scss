@@ -46,6 +46,13 @@
       color: var(--color-primary-black);
     }
   }
+
+  &__red {
+    &:hover,
+    &:focus {
+      background-color: var(--color-delete-red);
+    }
+  }
 }
 
 .disabled {

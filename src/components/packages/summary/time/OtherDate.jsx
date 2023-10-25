@@ -1,7 +1,6 @@
 import Modal from "../../../global/Modal";
-
 import Button from "../../../global/Button";
-import DaySelector from "./DaySelector";
+import SelectDeliveryDate from "./SelectDeliveryDate";
 
 function OtherDate() {
   return (
@@ -12,7 +11,7 @@ function OtherDate() {
         </Button>
       </Modal.Open>
       <Modal.Window name="order-details">
-        <DaySelector />
+        <SelectDeliveryDate />
       </Modal.Window>
     </Modal>
   );

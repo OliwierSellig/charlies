@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.6rem;
+}
+
+.heading {
+  font-size: 3.2rem;
+  letter-spacing: 0.3px;
+}
+
+.price {
+  font-size: 2.2rem;
+  font-weight: 500;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.empty {
+  padding: 4.8rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.text {
+  font-size: 2.4rem;
+}
+
+.icon {
+  width: 6rem;
+  height: 6rem;
+}

@@ -6,19 +6,25 @@
   right: 0;
   height: 100%;
   width: 30%;
+  min-width: 55rem;
+  max-width: 70rem;
   background-color: var(--color-secondary-black);
   box-shadow: -1.6rem 0px 3.2rem -3rem rgba(0, 0, 0, 0.2);
   animation: moveFromRight 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
 }
 
 .list {
   display: flex;
   flex-direction: column;
-  padding: 4.8rem;
-  overflow-y: scroll;
   gap: 1.6rem;
-  height: 100%;
-
+  flex-grow: 1;
+  overflow-y: scroll;
+  padding: 4.8rem;
   &::-webkit-scrollbar {
     width: 8px;
   }
@@ -35,7 +41,6 @@
   &::-webkit-scrollbar-thumb:hover {
     background: #444;
   }
-
   @media (hover: none) {
     &::-webkit-scrollbar {
       display: none;

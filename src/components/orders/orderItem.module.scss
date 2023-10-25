@@ -1,7 +1,5 @@
 .item {
-}
-
-.container {
+  position: relative;
   width: 100%;
   aspect-ratio: 16/7;
   background-image: linear-gradient(
@@ -16,19 +14,27 @@
   box-shadow: 2rem 0 4rem rgba(#121212, 0.2);
   padding: 2.4rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+
+  &:hover,
+  &:focus {
+    & .options {
+      opacity: 1;
+    }
+  }
 }
 
 .box {
   display: flex;
-  align-items: start;
-  flex-direction: column;
+  gap: 2.4rem;
+  align-items: center;
   justify-content: space-between;
 }
 
 .name {
-  font-size: 3.8rem;
+  font-size: 4.2rem;
   font-weight: 500;
   font-family: "Caveat", cursive;
 }
@@ -37,16 +43,71 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 1;
-}
-
-.date {
+  color: var(--color-primary-white-shade-1);
 }
 
 .type {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-primary-yellow);
 }
 
 .price {
+  color: var(--color-primary-white-shade-1);
+  font-size: 2rem;
+}
+
+.options {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 500;
+  background-image: linear-gradient(
+    rgba(21, 21, 21, 0.75),
+    rgba(21, 21, 21, 0.75)
+  );
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: var(--transition-medium);
+
+  &:focus-within {
+    opacity: 1;
+  }
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 2.4rem;
+  transition: var(--transition-medium);
+
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 4.2rem;
+    height: 4.2rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("/svg/details-white.svg");
+    transition: var(--transition-medium);
+  }
+
+  &:focus,
+  &:hover {
+    color: var(--color-primary-yellow);
+
+    &:after {
+      background-image: url("/svg/details-yellow.svg");
+    }
+  }
 }

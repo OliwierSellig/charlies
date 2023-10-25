@@ -1,11 +1,11 @@
 import DayList from "./DayList";
 import DayNames from "./DayNames";
 import styles from "./daySelector.module.scss";
-import { getMonthName } from "../../../../services/helpers";
+import { getMonthName } from "../../services/helpers";
 import { useState } from "react";
 import dayjs from "dayjs";
 
-function DaySelector({ onCloseModal }) {
+function DaySelector({ closeSelector, handleClick, fastestDate, currentDate }) {
   const [iterator, setIterator] = useState(0);
 
   const currentMonth = dayjs()?.add(iterator, "month").month();
@@ -32,8 +32,8 @@ function DaySelector({ onCloseModal }) {
         <h3 className={styles.heading}>Choose a day that fits you best!</h3>
         <button
           className={styles.close}
-          onClick={onCloseModal}
-          aria-label="Close modal"
+          onClick={closeSelector}
+          aria-label="Close selector"
         />
       </header>
       <nav className={styles.months}>
@@ -56,7 +56,13 @@ function DaySelector({ onCloseModal }) {
         />
       </nav>
       <DayNames />
-      <DayList iterator={iterator} onCloseModal={onCloseModal} />
+      <DayList
+        iterator={iterator}
+        handleClick={handleClick}
+        closeSelector={closeSelector}
+        fastestDate={fastestDate}
+        currentDate={currentDate}
+      />
     </div>
   );
 }

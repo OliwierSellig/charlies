@@ -1,22 +1,24 @@
 import dayjs from "dayjs";
-import { useSummary } from "../../../../context/SummaryContext";
+import { useSummary } from "../../context/SummaryContext";
 import styles from "./dayList.module.scss";
+import { checkIfAbleDate, generateMonthDays } from "../../services/helpers";
 
-function DayList({ iterator, onCloseModal }) {
-  const {
-    checkIfAbleDate,
-    generateMonthDays,
-    updateDeliveryDate,
-    deliveryDate,
-  } = useSummary();
+function DayList({
+  iterator,
+  handleClick,
+  closeSelector,
+  fastestDate,
+  currentDate,
+}) {
+  const { deliveryDate } = useSummary();
 
   const activeDate = dayjs()?.add(iterator, "month");
 
   const dayList = generateMonthDays(activeDate.month(), activeDate.year());
 
   function selectDate(day) {
-    onCloseModal();
-    updateDeliveryDate(day);
+    handleClick?.(day);
+    closeSelector?.();
   }
 
   return (
@@ -25,9 +27,11 @@ function DayList({ iterator, onCloseModal }) {
         <li key={i} className={styles.item}>
           <button
             className={`${styles.btn} ${
-              !checkIfAbleDate(activeDate, day) ? styles.disabled : ""
-            } ${deliveryDate.isSame(day, "day") ? styles.current : ""}`}
-            disabled={!checkIfAbleDate(activeDate, day)}
+              !checkIfAbleDate(activeDate, day, fastestDate)
+                ? styles.disabled
+                : ""
+            } ${currentDate?.isSame(day, "day") ? styles.current : ""}`}
+            disabled={!checkIfAbleDate(activeDate, day, fastestDate)}
             onClick={() => selectDate(day)}
           >
             {day.$D}

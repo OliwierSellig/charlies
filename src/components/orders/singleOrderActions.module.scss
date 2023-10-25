@@ -1,0 +1,50 @@
+.actions {
+  width: 100%;
+  box-shadow: 0rem -2rem 4rem rgba(0, 0, 0, 0.3);
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+}
+
+.btn {
+  padding: 3.2rem;
+  font-size: 2rem;
+  width: 100%;
+  justify-content: center;
+  gap: 8px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-primary-yellow-shade-1);
+  }
+
+  &__delivery,
+  &__package {
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 3.2rem;
+      height: 3.2rem;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+
+  &__delivery {
+    &::after {
+      background-image: url("/svg/calendar-white.svg");
+    }
+  }
+
+  &__package {
+    &::after {
+      background-image: url("/svg/trash-white.svg");
+    }
+  }
+}

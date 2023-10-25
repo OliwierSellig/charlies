@@ -80,39 +80,6 @@ function SummaryProvider({ children }) {
   // Delivery date manipulations
   // -----------------------------------------------------------
 
-  function generateMonthDays(month = dayjs().month(), year = dayjs().year()) {
-    const firstDateOfMonth = dayjs().year(year).month(month).startOf("month");
-    const lastDateOfMonth = dayjs().year(year).month(month).endOf("month");
-    const dayNumber = 42;
-
-    const prefixArray = Array.from(
-      { length: firstDateOfMonth.day() },
-      (date, i) => firstDateOfMonth.day(i)
-    );
-
-    const dayArray = Array.from({ length: lastDateOfMonth.date() }, (date, i) =>
-      firstDateOfMonth.date(i + 1)
-    );
-
-    const suffixArray = Array.from(
-      {
-        length: dayNumber - (prefixArray.length + dayArray.length),
-      },
-      (_, i) => lastDateOfMonth.date(lastDateOfMonth.date() + i + 1)
-    );
-
-    return prefixArray.concat(dayArray, suffixArray);
-  }
-
-  function checkIfAbleDate(activeDate, day) {
-    if (activeDate.month() !== day.$M) return false;
-    if (!day.$W) return false;
-    if (activeDate.month() === dayjs().month() && day.$D < fastestDate.date())
-      return false;
-
-    return true;
-  }
-
   function updateDeliveryDate(date) {
     dispatch({ type: "updatedDeliveryDate", payload: date });
   }
@@ -204,8 +171,6 @@ function SummaryProvider({ children }) {
         setValue,
         checkIfOpen,
         openItem,
-        generateMonthDays,
-        checkIfAbleDate,
         updateDeliveryDate,
         setDeliveryType,
         checkDiscount,

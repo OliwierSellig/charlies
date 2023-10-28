@@ -21,7 +21,6 @@
   font-size: 5.2rem;
   font-family: "Caveat", cursive;
   color: var(--color-primary-yellow);
-  margin-bottom: 1.2rem;
   text-align: center;
 
   @media only screen and (max-width: 640px) {
@@ -30,7 +29,13 @@
 }
 
 .subheading {
-  font-size: 2rem;
+  font-size: 2.2rem;
+  color: var(--color-primary-white-shade-1);
+  margin: 1.2rem;
+}
+
+.label {
+  font-size: 1.8rem;
   color: var(--color-primary-white-shade-1);
   margin: 2.4rem;
 }

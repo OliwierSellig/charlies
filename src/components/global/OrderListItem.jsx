@@ -1,8 +1,6 @@
 import styles from "./orderListItem.module.scss";
 
 function OrderListItem({ product, singleAmount }) {
-  console.log(product);
-  console.log(singleAmount?.(product));
   return (
     <li className={styles.item}>
       <img

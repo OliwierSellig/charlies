@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { useOrders } from "../../context/OrdersContext";
 import ModalListHeader from "../global/ModalListHeader";
 import NoOrders from "./NoOrders";
@@ -6,8 +7,8 @@ import TotalOrders from "./TotalOrders";
 import styles from "./orders.module.scss";
 
 function Orders({ onCloseModal }) {
-  const { orderList } = useOrders();
-  console.log(orderList);
+  const { orderList, sortByDate } = useOrders();
+
   return (
     <>
       <div className={styles.container}>
@@ -17,7 +18,7 @@ function Orders({ onCloseModal }) {
         {orderList.length === 0 && <NoOrders handleClick={onCloseModal} />}
         {orderList.length > 0 && (
           <ul className={styles.list}>
-            {orderList.map((order, i) => (
+            {sortByDate(orderList).map((order, i) => (
               <OrderItem key={i} order={order} />
             ))}
           </ul>

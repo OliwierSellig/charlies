@@ -20,6 +20,7 @@ import Summary from "./components/packages/summary/Summary";
 import { SummaryProvider } from "./context/SummaryContext";
 import Succes from "./components/packages/succes/Succes";
 import { OrdersProvider } from "./context/OrdersContext";
+import { Toaster } from "react-hot-toast";
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 60 * 1000 } },
@@ -71,6 +72,29 @@ function App() {
           </SummaryProvider>
         </OrdersProvider>
       </BrowserRouter>
+      <Toaster
+        position="top-center"
+        gutter={12}
+        containerStyle={{ margin: "8px" }}
+        toastOptions={{
+          className: "toast",
+          success: { duration: 3000, pouseOnHover: true },
+          error: { duration: 5000 },
+          style: {
+            fontSize: "2.2rem",
+            fontFamily: "Nunito Sans",
+            maxWidth: "500px",
+            widows: "70%",
+            padding: "2.4rem 3.6rem",
+            backgroundColor: "var(--color-primary-black)",
+            color: "var(--color-primary-white)",
+          },
+          iconTheme: {
+            primary: "var(--color-primary-yellow)",
+            secondary: "#fff",
+          },
+        }}
+      />
     </QueryClientProvider>
   );
 }

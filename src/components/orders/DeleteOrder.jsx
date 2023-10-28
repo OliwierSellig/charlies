@@ -2,7 +2,12 @@ import { useState } from "react";
 import Button from "../global/Button";
 import styles from "./deleteOrder.module.scss";
 
-function DeleteOrder({ setIsDeletingOrder }) {
+import { useOrders } from "../../context/OrdersContext";
+import toast from "react-hot-toast";
+
+function DeleteOrder({ setIsDeletingOrder, order }) {
+  const { deleteOrder } = useOrders();
+
   const [query, setQuery] = useState("");
 
   return (
@@ -10,7 +15,10 @@ function DeleteOrder({ setIsDeletingOrder }) {
       <h3 className={styles.heading}>
         Do you really want to delete this package?
       </h3>
-      <label className={styles.subheading}>
+      <p className={styles.subheading}>
+        We will refind your fee immediately on the account you provided.
+      </p>
+      <label className={styles.label}>
         Type 'DELETE' to confirm the deletion.
       </label>
       <input
@@ -24,9 +32,16 @@ function DeleteOrder({ setIsDeletingOrder }) {
           colorOnFocus="white"
           handleClick={() => setIsDeletingOrder(false)}
         >
-          Go Back
+          Go Back{" "}
         </Button>
-        <Button disabled={query !== "DELETE"} colorOnFocus="red">
+        <Button
+          disabled={query !== "DELETE"}
+          colorOnFocus="red"
+          onClick={() => {
+            deleteOrder(order);
+            toast.success("Order Deleted Succesfully");
+          }}
+        >
           Delete Package
         </Button>
       </div>

@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { useSummary } from "../../context/SummaryContext";
+
 import styles from "./dayList.module.scss";
 import { checkIfAbleDate, generateMonthDays } from "../../services/helpers";
 
@@ -10,8 +10,6 @@ function DayList({
   fastestDate,
   currentDate,
 }) {
-  const { deliveryDate } = useSummary();
-
   const activeDate = dayjs()?.add(iterator, "month");
 
   const dayList = generateMonthDays(activeDate.month(), activeDate.year());

@@ -9,37 +9,11 @@ import DaySelector from "../global/DaySelector";
 import { useSummary } from "../../context/SummaryContext";
 import SingleOrderDateChange from "./SingleOrderDateChange";
 import { useOrders } from "../../context/OrdersContext";
-
-const productsList = [
-  {
-    name: "Dark Chocolate",
-    image: "/img/test.webp",
-    quantity: 2,
-    type: "classic",
-  },
-  {
-    name: "Dark Chocolate",
-    image: "/img/test.webp",
-    quantity: 2,
-    type: "classic",
-  },
-  {
-    name: "Dark Chocolate",
-    image: "/img/test.webp",
-    quantity: 2,
-    type: "classic",
-  },
-  {
-    name: "Dark Chocolate",
-    image: "/img/test.webp",
-    quantity: 2,
-    type: "classic",
-  },
-];
+import toast from "react-hot-toast";
 
 function SingleOrderDetails({ onCloseModal, order }) {
   const { fastestDate } = useSummary();
-  const { getProductNumber } = useOrders();
+  const { getProductNumber, changeDeliveryDate } = useOrders();
 
   const [isDeletingOrder, setIsDeletingOrder] = useState(false);
   const [isChangingOrder, setIsChangingOrder] = useState(false);
@@ -51,35 +25,51 @@ function SingleOrderDetails({ onCloseModal, order }) {
         onClick={onCloseModal}
         aria-label="Close this window"
       />
-      <SingleOrderHeader order={order} />
-      <div className={styles.box}>
-        <OrderList
-          title="Main"
-          amount={order.prices.mainPrice}
-          list={order.cart.main}
-          singleAmount={getProductNumber}
-        />
-        <OrderList
-          title="Additional"
-          amount={order.prices.additionsPrice}
-          list={order.cart.additions}
-          singleAmount={getProductNumber}
-        />
-      </div>
+      {!order.id && <p>Order Deleted</p>}
+      {Boolean(order.id) && (
+        <>
+          <SingleOrderHeader order={order} />
+          <div className={styles.box}>
+            <OrderList
+              title="Main"
+              amount={order.prices.mainPrice}
+              list={order.cart.main}
+              singleAmount={getProductNumber}
+            />
+            <OrderList
+              title="Additional"
+              amount={order.prices.additionsPrice}
+              list={order.cart.additions}
+              singleAmount={getProductNumber}
+            />
+          </div>
+        </>
+      )}
       <SingleOrderActions
         setIsDeletingOrder={setIsDeletingOrder}
         setIsChangingOrder={setIsChangingOrder}
         singleAmount={getProductNumber}
+        order={order}
       />
       {isDeletingOrder && (
-        <DeleteOrder setIsDeletingOrder={setIsDeletingOrder} />
+        <DeleteOrder
+          setIsDeletingOrder={setIsDeletingOrder}
+          order={order}
+          onCloseModal={onCloseModal}
+        />
       )}
       {isChangingOrder && (
         <SingleOrderDateChange>
           <DaySelector
             closeSelector={() => setIsChangingOrder(false)}
-            handleClick={setDeliveryDate}
-            currentDate={deliveryDate}
+            handleClick={(date) => {
+              changeDeliveryDate(date, order);
+              onCloseModal();
+              toast.success(
+                `Changed the date for Package #${order?.id || "0000"}`
+              );
+            }}
+            currentDate={dayjs(order.date)}
             fastestDate={fastestDate}
           />
         </SingleOrderDateChange>

@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { createContext, useContext, useEffect, useReducer } from "react";
 
 const OrdersContext = createContext();
@@ -10,6 +11,8 @@ function reducer(state, action) {
   switch (action.type) {
     case "addedNewOrder":
       return { ...state, orderList: [...state.orderList, action.payload] };
+    case "editedOrders":
+      return { ...state, orderList: action.payload };
     default:
       throw new Error("Unknown Action");
   }
@@ -60,9 +63,58 @@ function OrdersProvider({ children }) {
     return product?.number || 0;
   }
 
+  function findOrder(order) {
+    return orderList.find((o) => o.id === order.id);
+  }
+
+  function filterOrders(order) {
+    return orderList.filter((o) => o.id !== order.id);
+  }
+
+  function deleteOrder(order) {
+    const filteredList = filterOrders(order);
+
+    dispatch({ type: "editedOrders", payload: filteredList });
+  }
+
+  function changeDeliveryDate(date, order) {
+    const selectedOrder = findOrder(order);
+
+    const filteredList = filterOrders(order);
+
+    const editedOrdersList = [
+      ...filteredList,
+      { ...selectedOrder, date: dayjs(date) },
+    ];
+
+    dispatch({ type: "editedOrders", payload: editedOrdersList });
+  }
+
+  function sortByDate(list) {
+    const orderedList = list.sort(
+      (a, b) => dayjs(a.date).unix() - dayjs(b.date).unix()
+    );
+
+    return orderedList;
+  }
+
+  function checkDeadline(order) {
+    const selectedOrder = findOrder(order);
+
+    return dayjs(selectedOrder.date).diff(dayjs(), "day") <= 2;
+  }
+
   return (
     <OrdersContext.Provider
-      value={{ addNewOrder, orderList, getProductNumber }}
+      value={{
+        addNewOrder,
+        orderList,
+        getProductNumber,
+        deleteOrder,
+        changeDeliveryDate,
+        sortByDate,
+        checkDeadline,
+      }}
     >
       {children}
     </OrdersContext.Provider>

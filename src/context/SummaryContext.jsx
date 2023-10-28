@@ -7,7 +7,9 @@ import { useOrders } from "./OrdersContext";
 
 const SummaryContext = createContext();
 
-const fastestDate = dayjs().add(2, "day");
+const isSunday = Boolean(!dayjs().add(2, "day").day());
+
+const fastestDate = dayjs().add(isSunday ? 3 : 2, "day");
 
 const initialState = {
   currentlyOpen: 1,

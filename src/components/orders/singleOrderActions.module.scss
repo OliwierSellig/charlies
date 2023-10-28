@@ -1,12 +1,31 @@
-.actions {
+.actions,
+.disabled {
   width: 100%;
   box-shadow: 0rem -2rem 4rem rgba(0, 0, 0, 0.3);
+}
+
+.actions {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
 
   @media only screen and (max-width: 330px) {
     grid-template-columns: 1fr;
+  }
+}
+
+.disabled {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: 3.2rem;
+  transition: var(--transition-long);
+  cursor: not-allowed;
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-primary-yellow-shade-1);
   }
 }
 
@@ -62,4 +81,14 @@
       background-image: url("/svg/trash-white.svg");
     }
   }
+}
+
+.text {
+  font-size: 2.2rem;
+  color: var(--color-primary-white-shade-1);
+}
+
+.icon {
+  width: 4.4rem;
+  height: 4.4rem;
 }

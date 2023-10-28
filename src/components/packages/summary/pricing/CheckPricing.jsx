@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSummary } from "../../../../context/SummaryContext";
-import Checkbox from "../../../global/CheckBox";
+import Checkbox from "../../../global/Checkbox";
 import styles from "./checkPricing.module.scss";
 
 function CheckPricing() {

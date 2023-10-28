@@ -23,6 +23,7 @@ function PackageNav() {
     mainReady,
     discount,
     deliveryCost,
+    clearCart,
   } = useCart();
 
   return (
@@ -81,7 +82,8 @@ function PackageNav() {
                     fullPrice: getFullPrice(),
                     deliveryCost,
                     discount,
-                  }
+                  },
+                  clearCart
                 ),
               orderError
             )}

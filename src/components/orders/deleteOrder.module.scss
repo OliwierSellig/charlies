@@ -47,6 +47,12 @@
   padding: 1.4rem 2.8rem;
   border-radius: 13px;
   margin-bottom: 3.2rem;
+  transition: var(--transition-fast);
+
+  &:hover,
+  &:focus {
+    background-color: rgba(#222, 0.6);
+  }
 }
 
 .box {

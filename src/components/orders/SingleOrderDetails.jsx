@@ -6,14 +6,12 @@ import { useState } from "react";
 import DeleteOrder from "./DeleteOrder";
 import dayjs from "dayjs";
 import DaySelector from "../global/DaySelector";
-import { useSummary } from "../../context/SummaryContext";
 import SingleOrderDateChange from "./SingleOrderDateChange";
 import { useOrders } from "../../context/OrdersContext";
 import toast from "react-hot-toast";
 
 function SingleOrderDetails({ onCloseModal, order }) {
-  const { fastestDate } = useSummary();
-  const { getProductNumber, changeDeliveryDate } = useOrders();
+  const { getProductNumber, changeDeliveryDate, deadlineBorder } = useOrders();
 
   const [isDeletingOrder, setIsDeletingOrder] = useState(false);
   const [isChangingOrder, setIsChangingOrder] = useState(false);
@@ -70,7 +68,7 @@ function SingleOrderDetails({ onCloseModal, order }) {
               );
             }}
             currentDate={dayjs(order.date)}
-            fastestDate={fastestDate}
+            fastestDate={deadlineBorder}
           />
         </SingleOrderDateChange>
       )}

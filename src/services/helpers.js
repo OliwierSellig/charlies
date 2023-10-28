@@ -34,7 +34,8 @@ export function getMonthName(number) {
 
 export function generateMonthDays(
   month = dayjs().month(),
-  year = dayjs().year()
+  year = dayjs().year(),
+  extended = false
 ) {
   const firstDateOfMonth = dayjs().year(year).month(month).startOf("month");
   const lastDateOfMonth = dayjs().year(year).month(month).endOf("month");
@@ -56,13 +57,13 @@ export function generateMonthDays(
     (_, i) => lastDateOfMonth.date(lastDateOfMonth.date() + i + 1)
   );
 
-  return prefixArray.concat(dayArray, suffixArray);
+  return extended ? prefixArray.concat(dayArray, suffixArray) : dayArray;
 }
 
 export function checkIfAbleDate(activeDate, day, fastest) {
   if (activeDate.month() !== day.$M) return false;
   if (!day.$W) return false;
-  if (activeDate.month() === dayjs().month() && day.$D < fastest.date())
+  if (activeDate.month() === dayjs().month() && day.isBefore(fastest))
     return false;
 
   return true;
@@ -71,4 +72,10 @@ export function checkIfAbleDate(activeDate, day, fastest) {
 export function firstLetterUpperCase(text) {
   if (typeof text !== "string" || !text.length) return;
   return `${text.at(0).toUpperCase()}${text.slice(1)}`;
+}
+
+export function checkIfMonthEmpty(fastestDate) {
+  return !generateMonthDays()
+    .map((day) => checkIfAbleDate(dayjs(), day, fastestDate))
+    .includes(true);
 }

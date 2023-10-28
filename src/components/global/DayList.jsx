@@ -1,6 +1,5 @@
-import dayjs from "dayjs";
 import styles from "./dayList.module.scss";
-import { checkIfAbleDate, generateMonthDays } from "../../services/helpers";
+import { checkIfAbleDate } from "../../services/helpers";
 
 function DayList({
   iterator,
@@ -8,11 +7,9 @@ function DayList({
   closeSelector,
   fastestDate,
   currentDate,
+  dayList,
+  activeDate,
 }) {
-  const activeDate = dayjs()?.add(iterator, "month");
-
-  const dayList = generateMonthDays(activeDate.month(), activeDate.year());
-
   function selectDate(day) {
     handleClick?.(day);
     closeSelector?.();

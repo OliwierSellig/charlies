@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import AnimatedNumber from "../global/AnimatedNumbers";
 import styles from "./achievements.module.scss";
 import { useInView } from "react-intersection-observer";
@@ -27,6 +28,11 @@ const achievementList = [
 
 function Achievements() {
   const { ref: myRef, inView } = useInView();
+  const [hasCounted, setHasCounted] = useState(false);
+
+  useEffect(() => {
+    if (inView && !hasCounted) setHasCounted(true);
+  }, [inView, hasCounted]);
 
   return (
     <section className={styles.section} ref={myRef}>
@@ -41,7 +47,7 @@ function Achievements() {
                 alt={achievement.title}
               />
               <span className={styles.number}>
-                {inView ? <AnimatedNumber n={achievement.number} /> : 0}
+                {hasCounted ? <AnimatedNumber n={achievement.number} /> : 0}
               </span>
               <span className={styles.text}>{achievement.title}</span>
             </li>

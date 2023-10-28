@@ -23,6 +23,8 @@ function OrdersProvider({ children }) {
 
   const { orderList } = state;
 
+  const deadlineBorder = dayjs().add(3, "day");
+
   // localStorage.removeItem('orderList');
 
   useEffect(() => {
@@ -37,8 +39,6 @@ function OrdersProvider({ children }) {
 
   function addNewOrder(cart, prices, deliveryDate, deliveryType) {
     let id;
-
-    console.log(deliveryDate);
 
     while (!id) {
       const randomNumber = Math.ceil(Math.random() * 10000);
@@ -100,8 +100,12 @@ function OrdersProvider({ children }) {
 
   function checkDeadline(order) {
     const selectedOrder = findOrder(order);
-
-    return dayjs(selectedOrder.date).diff(dayjs(), "day") <= 2;
+    return (
+      dayjs(selectedOrder.date).diff(
+        deadlineBorder.subtract(1, "day"),
+        "day"
+      ) <= 0
+    );
   }
 
   return (
@@ -113,6 +117,7 @@ function OrdersProvider({ children }) {
         deleteOrder,
         changeDeliveryDate,
         sortByDate,
+        deadlineBorder,
         checkDeadline,
       }}
     >

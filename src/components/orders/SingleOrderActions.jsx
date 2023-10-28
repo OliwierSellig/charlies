@@ -27,7 +27,7 @@ function SingleOrderActions({ setIsDeletingOrder, setIsChangingOrder, order }) {
       {checkDeadline(order) && (
         <div className={styles.disabled}>
           <p className={styles.text}>
-            Cannot modify an order with a delivery time of 2 days or less
+            Cannot modify an order with a delivery time of 3 days or less
           </p>
           <img
             className={styles.icon}

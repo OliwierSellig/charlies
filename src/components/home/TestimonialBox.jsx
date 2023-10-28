@@ -13,7 +13,6 @@ function TestimonialBox({ photo, name, role, position, children }) {
         className={styles.photo}
         src={`/img/home/${photo}`}
         alt={`Photo of ${name}`}
-        loading="lazy"
       />
       <span className={styles.name}>{name}</span>
       <span className={styles.role}>{role}</span>

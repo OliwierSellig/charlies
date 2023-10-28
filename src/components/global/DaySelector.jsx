@@ -1,14 +1,27 @@
 import DayList from "./DayList";
 import DayNames from "./DayNames";
 import styles from "./daySelector.module.scss";
-import { getMonthName } from "../../services/helpers";
+import {
+  checkIfMonthEmpty,
+  generateMonthDays,
+  getMonthName,
+} from "../../services/helpers";
 import { useState } from "react";
 import dayjs from "dayjs";
 
 function DaySelector({ closeSelector, handleClick, fastestDate, currentDate }) {
   const [iterator, setIterator] = useState(0);
 
-  const currentMonth = dayjs()?.add(iterator, "month").month();
+  const activeDate = dayjs()?.add(
+    checkIfMonthEmpty(fastestDate) ? iterator + 1 : iterator,
+    "month"
+  );
+
+  const dayList = generateMonthDays(
+    activeDate.month(),
+    activeDate.year(),
+    true
+  );
 
   function canGoNext() {
     return iterator < 3;
@@ -45,7 +58,7 @@ function DaySelector({ closeSelector, handleClick, fastestDate, currentDate }) {
           disabled={!canGoPrev()}
           aria-label="See previous month"
         />
-        <span className={styles.month}>{getMonthName(currentMonth)}</span>
+        <span className={styles.month}>{getMonthName(activeDate.month())}</span>
         <button
           className={`${styles.btn} ${styles.btn__next} ${
             !canGoNext() ? styles.btn__next__disabled : ""
@@ -62,6 +75,8 @@ function DaySelector({ closeSelector, handleClick, fastestDate, currentDate }) {
         closeSelector={closeSelector}
         fastestDate={fastestDate}
         currentDate={currentDate}
+        dayList={dayList}
+        activeDate={activeDate}
       />
     </div>
   );

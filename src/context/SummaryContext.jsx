@@ -4,6 +4,7 @@ import { useDiscounts } from "../hooks/useDiscounts";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useOrders } from "./OrdersContext";
+import { useCart } from "./CartContext";
 
 const SummaryContext = createContext();
 
@@ -133,9 +134,11 @@ function SummaryProvider({ children }) {
   // On order submition
   // -----------------------------------------------------------
 
-  function submitOrder(cart, prices) {
+  function submitOrder(cart, prices, clearCart) {
     addNewOrder(cart, prices, deliveryDate, deliveryType);
-    // navigate("/packages/create-package/additions/summary/succes");
+    clearSummary();
+    clearCart?.();
+    navigate("/packages/create-package/additions/summary/succes");
   }
 
   function orderError(errors) {

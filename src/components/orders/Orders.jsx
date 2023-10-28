@@ -1,4 +1,3 @@
-import dayjs from "dayjs";
 import { useOrders } from "../../context/OrdersContext";
 import ModalListHeader from "../global/ModalListHeader";
 import NoOrders from "./NoOrders";

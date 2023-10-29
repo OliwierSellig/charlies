@@ -1,13 +1,13 @@
 .container {
   display: grid;
-  align-items: center;
-  width: 100%;
   grid-template-columns: 3fr 1fr;
+  align-items: center;
   gap: 1.2rem;
+  width: 100%;
   padding: 2.4rem 3.6rem;
+  border-radius: 7px;
   background-color: rgba(#222, 0.4);
   box-shadow: 2rem 0 4rem rgba(#000, 0.05);
-  border-radius: 7px;
   transition: var(--transition-medium);
   cursor: pointer;
 
@@ -17,8 +17,8 @@
   }
 
   @media only screen and (max-width: 768px) {
-    padding: 1.8rem 2.8rem;
     grid-template-columns: 4fr 1fr;
+    padding: 1.8rem 2.8rem;
   }
 
   @media only screen and (max-width: 360px) {
@@ -32,10 +32,10 @@
 }
 
 .heading {
-  font-size: 3.2rem;
-  letter-spacing: 0.3px;
-  color: var(--color-primary-yellow);
   margin: 6px;
+  font-size: 3.2rem;
+  color: var(--color-primary-yellow);
+  letter-spacing: 0.3px;
 }
 
 .description {
@@ -43,10 +43,9 @@
 }
 
 .icon {
-  width: 6.4rem;
+  align-self: center;
   height: 6.4rem;
   width: 100%;
-  align-self: center;
 
   @media only screen and (max-width: 360px) {
     display: none;

@@ -1,9 +1,9 @@
 .container {
-  padding: 2.4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.2rem;
+  padding: 2.4rem;
   box-shadow: 0 -2rem 4rem rgba(#000, 0.2);
 }
 
@@ -19,13 +19,13 @@
 }
 
 .number {
+  font-weight: 600;
   font-size: 2.2rem;
   color: var(--color-primary-yellow);
-  font-weight: 600;
 }
 
 .date {
+  font-weight: 600;
   font-size: 2.2rem;
   color: var(--color-primary-yellow);
-  font-weight: 00;
 }

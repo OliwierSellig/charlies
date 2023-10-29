@@ -1,6 +1,10 @@
 @import "../../animations.scss";
 
 .section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18rem 0;
   background-image: linear-gradient(
       0deg,
       rgba(18, 18, 18, 1) 0%,
@@ -11,10 +15,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 18rem 0;
 
   @media only screen and (max-resolution: 191dpi),
     only screen and (max-width: 1200px) {
@@ -43,21 +43,21 @@
 }
 
 .container {
-  max-width: 140rem;
   display: flex;
   flex-direction: column;
   align-items: start;
+  max-width: 140rem;
   padding: 0 4.8rem;
 }
 
 .heading {
-  font-size: 6.4rem;
+  max-width: 60%;
+  margin-bottom: 3.2rem;
   font-family: "Caveat", cursive;
+  font-size: 6.4rem;
   color: var(--color-primary-yellow);
   line-height: 1.1;
   letter-spacing: 0.3px;
-  margin-bottom: 3.2rem;
-  max-width: 60%;
   animation: fadeInLeft 2s;
 
   @media only screen and (max-width: 840px) {
@@ -67,9 +67,9 @@
 
 .text {
   max-width: 40%;
+  margin-bottom: 1.2rem;
   font-size: 2.2rem;
   line-height: 1.5;
-  margin-bottom: 1.2rem;
   animation: fadeIn 2.5s;
 
   @media only screen and (max-width: 1200px) {

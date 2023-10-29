@@ -1,15 +1,15 @@
 .btn {
-  color: var(--color-primary-white);
-  font-size: 2.6rem;
-  cursor: pointer;
-  transition: var(--transition-fast);
   border: 2px solid var(--color-primary-white);
+  font-size: 2.6rem;
+  color: var(--color-primary-white);
+  transition: var(--transition-fast);
+  cursor: pointer;
 
   &__buy {
     &:hover,
     &:focus {
-      background-color: var(--color-primary-yellow);
       border: 2px solid var(--color-primary-yellow);
+      background-color: var(--color-primary-yellow);
     }
   }
 }
@@ -32,8 +32,8 @@
   &__yellow {
     &:hover,
     &:focus {
-      background-color: var(--color-primary-yellow);
       border: 2px solid var(--color-primary-yellow);
+      background-color: var(--color-primary-yellow);
       color: #fff;
     }
   }
@@ -41,8 +41,8 @@
   &__white {
     &:hover,
     &:focus {
-      background-color: var(--color-primary-white);
       border: 2px solid var(--color-primary-white);
+      background-color: var(--color-primary-white);
       color: var(--color-primary-black);
     }
   }
@@ -56,14 +56,14 @@
 }
 
 .disabled {
-  color: var(--color-primary-white-shade-2);
   border: 2px solid var(--color-primary-white-shade-2);
+  color: var(--color-primary-white-shade-2);
   cursor: default;
 
   &:hover,
   &:focus {
-    background-color: transparent;
     border: 2px solid var(--color-primary-white-shade-2);
+    background-color: transparent;
     color: var(--color-primary-white-shade-2);
   }
 }

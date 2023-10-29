@@ -1,17 +1,17 @@
 .container {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 2.4rem;
   background-image: linear-gradient(
       rgba(18, 18, 18, 0.9),
       rgba(18, 18, 18, 0.9)
     ),
     url("/img/home/company-2-lg.webp");
-  padding: 2.4rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   @media only screen and (max-resolution: 191dpi),
     only screen and (max-width: 1200px) {
@@ -32,9 +32,9 @@
 }
 
 .heading {
-  font-size: 5.6rem;
-  font-family: "Caveat", cursive;
   margin-bottom: 2.4rem;
+  font-family: "Caveat", cursive;
+  font-size: 5.6rem;
 }
 
 .list {
@@ -53,8 +53,8 @@
 
   & li {
     @media only screen and (max-width: 1360px) {
-      width: 80%;
       justify-self: center;
+      width: 80%;
     }
     @media only screen and (max-width: 1300px) {
       width: 90%;

@@ -3,6 +3,10 @@
 .section {
   position: relative;
   height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-image: linear-gradient(
       0deg,
       rgba(18, 18, 18, 1) 0%,
@@ -13,10 +17,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 
   @media only screen and (max-resolution: 191dpi),
     only screen and (max-width: 1200px) {
@@ -40,40 +40,41 @@
   }
 
   @media only screen and (max-width: 350px) {
-    text-align: center;
     padding: 2rem;
+    text-align: center;
   }
 }
 
 .heading {
-  font-size: 6.2rem;
+  margin-bottom: 1.2rem;
   font-family: "Caveat", cursive;
+  font-size: 6.2rem;
   line-height: 1.1;
   letter-spacing: 0.3px;
-  margin-bottom: 1.2rem;
   animation: fadeInLeft 1s;
 }
 
 .subheading {
-  font-size: 3.2rem;
   font-family: "Caveat", cursive;
+  font-size: 3.2rem;
   color: var(--color-primary-white-shade-1);
   animation: fadeIn 1.3s;
 }
 
 .quote {
   position: absolute;
-  max-width: 140rem;
-  width: 100%;
   bottom: 0;
   left: 50%;
-  transform: translate(-50%, 70%);
+  max-width: 140rem;
+  width: 100%;
   background-color: var(--color-secondary-black);
   box-shadow: 2rem 0 4rem rgba(#121212, 0.4);
+  transform: translate(-50%, 70%);
+
   &__container {
-    padding: 3.6rem 4.8rem;
     max-width: 80rem;
     margin: 0 auto;
+    padding: 3.6rem 4.8rem;
     animation: fadeIn 2s;
 
     @media only screen and (max-width: 420px) {
@@ -82,10 +83,10 @@
   }
 
   &__text {
+    margin-bottom: 1.2rem;
     font-family: "EB Garamond", serif;
     font-size: 2.4rem;
     line-height: 1.4;
-    margin-bottom: 1.2rem;
   }
 
   &__author {
@@ -96,15 +97,15 @@
   }
 
   &__name {
-    color: var(--color-primary-yellow);
-    font-family: "Caveat", cursive;
     margin-right: 1.2rem;
+    font-family: "Caveat", cursive;
     font-size: 3rem;
+    color: var(--color-primary-yellow);
   }
 
   &__role {
-    color: var(--color-primary-white-shade-1);
     font-family: "Caveat", cursive;
     font-size: 2.4rem;
+    color: var(--color-primary-white-shade-1);
   }
 }

@@ -10,8 +10,8 @@
 
 .container {
   max-width: 160rem;
-  padding: 0 4.8rem;
   margin: 0 auto;
+  padding: 0 4.8rem;
 
   @media only screen and (max-width: 800px) {
     padding: 0 2.4rem;
@@ -19,11 +19,11 @@
 }
 
 .heading {
-  font-size: 5.6rem;
+  margin-bottom: 4.2rem;
   font-family: "Caveat", cursive;
+  font-size: 5.6rem;
   line-height: 1.1;
   letter-spacing: 0.3px;
-  margin-bottom: 4.2rem;
   animation: fadeIn 2s;
 }
 
@@ -71,10 +71,10 @@
 }
 
 .number {
-  font-size: 5.2rem;
-  font-family: "Caveat", cursive;
-  color: var(--color-primary-yellow);
   display: flex;
+  font-family: "Caveat", cursive;
+  font-size: 5.2rem;
+  color: var(--color-primary-yellow);
 }
 
 .text {

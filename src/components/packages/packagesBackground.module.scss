@@ -1,4 +1,8 @@
 .background {
+  display: flex;
+  align-items: center;
+  min-height: 80vh;
+  padding: 18rem 0 12rem;
   background-image: radial-gradient(
       circle,
       rgba(18, 18, 18, 0.7) 0%,
@@ -8,10 +12,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 18rem 0 12rem;
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
 
   @media only screen and (max-resolution: 191dpi),
     only screen and (max-width: 1200px) {
@@ -35,8 +35,8 @@
 
 .container {
   max-width: 140rem;
-  margin: 0 auto;
   height: 100%;
+  margin: 0 auto;
 }
 
 .responsive {

@@ -37,9 +37,9 @@
 }
 
 .input {
-  font-size: 2.6rem;
   padding: 0.8rem 2.4rem;
   border: 2px solid var(--color-primary-white-shade-2);
+  font-size: 2.6rem;
   transition: var(--transition-fast);
 
   &::placeholder {
@@ -61,8 +61,8 @@
   position: absolute;
   bottom: -50%;
   left: 0;
-  font-size: 1.6rem;
   font-weight: 500;
+  font-size: 1.6rem;
   transition: var(--transition-medium);
   animation: fadeInTop, 10s;
 

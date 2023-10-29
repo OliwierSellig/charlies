@@ -1,10 +1,11 @@
 .btn {
   width: 4rem;
   height: 4rem;
-  cursor: pointer;
   background-image: url("/svg/cart-white.svg");
   background-size: cover;
   transition: var(--transition-fast);
+  cursor: pointer;
+
   &:hover,
   &:focus {
     background-image: url("/svg/cart-yellow.svg");

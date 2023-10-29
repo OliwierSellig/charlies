@@ -2,17 +2,16 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16/7;
-
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 9px;
-  box-shadow: 2rem 0 4rem rgba(#121212, 0.2);
-  padding: 2.4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 2.4rem;
+  border-radius: 9px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 2rem 0 4rem rgba(#121212, 0.2);
 
   &:hover,
   &:focus {
@@ -24,15 +23,15 @@
 
 .box {
   display: flex;
-  gap: 2.4rem;
   align-items: center;
   justify-content: space-between;
+  gap: 2.4rem;
 }
 
 .name {
-  font-size: 4.2rem;
-  font-weight: 500;
   font-family: "Caveat", cursive;
+  font-weight: 500;
+  font-size: 4.2rem;
 }
 
 .delivery {
@@ -40,36 +39,36 @@
   align-items: center;
   gap: 8px;
   font-size: 1.6rem;
-  line-height: 1;
   color: var(--color-primary-white-shade-1);
+  line-height: 1;
 }
 
 .type {
-  font-size: 1.4rem;
   font-weight: 600;
+  font-size: 1.4rem;
   color: var(--color-primary-yellow);
 }
 
 .price {
-  color: var(--color-primary-white-shade-1);
   font-size: 2rem;
+  color: var(--color-primary-white-shade-1);
 }
 
 .options {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 500;
   width: 100%;
   height: 100%;
-  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-image: linear-gradient(
     rgba(21, 21, 21, 0.75),
     rgba(21, 21, 21, 0.75)
   );
   backdrop-filter: blur(2px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   opacity: 0;
   transition: var(--transition-medium);
 

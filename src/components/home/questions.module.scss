@@ -1,6 +1,6 @@
 .section {
-  height: 100rem;
   position: relative;
+  height: 100rem;
   background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
     url("/img/home/faq-lg.webp");
   background-position: center;
@@ -21,12 +21,12 @@
 
 .container {
   position: relative;
-  max-width: 120rem;
+  z-index: 100;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  z-index: 100;
+  max-width: 120rem;
   margin: 0 auto;
   padding: 20rem 8rem;
 
@@ -36,11 +36,11 @@
 }
 
 .heading {
-  font-size: 6rem;
+  margin-bottom: 4.8rem;
   font-family: "Caveat", cursive;
+  font-size: 6rem;
   line-height: 1.1;
   letter-spacing: 0.3px;
-  margin-bottom: 4.8rem;
 }
 
 .list {
@@ -50,8 +50,8 @@
 .spacer {
   position: absolute;
   left: 0;
-  aspect-ratio: 960/540;
   width: 100%;
+  aspect-ratio: 960/540;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

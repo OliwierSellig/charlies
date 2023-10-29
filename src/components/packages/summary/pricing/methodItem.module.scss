@@ -1,15 +1,14 @@
 .btn {
-  width: 100%;
-  aspect-ratio: 16/5;
+  position: relative;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: aliceblue;
+  width: 100%;
+  aspect-ratio: 16/5;
   border-radius: 1300px;
-  cursor: pointer;
   transform: var(--transition-medium);
-  position: relative;
-  z-index: 100;
+  cursor: pointer;
 
   &:hover,
   &:focus {
@@ -20,28 +19,28 @@
 }
 
 .icon {
-  transition: var(--transition-medium);
   width: 10rem;
   height: 10rem;
+  transition: var(--transition-medium);
 }
 
 .paypal,
 .mastercard,
 .stripe {
+  position: relative;
   transition: var(--transition-medium);
   filter: grayscale(1);
-  position: relative;
 
   &::before {
-    display: inline-block;
     position: absolute;
     bottom: 0;
     right: 50%;
-    transform: translate(50%, 0%);
-    font-size: 2rem;
     z-index: -1;
-    opacity: 0;
+    display: inline-block;
+    font-size: 2rem;
+    transform: translate(50%, 0%);
     transition: var(--transition-medium);
+    opacity: 0;
   }
 
   &:hover,

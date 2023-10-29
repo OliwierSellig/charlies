@@ -1,10 +1,10 @@
 .logo {
-  cursor: pointer;
-  color: var(--color-primary-yellow);
   font-family: "Caveat", cursive;
   font-size: 7.4rem;
+  color: var(--color-primary-yellow);
   letter-spacing: 2.5px;
   transition: var(--transition-fast);
+  cursor: pointer;
 
   &:focus {
     color: var(--color-primary-white);

@@ -12,28 +12,28 @@
 }
 
 .heading {
-  font-size: 6rem;
-  font-family: "Caveat", cursive;
-  letter-spacing: 0.3px;
   margin-bottom: 2.4rem;
+  font-family: "Caveat", cursive;
+  font-size: 6rem;
+  letter-spacing: 0.3px;
   animation: fadeInLeft 2s;
 }
 
 .or {
   align-self: center;
-  font-size: 2rem;
-  text-transform: uppercase;
   margin-bottom: 4.2rem;
-  letter-spacing: 0.5px;
+  text-transform: uppercase;
   font-weight: 500;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
   animation: fadeIn 3s;
 }
 
 .subheading {
-  font-size: 2.8rem;
-  color: var(--color-primary-white-shade-1);
   padding: 0 1.4rem;
   font-family: "Caveat", cursive;
+  font-size: 2.8rem;
+  color: var(--color-primary-white-shade-1);
   animation: fadeIn 2s;
 }
 
@@ -53,8 +53,8 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #333;
     border-radius: 1000px;
+    background: #333;
   }
 
   &::-webkit-scrollbar-thumb:hover {
@@ -82,9 +82,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgba(#121212, 0.95);
-  border-radius: 7px;
-  padding: 2.4rem;
-  animation: fadeIn 2s;
   min-height: 95rem;
+  padding: 2.4rem;
+  border-radius: 7px;
+  background-color: rgba(#121212, 0.95);
+  animation: fadeIn 2s;
 }

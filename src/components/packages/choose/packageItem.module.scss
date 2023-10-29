@@ -1,12 +1,12 @@
 .item {
   display: grid;
   grid-template-columns: 1fr 2.5fr;
-  background-color: #151515;
-  border-radius: 9px;
-  overflow: hidden;
-  box-shadow: 2rem 0 4rem rgba(#000, 0.2);
-  margin-bottom: 1.2rem;
   gap: 2.4rem;
+  margin-bottom: 1.2rem;
+  border-radius: 9px;
+  background-color: #151515;
+  box-shadow: 2rem 0 4rem rgba(#000, 0.2);
+  overflow: hidden;
 }
 
 .img {
@@ -18,13 +18,13 @@
 .text {
   display: flex;
   flex-direction: column;
-  gap: 6px;
   justify-content: center;
+  gap: 6px;
 }
 
 .name {
-  font-size: 2rem;
   font-weight: 600;
+  font-size: 2rem;
 }
 
 .quantity {

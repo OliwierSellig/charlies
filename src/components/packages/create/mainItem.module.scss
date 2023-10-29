@@ -1,12 +1,12 @@
 .item {
-  background-color: var(--color-secondary-black);
-  border-radius: 9px;
   display: grid;
   grid-template-columns: 1fr 2fr max-content;
-  gap: 2.4rem;
-  overflow: hidden;
   align-items: center;
+  gap: 2.4rem;
   padding-right: 3.2rem;
+  border-radius: 9px;
+  background-color: var(--color-secondary-black);
+  overflow: hidden;
 
   @media only screen and (max-width: 960px) {
     grid-template-columns: 0.5fr 2fr max-content;
@@ -32,9 +32,9 @@
 }
 
 .name {
-  font-size: 2.4rem;
   margin-bottom: 6px;
   font-weight: 600;
+  font-size: 2.4rem;
 }
 
 .quantity {

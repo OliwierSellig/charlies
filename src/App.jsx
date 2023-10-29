@@ -12,7 +12,6 @@ import { BlogProvider } from "./context/BlogContext";
 import ScrollToTop from "./services/ScrollToTop";
 import ChoosePackage from "./components/packages/choose/ChoosePackage";
 import CreatePackage from "./components/packages/create/CreatePackage";
-
 import Packages from "./pages/Packages";
 import Additions from "./components/packages/additions/Additions";
 import { CartProvider } from "./context/CartContext";

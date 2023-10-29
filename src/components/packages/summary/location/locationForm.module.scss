@@ -1,6 +1,6 @@
 .heading {
-  font-size: 3.2rem;
   margin-bottom: 3.2rem;
+  font-size: 3.2rem;
   text-align: center;
 }
 
@@ -31,10 +31,10 @@
 }
 
 .input {
-  font-size: 2rem;
+  width: 100%;
   padding: 8px 1.8rem;
   border: 2px solid var(--color-primary-white);
-  width: 100%;
+  font-size: 2rem;
   transition: var(--transition-fast);
 
   &::placeholder {
@@ -48,13 +48,13 @@
 }
 
 .select {
-  background-color: rgba(#333, 0.6);
-  padding: 8px 1.8rem;
-  font-size: 2rem;
   width: 100%;
+  padding: 8px 1.8rem;
   border-radius: 5px;
-  cursor: pointer;
+  background-color: rgba(#333, 0.6);
+  font-size: 2rem;
   transition: var(--transition-fast);
+  cursor: pointer;
 
   &:hover,
   &:focus {

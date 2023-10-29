@@ -2,11 +2,11 @@
 
 .container {
   position: relative;
+  display: grid;
+  grid-template-columns: max-content 1fr;
   align-items: center;
   gap: 1.2rem;
   cursor: pointer;
-  display: grid;
-  grid-template-columns: max-content 1fr;
 
   &:hover,
   &:focus {
@@ -30,8 +30,8 @@
 .box {
   width: 2.8rem;
   height: 2.8rem;
-  border-radius: 50%;
   border: 2px solid #c09f58;
+  border-radius: 50%;
 }
 
 .checked {

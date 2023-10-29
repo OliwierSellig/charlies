@@ -3,7 +3,7 @@ import styles from "./deliveryType.module.scss";
 
 function DeliveryType() {
   return (
-    <div className={styles.container}>
+    <div>
       <h3 className={styles.heading}>Delivery Type</h3>
       <ul className={styles.list}>
         <DeliveryOffer

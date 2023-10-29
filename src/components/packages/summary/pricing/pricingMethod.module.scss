@@ -3,8 +3,8 @@
 }
 
 .heading {
-  font-size: 3.4rem;
   margin-bottom: 3.2rem;
+  font-size: 3.4rem;
 }
 
 .list {
@@ -18,8 +18,8 @@
 
     & li:last-child {
       grid-column: 1/-1;
-      width: 50%;
       justify-self: center;
+      width: 50%;
     }
   }
 
@@ -28,9 +28,9 @@
 
     & li,
     & li:last-child {
+      justify-self: center;
       width: 100%;
       max-width: 46rem;
-      justify-self: center;
     }
   }
 }

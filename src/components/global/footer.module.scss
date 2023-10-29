@@ -3,13 +3,13 @@
 }
 .container {
   position: relative;
-  max-width: 160rem;
-  padding: 4.8rem 4.8rem 8.2rem;
+  z-index: 100;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  margin: 0 auto;
-  z-index: 100;
   gap: 2rem;
+  max-width: 160rem;
+  margin: 0 auto;
+  padding: 4.8rem 4.8rem 8.2rem;
 
   @media only screen and (max-width: 1080px) {
     padding: 4.8rem 2.4rem 6.4rem;
@@ -33,8 +33,8 @@
 }
 
 .copyright {
-  font-size: 1.6rem;
   margin-bottom: 2.4rem;
+  font-size: 1.6rem;
 }
 
 .socials {
@@ -51,10 +51,10 @@
     display: block;
     width: 3rem;
     height: 3rem;
-    cursor: pointer;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    cursor: pointer;
   }
 
   &__instagram {
@@ -97,8 +97,8 @@
 .contact {
   justify-self: center;
   &__heading {
-    font-size: 4.2rem;
     font-family: "Caveat", cursive;
+    font-size: 4.2rem;
     margin-bottom: 6px;
   }
 
@@ -131,8 +131,8 @@
   }
 
   &__link {
-    font-size: 1.2rem;
     font-weight: 300;
+    font-size: 1.2rem;
     color: var(--color-primary-white-shade-1);
     transition: var(--transition-fast);
     cursor: pointer;
@@ -146,13 +146,13 @@
 
 .more {
   @media only screen and (max-width: 860px) {
-    grid-column: 1/-1;
     justify-self: center;
+    grid-column: 1/-1;
   }
 
   &__heading {
-    font-size: 4.2rem;
     font-family: "Caveat", cursive;
+    font-size: 4.2rem;
     margin-bottom: 1.2rem;
   }
 

@@ -22,6 +22,7 @@
   font-size: 5.2rem;
   color: var(--color-primary-yellow);
   text-align: center;
+  animation: fadeInLeft 1s;
 
   @media only screen and (max-width: 640px) {
     font-size: 4.8rem;
@@ -32,12 +33,14 @@
   margin: 1.2rem;
   font-size: 2.2rem;
   color: var(--color-primary-white-shade-1);
+  animation: fadeIn 1s;
 }
 
 .label {
   margin: 2.4rem;
   font-size: 1.8rem;
   color: var(--color-primary-white-shade-1);
+  animation: fadeIn 1.2s;
 }
 
 .input {
@@ -48,6 +51,7 @@
   box-shadow: 2rem 0 4rem rgba(#000, 0.1);
   font-size: 2.6rem;
   transition: var(--transition-fast);
+  animation: fadeIn 1.5s;
 
   &:hover,
   &:focus {
@@ -59,6 +63,7 @@
   display: flex;
   align-items: center;
   gap: 1.2rem;
+  animation: fadeIn 1.5s;
 
   @media only screen and (max-width: 320px) {
     flex-direction: column;

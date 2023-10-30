@@ -31,6 +31,34 @@ function OrdersProvider({ children }) {
     localStorage.setItem("orderList", JSON.stringify(orderList));
   }, [orderList]);
 
+  useEffect(() => {
+    function updateMonth(order) {
+      return { ...order, date: dayjs(order.date).add(1, "month") };
+    }
+
+    function updateOrders() {
+      const futureOrders = orderList.filter((order) =>
+        dayjs(order.date).isAfter(dayjs(), "day")
+      );
+
+      if (orderList.length === futureOrders.length) return;
+
+      const expRecurring = orderList.filter(
+        (order) =>
+          order.deliveryType === "recurring" &&
+          dayjs(order.date).isSame(dayjs(), "day")
+      );
+
+      const updatedRecurring = expRecurring.map((order) => updateMonth(order));
+
+      const updatedList = [...futureOrders, ...updatedRecurring];
+
+      dispatch({ type: "editedOrders", payload: updatedList });
+    }
+
+    updateOrders();
+  }, [orderList]);
+
   function getRandomCover(list) {
     if (!list) return;
     const randomNumber = Math.floor(Math.random() * list.length);

@@ -4,8 +4,6 @@ import styles from "./singleOrderActions.module.scss";
 function SingleOrderActions({ setIsDeletingOrder, setIsChangingOrder, order }) {
   const { checkDeadline } = useOrders();
 
-  console.log(checkDeadline(order));
-
   return (
     <>
       {!checkDeadline(order) && (

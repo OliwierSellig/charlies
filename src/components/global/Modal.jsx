@@ -6,8 +6,8 @@ import {
   useRef,
   useState,
 } from "react";
-import styles from "./modal.module.scss";
 import { createPortal } from "react-dom";
+import styles from "./modal.module.scss";
 
 const ModalContext = createContext();
 

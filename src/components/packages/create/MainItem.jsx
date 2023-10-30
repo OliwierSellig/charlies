@@ -1,7 +1,7 @@
-import styles from "./mainItem.module.scss";
+import { useCart } from "../../../context/CartContext";
 import OpenProductDetails from "../OpenProductDetails";
 import QuantityButtons from "../../global/QuantityButtons";
-import { useCart } from "../../../context/CartContext";
+import styles from "./mainItem.module.scss";
 
 function MainItem({ product }) {
   const { addToMain, removeFromMain, isMainFull, getSingleAmountMain } =

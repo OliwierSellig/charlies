@@ -1,4 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Toaster } from "react-hot-toast";
+import { BlogProvider } from "./context/BlogContext";
+import { OrdersProvider } from "./context/OrdersContext";
+import { SummaryProvider } from "./context/SummaryContext";
+import { CartProvider } from "./context/CartContext";
+import { ScrollToTop } from "./services/helpers";
 import AppLayout from "./components/global/AppLayout";
 import Home from "./pages/Home";
 import PageNotFound from "./components/global/PageNotFound";
@@ -6,20 +14,12 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import BlogView from "./components/blog/BlogView";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { BlogProvider } from "./context/BlogContext";
-import ScrollToTop from "./services/ScrollToTop";
 import ChoosePackage from "./components/packages/choose/ChoosePackage";
 import CreatePackage from "./components/packages/create/CreatePackage";
 import Packages from "./pages/Packages";
 import Additions from "./components/packages/additions/Additions";
-import { CartProvider } from "./context/CartContext";
 import Summary from "./components/packages/summary/Summary";
-import { SummaryProvider } from "./context/SummaryContext";
 import Succes from "./components/packages/succes/Succes";
-import { OrdersProvider } from "./context/OrdersContext";
-import { Toaster } from "react-hot-toast";
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 60 * 1000 } },

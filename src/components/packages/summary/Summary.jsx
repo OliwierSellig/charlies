@@ -1,12 +1,12 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../../../context/CartContext";
 import PackageEditContainer from "../PackageEditContainer";
 import DeliveryLocation from "./location/DeliveryLocation";
 import DeliveryTime from "./time/DeliveryTime";
 import Pricing from "./pricing/Pricing";
 import SummaryItem from "./SummaryItem";
 import styles from "./summary.module.scss";
-import { useNavigate } from "react-router-dom";
-import { useCart } from "../../../context/CartContext";
-import { useEffect } from "react";
 
 function Summary() {
   const navigate = useNavigate();

@@ -1,8 +1,8 @@
-import { NavLink } from "react-router-dom";
-import styles from "./header.module.scss";
-import Logo from "./Logo";
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import Logo from "./Logo";
 import OpenOrders from "./OpenOrders";
+import styles from "./header.module.scss";
 
 function Header({ staticHeader = false }) {
   const [isOpen, setIsOpen] = useState(false);

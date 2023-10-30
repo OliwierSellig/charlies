@@ -1,14 +1,14 @@
 import OrderListItem from "./OrderListItem";
 import styles from "./orderList.module.scss";
 
-function OrderList({ title, amount, list, singleAmount }) {
+function OrderList({ title, amount, list = [], singleAmount }) {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
         <h4 className={styles.heading}>{title}</h4>
         <span className={styles.price}>${amount}</span>
       </header>
-      {!list.length && (
+      {!list?.length && (
         <div className={styles.empty}>
           <p className={styles.text}>Empty Cart</p>
           <img
@@ -18,7 +18,7 @@ function OrderList({ title, amount, list, singleAmount }) {
           />
         </div>
       )}
-      {list.length > 0 && (
+      {list?.length > 0 && (
         <ul className={styles.list}>
           {list?.map((product, i) => (
             <OrderListItem

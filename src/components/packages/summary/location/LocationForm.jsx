@@ -1,15 +1,7 @@
 import { useSummary } from "../../../../context/SummaryContext";
+import { countryList } from "../../../../services/globalVars";
 import FormRow from "./FormRow";
 import styles from "./locationForm.module.scss";
-
-const countryList = [
-  "United States",
-  "Canada",
-  "Mexico",
-  "United Kingdom",
-  "France",
-  "Spain",
-];
 
 function LocationForm() {
   const { register, errors } = useSummary();

@@ -1,12 +1,13 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { usePosts } from "../hooks/usePosts";
 
 const BlogContext = createContext();
 
+const POSTS_PER_PAGE = 9;
+
 function BlogProvider({ children }) {
   const [searchParams, setSearchParams] = useSearchParams();
-  const POSTS_PER_PAGE = 9;
   const [query, setQuery] = useState("");
   const { isLoading, posts, count } = usePosts(POSTS_PER_PAGE, query);
 
@@ -45,15 +46,15 @@ function BlogProvider({ children }) {
     <BlogContext.Provider
       value={{
         POSTS_PER_PAGE,
-        canGoPrev,
-        goPrev,
-        canGoNext,
-        goNext,
+        query,
+        setQuery,
         isLoading,
         posts,
         count,
-        query,
-        setQuery,
+        canGoPrev,
+        canGoNext,
+        goPrev,
+        goNext,
         getRandomID,
       }}
     >

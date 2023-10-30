@@ -1,30 +1,8 @@
 import { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
+import { achievementList } from "../../services/globalVars";
 import AnimatedNumber from "../global/AnimatedNumbers";
 import styles from "./achievements.module.scss";
-import { useInView } from "react-intersection-observer";
-
-const achievementList = [
-  {
-    number: "116",
-    title: "Years of Chocolate Excellence",
-    icon: "medal-white.svg",
-  },
-  {
-    number: "105",
-    title: "Shops across the world",
-    icon: "shop-white.svg",
-  },
-  {
-    number: "99.99%",
-    title: "Customer Satisfaction Rate",
-    icon: "profile-white.svg",
-  },
-  {
-    number: "2000000+",
-    title: "Pounds of Premium Chocolate Sold",
-    icon: "box-white.svg",
-  },
-];
 
 function Achievements() {
   const { ref: myRef, inView } = useInView();

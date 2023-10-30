@@ -4,9 +4,10 @@ import styles from "./listNav.module.scss";
 
 function ListNav() {
   const [searchParams] = useSearchParams();
-  const currentPage = Number(searchParams.get("page")) || 1;
 
   const { canGoNext, goNext, canGoPrev, goPrev } = useBlog();
+
+  const currentPage = Number(searchParams.get("page")) || 1;
 
   return (
     <nav className={styles.container}>

@@ -1,8 +1,7 @@
-import styles from "./dayList.module.scss";
 import { checkIfAbleDate } from "../../services/helpers";
+import styles from "./dayList.module.scss";
 
 function DayList({
-  iterator,
   handleClick,
   closeSelector,
   fastestDate,

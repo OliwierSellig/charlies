@@ -1,5 +1,5 @@
-import dayjs from "dayjs";
 import { createContext, useContext, useEffect, useReducer } from "react";
+import dayjs from "dayjs";
 
 const OrdersContext = createContext();
 
@@ -25,11 +25,17 @@ function OrdersProvider({ children }) {
 
   const deadlineBorder = dayjs().add(3, "day");
 
-  // localStorage.removeItem('orderList');
+  // -----------------------------------------------------------
+  // Saving to local storage
+  // -----------------------------------------------------------
 
   useEffect(() => {
     localStorage.setItem("orderList", JSON.stringify(orderList));
   }, [orderList]);
+
+  // -----------------------------------------------------------
+  // Updating orders on date change
+  // -----------------------------------------------------------
 
   useEffect(() => {
     function updateMonth(order) {
@@ -59,13 +65,17 @@ function OrdersProvider({ children }) {
     updateOrders();
   }, [orderList]);
 
-  function getRandomCover(list) {
-    if (!list) return;
-    const randomNumber = Math.floor(Math.random() * list.length);
-    return list.map((item) => item?.image)?.at(randomNumber);
-  }
+  // -----------------------------------------------------------
+  // Adding new package to orders
+  // -----------------------------------------------------------
 
   function addNewOrder(cart, prices, deliveryDate, deliveryType) {
+    function getRandomCover(list) {
+      if (!list) return;
+      const randomNumber = Math.floor(Math.random() * list.length);
+      return list.map((item) => item?.image)?.at(randomNumber);
+    }
+
     let id;
 
     while (!id) {
@@ -87,9 +97,9 @@ function OrdersProvider({ children }) {
     dispatch({ type: "addedNewOrder", payload: newOrder });
   }
 
-  function getProductNumber(product) {
-    return product?.number || 0;
-  }
+  // -----------------------------------------------------------
+  // Orders manipulation
+  // -----------------------------------------------------------
 
   function findOrder(order) {
     return orderList.find((o) => o.id === order.id);
@@ -98,6 +108,18 @@ function OrdersProvider({ children }) {
   function filterOrders(order) {
     return orderList.filter((o) => o.id !== order.id);
   }
+
+  function sortByDate(list) {
+    const orderedList = list.sort(
+      (a, b) => dayjs(a.date).unix() - dayjs(b.date).unix()
+    );
+
+    return orderedList;
+  }
+
+  // -----------------------------------------------------------
+  // Single order manipulation
+  // -----------------------------------------------------------
 
   function deleteOrder(order) {
     const filteredList = filterOrders(order);
@@ -118,13 +140,17 @@ function OrdersProvider({ children }) {
     dispatch({ type: "editedOrders", payload: editedOrdersList });
   }
 
-  function sortByDate(list) {
-    const orderedList = list.sort(
-      (a, b) => dayjs(a.date).unix() - dayjs(b.date).unix()
-    );
+  // -----------------------------------------------------------
+  // Getters
+  // -----------------------------------------------------------
 
-    return orderedList;
+  function getProductNumber(product) {
+    return product?.number || 0;
   }
+
+  // -----------------------------------------------------------
+  // Others
+  // -----------------------------------------------------------
 
   function checkDeadline(order) {
     const selectedOrder = findOrder(order);

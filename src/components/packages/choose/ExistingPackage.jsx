@@ -1,11 +1,11 @@
-import { useProductsID } from "../../../hooks/useProductsID";
-import Button from "../../global/Button";
-import SwitchPlan from "../SwitchPlan";
-import styles from "./existingPackage.module.scss";
-import PackageItem from "./PackageItem";
-import LoadingSpinner from "../../global/LoadingSpinner";
 import { useState } from "react";
 import { useCart } from "../../../context/CartContext";
+import { useProductsID } from "../../../hooks/useProductsID";
+import LoadingSpinner from "../../global/LoadingSpinner";
+import Button from "../../global/Button";
+import SwitchPlan from "../SwitchPlan";
+import PackageItem from "./PackageItem";
+import styles from "./existingPackage.module.scss";
 
 function ExistingPackage({ exPackage }) {
   const { isLoading, products } = useProductsID(exPackage?.products);

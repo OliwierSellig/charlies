@@ -11,23 +11,20 @@ function Button({
   onClick,
   disabled = false,
 }) {
-  if (isLink)
-    return (
-      <Link
-        to={goTo}
-        onClick={(e) => {
-          if (disabled) e.preventDefault();
-          else handleClick?.();
-        }}
-        className={`${styles.btn} ${styles[`focus__${colorOnFocus}`]} ${
-          styles[`size__${size}`]
-        } ${disabled ? styles.disabled : ""}`}
-      >
-        {children}
-      </Link>
-    );
-
-  return (
+  return isLink ? (
+    <Link
+      to={goTo}
+      onClick={(e) => {
+        if (disabled) e.preventDefault();
+        else handleClick?.();
+      }}
+      className={`${styles.btn} ${styles[`focus__${colorOnFocus}`]} ${
+        styles[`size__${size}`]
+      } ${disabled ? styles.disabled : ""}`}
+    >
+      {children}
+    </Link>
+  ) : (
     <button
       className={`${styles.btn} ${styles[`focus__${colorOnFocus}`]} ${
         styles[`size__${size}`]

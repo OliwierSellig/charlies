@@ -1,10 +1,10 @@
 import { useSummary } from "../../../../context/SummaryContext";
-import OtherDate from "./OtherDate";
-import styles from "./deliveryDate.module.scss";
 import {
   numberToDoubleDigit,
   getMonthName,
 } from "../../../../services/helpers";
+import OtherDate from "./OtherDate";
+import styles from "./deliveryDate.module.scss";
 
 function DeliveryDate() {
   const { deliveryDate, awaitTime } = useSummary();

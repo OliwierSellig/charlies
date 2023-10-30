@@ -1,13 +1,13 @@
-import DayList from "./DayList";
-import DayNames from "./DayNames";
-import styles from "./daySelector.module.scss";
+import { useState } from "react";
 import {
   checkIfMonthEmpty,
   generateMonthDays,
   getMonthName,
 } from "../../services/helpers";
-import { useState } from "react";
 import dayjs from "dayjs";
+import DayList from "./DayList";
+import DayNames from "./DayNames";
+import styles from "./daySelector.module.scss";
 
 function DaySelector({ closeSelector, handleClick, fastestDate, currentDate }) {
   const [iterator, setIterator] = useState(0);

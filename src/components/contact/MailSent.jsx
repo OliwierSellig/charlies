@@ -1,5 +1,5 @@
-import styles from "./mailSent.module.scss";
 import Button from "../global/Button";
+import styles from "./mailSent.module.scss";
 
 function MailSent({ refreshEmail, fullName }) {
   return (

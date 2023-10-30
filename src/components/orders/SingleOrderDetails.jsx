@@ -1,14 +1,14 @@
-import SingleOrderActions from "./SingleOrderActions";
-import styles from "./singleOrderDetails.module.scss";
-import OrderList from "../global/OrderList";
-import SingleOrderHeader from "./SingleOrderHeader";
 import { useState } from "react";
-import DeleteOrder from "./DeleteOrder";
-import dayjs from "dayjs";
-import DaySelector from "../global/DaySelector";
-import SingleOrderDateChange from "./SingleOrderDateChange";
 import { useOrders } from "../../context/OrdersContext";
 import toast from "react-hot-toast";
+import dayjs from "dayjs";
+import OrderList from "../global/OrderList";
+import DaySelector from "../global/DaySelector";
+import SingleOrderActions from "./SingleOrderActions";
+import SingleOrderHeader from "./SingleOrderHeader";
+import DeleteOrder from "./DeleteOrder";
+import SingleOrderDateChange from "./SingleOrderDateChange";
+import styles from "./singleOrderDetails.module.scss";
 
 function SingleOrderDetails({ onCloseModal, order }) {
   const { getProductNumber, changeDeliveryDate, deadlineBorder } = useOrders();
@@ -23,26 +23,21 @@ function SingleOrderDetails({ onCloseModal, order }) {
         onClick={onCloseModal}
         aria-label="Close this window"
       />
-      {!order.id && <p>Order Deleted</p>}
-      {Boolean(order.id) && (
-        <>
-          <SingleOrderHeader order={order} />
-          <div className={styles.box}>
-            <OrderList
-              title="Main"
-              amount={order.prices.mainPrice}
-              list={order.cart.main}
-              singleAmount={getProductNumber}
-            />
-            <OrderList
-              title="Additional"
-              amount={order.prices.additionsPrice}
-              list={order.cart.additions}
-              singleAmount={getProductNumber}
-            />
-          </div>
-        </>
-      )}
+      <SingleOrderHeader order={order} />
+      <div className={styles.box}>
+        <OrderList
+          title="Main"
+          amount={order.prices.mainPrice}
+          list={order.cart.main}
+          singleAmount={getProductNumber}
+        />
+        <OrderList
+          title="Additional"
+          amount={order.prices.additionsPrice}
+          list={order.cart.additions}
+          singleAmount={getProductNumber}
+        />
+      </div>
       <SingleOrderActions
         setIsDeletingOrder={setIsDeletingOrder}
         setIsChangingOrder={setIsChangingOrder}

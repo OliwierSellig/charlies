@@ -1,9 +1,9 @@
+import { useBlog } from "../../context/BlogContext";
+import LoadingSpinner from "../global/LoadingSpinner";
 import BlogItem from "./BlogItem";
 import ListNav from "./ListNav";
-import styles from "./blogList.module.scss";
 import NoResults from "./NoResults.jsx";
-import LoadingSpinner from "../global/LoadingSpinner";
-import { useBlog } from "../../context/BlogContext";
+import styles from "./blogList.module.scss";
 
 function BlogList() {
   const { isLoading, posts } = useBlog();

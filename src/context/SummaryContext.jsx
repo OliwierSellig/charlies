@@ -1,10 +1,9 @@
-import dayjs from "dayjs";
 import { createContext, useContext, useReducer } from "react";
-import { useDiscounts } from "../hooks/useDiscounts";
-import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { useDiscounts } from "../hooks/useDiscounts";
 import { useOrders } from "./OrdersContext";
-import { useCart } from "./CartContext";
+import dayjs from "dayjs";
 
 const SummaryContext = createContext();
 

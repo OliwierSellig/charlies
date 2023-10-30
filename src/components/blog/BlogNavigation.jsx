@@ -1,7 +1,7 @@
-import { useSearchParams } from "react-router-dom";
-import styles from "./blogNavigation.module.scss";
-import { useBlog } from "../../context/BlogContext";
 import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
+import { useBlog } from "../../context/BlogContext";
+import styles from "./blogNavigation.module.scss";
 
 function BlogNavigation() {
   const [searchParams, setSearchParams] = useSearchParams();

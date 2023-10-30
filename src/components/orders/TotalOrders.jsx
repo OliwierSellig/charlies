@@ -1,6 +1,6 @@
-import styles from "./totalOrders.module.scss";
 import { useOrders } from "../../context/OrdersContext";
 import { formatDate } from "../../services/helpers";
+import styles from "./totalOrders.module.scss";
 
 function TotalOrders() {
   const { orderList, sortByDate } = useOrders();

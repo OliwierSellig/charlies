@@ -1,37 +1,7 @@
 import { useState } from "react";
+import { testimonialList } from "../../services/globalVars";
 import TestimonialBox from "./TestimonialBox";
 import styles from "./testimonials.module.scss";
-
-const testimonialList = [
-  {
-    name: "Marie Jenkins",
-    role: "Digital Artist",
-    photo: "test-photo-1.webp",
-    message:
-      "Indulging in Charlie's chocolates is pure bliss! The flavorsare divine, and the quality is unmatched. Plus, their commitment tosustainability is admirable. A guilt-free treat that delights mytaste buds and my conscience. Bravo!",
-  },
-  {
-    name: "John Anderson",
-    message:
-      "Absolutely indulgent! Charlie's chocolate selection is a paradise for any chocoholic. The flavors are divine, and the packaging is delightful. My taste buds are in heaven!",
-    photo: "test-photo-2.webp",
-    role: "Software Developer",
-  },
-  {
-    name: "Emily Roberts",
-    message:
-      "I can't resist ordering from Charlie's! Their chocolates are not only delicious but also beautifully presented. The prompt delivery is a cherry on top. Highly recommended!",
-    photo: "test-photo-3.webp",
-    role: "Marketing Manager",
-  },
-  {
-    name: "David Mitchell",
-    message:
-      "Charlie's is a treasure trove of gourmet chocolates. Each bite feels like a luxurious escape. The quality is unmatched, and their customer service is top-notch. I'm a devoted fan!",
-    photo: "test-photo-4.webp",
-    role: "Financial Analyst",
-  },
-];
 
 function Testimonials() {
   const [currentTest, setCurrentTest] = useState(0);

@@ -5,12 +5,12 @@ import SelectDeliveryDate from "./SelectDeliveryDate";
 function OtherDate() {
   return (
     <Modal>
-      <Modal.Open opens="order-details">
+      <Modal.Open opens="selectDate">
         <Button colorOnFocus="white" size="md">
           Choose other date
         </Button>
       </Modal.Open>
-      <Modal.Window name="order-details">
+      <Modal.Window name="selectDate">
         <SelectDeliveryDate />
       </Modal.Window>
     </Modal>

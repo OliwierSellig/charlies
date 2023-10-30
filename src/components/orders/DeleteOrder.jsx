@@ -1,13 +1,11 @@
 import { useState } from "react";
+import { useOrders } from "../../context/OrdersContext";
+import toast from "react-hot-toast";
 import Button from "../global/Button";
 import styles from "./deleteOrder.module.scss";
 
-import { useOrders } from "../../context/OrdersContext";
-import toast from "react-hot-toast";
-
 function DeleteOrder({ setIsDeletingOrder, order }) {
   const { deleteOrder } = useOrders();
-
   const [query, setQuery] = useState("");
 
   return (

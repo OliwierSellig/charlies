@@ -1,7 +1,7 @@
-import styles from "./discount.module.scss";
-import Button from "../../../global/Button";
-import { useSummary } from "../../../../context/SummaryContext";
 import { useForm } from "react-hook-form";
+import { useSummary } from "../../../../context/SummaryContext";
+import Button from "../../../global/Button";
+import styles from "./discount.module.scss";
 
 function Discount() {
   const {

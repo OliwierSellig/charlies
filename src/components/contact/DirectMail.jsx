@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Button from "../global/Button";
-import styles from "./directMail.module.scss";
 import MailSent from "./MailSent";
+import styles from "./directMail.module.scss";
 
 function DirectMail() {
   const [isMailSent, setIsMailSent] = useState(false);

@@ -1,6 +1,6 @@
-import styles from "./ownPackage.module.scss";
-import Button from "../../global/Button";
 import { useCart } from "../../../context/CartContext";
+import Button from "../../global/Button";
+import styles from "./ownPackage.module.scss";
 
 function OwnPackage() {
   const { createCustomPackage, CUSTOM_PACKAGE_PRICE } = useCart();

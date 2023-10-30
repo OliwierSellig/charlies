@@ -1,4 +1,6 @@
 import dayjs from "dayjs";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 export function numberToDoubleDigit(number) {
   if (String(number).length > 1 || number < 0) return number;
@@ -32,6 +34,31 @@ export function getMonthName(number) {
   return monthList.at(number);
 }
 
+export function getDaysOfWeek() {
+  return ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+}
+
+export function firstLetterUpperCase(text) {
+  if (typeof text !== "string" || !text.length) return;
+  return `${text.at(0).toUpperCase()}${text.slice(1)}`;
+}
+
+export function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+// --------------------- Functions for DaySelector ------------------------------
+
+// -------------------------------------------------
+// Generating Month Days For DaySelector
+// -------------------------------------------------
+
 export function generateMonthDays(
   month = dayjs().month(),
   year = dayjs().year(),
@@ -60,6 +87,10 @@ export function generateMonthDays(
   return extended ? prefixArray.concat(dayArray, suffixArray) : dayArray;
 }
 
+// -------------------------------------------------
+// Checking Day Availability in Month Selector
+// -------------------------------------------------
+
 export function checkIfAbleDate(activeDate, day, fastest) {
   if (activeDate.month() !== day.$M) return false;
   if (!day.$W) return false;
@@ -69,13 +100,14 @@ export function checkIfAbleDate(activeDate, day, fastest) {
   return true;
 }
 
-export function firstLetterUpperCase(text) {
-  if (typeof text !== "string" || !text.length) return;
-  return `${text.at(0).toUpperCase()}${text.slice(1)}`;
-}
+// ---------------------------------------------------------------
+// Checking whether there is no date to order in current month
+// ---------------------------------------------------------------
 
 export function checkIfMonthEmpty(fastestDate) {
   return !generateMonthDays()
     .map((day) => checkIfAbleDate(dayjs(), day, fastestDate))
     .includes(true);
 }
+
+// -----------------------------------------------------------------------

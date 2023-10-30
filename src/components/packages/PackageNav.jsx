@@ -1,16 +1,17 @@
-import styles from "./packageNav.module.scss";
-import Button from "../global/Button";
 import { useLocation } from "react-router-dom";
-import SeeDetails from "./SeeDetails";
-import { useCart } from "../../context/CartContext";
-
 import { useSummary } from "../../context/SummaryContext";
+import { useCart } from "../../context/CartContext";
+import Button from "../global/Button";
+import SeeDetails from "./SeeDetails";
+import styles from "./packageNav.module.scss";
 
 function PackageNav() {
   const location = useLocation();
   const isSeeingAdditions = location.pathname.endsWith("additions");
   const inSummary = location.pathname.endsWith("summary");
+
   const { handleSubmit, pricingMethod, submitOrder, orderError } = useSummary();
+
   const {
     main,
     additions,

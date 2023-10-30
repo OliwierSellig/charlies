@@ -1,7 +1,7 @@
 import { useNewsestPosts } from "../../hooks/useNewestPosts";
-import BlogItem from "../blog/BlogItem";
 import Button from "../global/Button";
 import LoadingSpinner from "../global/LoadingSpinner";
+import BlogItem from "../blog/BlogItem";
 import styles from "./blogIntro.module.scss";
 
 function BlogIntro() {

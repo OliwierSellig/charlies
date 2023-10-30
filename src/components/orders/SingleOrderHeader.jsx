@@ -1,7 +1,7 @@
 import { useState } from "react";
-import styles from "./singleOrderHeader.module.scss";
-import FullPrice from "./FullPrice";
 import { firstLetterUpperCase, formatDate } from "../../services/helpers";
+import FullPrice from "./FullPrice";
+import styles from "./singleOrderHeader.module.scss";
 
 function SingleOrderHeader({ order }) {
   const [isPriceOpen, setIsPriceOpen] = useState(false);

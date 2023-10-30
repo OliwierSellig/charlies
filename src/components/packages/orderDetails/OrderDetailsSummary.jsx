@@ -28,7 +28,9 @@ function OrderDetailsSummary() {
       </div>
       <div className={styles.price}>
         <span className={styles.partial}>
-          ${mainPrice} + ${getAdditionPrice()} + ${deliveryCost}
+          {`$${mainPrice} + $${getAdditionPrice()}${
+            deliveryCost ? ` + ${deliveryCost}` : ""
+          }`}
         </span>
         <span className={styles.full}>${getFullPrice()}</span>
       </div>

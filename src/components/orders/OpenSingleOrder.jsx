@@ -1,6 +1,6 @@
-import styles from "./openSingleOrder.module.scss";
 import Modal from "../global/Modal";
 import SingleOrderDetails from "./SingleOrderDetails";
+import styles from "./openSingleOrder.module.scss";
 
 function OpenSingleOrder({ order }) {
   return (

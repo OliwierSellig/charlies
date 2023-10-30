@@ -7,7 +7,7 @@ function QuantityButtons({
   onRemove,
   disabled = false,
 }) {
-  const largeButton = {
+  const button = {
     width: `${size}rem`,
     height: `${size}rem`,
     transform: amount ? "none" : "scale(1.1)",
@@ -16,7 +16,7 @@ function QuantityButtons({
   return (
     <div className={styles.container}>
       <button
-        style={largeButton}
+        style={button}
         className={`${styles.btn} ${styles.btn__remove} ${
           amount ? "" : styles.hidden
         }`}
@@ -27,7 +27,7 @@ function QuantityButtons({
         {amount}
       </span>
       <button
-        style={largeButton}
+        style={button}
         className={`${styles.btn} ${styles.btn__add} ${
           disabled ? styles.btn__add__disabled : ""
         }`}

@@ -1,11 +1,6 @@
+import { methodsList } from "../../../../services/globalVars";
 import MethodItem from "./MethodItem";
 import styles from "./pricingMethod.module.scss";
-
-const methodsList = [
-  { name: "PayPal", slug: "paypal", image: "/svg/paypal.svg" },
-  { name: "MasterCard", slug: "mastercard", image: "/svg/mastercard.svg" },
-  { name: "Stripe", slug: "stripe", image: "/svg/stripe.svg" },
-];
 
 function PricingMethod() {
   return (

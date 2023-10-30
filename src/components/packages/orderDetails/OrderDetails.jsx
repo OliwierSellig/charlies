@@ -1,7 +1,7 @@
 import { useCart } from "../../../context/CartContext";
+import OrderList from "./../../global/OrderList";
 import ModalListHeader from "../../global/ModalListHeader";
 import OrderDetailsSummary from "./OrderDetailsSummary";
-import OrderList from "./../../global/OrderList";
 import styles from "./orderDetails.module.scss";
 
 function OrderDetails({ onCloseModal }) {

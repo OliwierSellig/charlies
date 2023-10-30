@@ -1,18 +1,21 @@
-import Button from "../global/Button";
-import styles from "./blogView.module.scss";
-import { usePost } from "../../hooks/usePost";
-import LoadingSpinner from "../global/LoadingSpinner";
-import OutsideNav from "./OutsideNav";
-import { useNewsestPosts } from "../../hooks/useNewestPosts";
 import { useEffect, useState } from "react";
 import { useBlog } from "../../context/BlogContext";
+import { usePost } from "../../hooks/usePost";
+import { useNewsestPosts } from "../../hooks/useNewestPosts";
+import LoadingSpinner from "../global/LoadingSpinner";
+import Button from "../global/Button";
+import OutsideNav from "./OutsideNav";
 import NoPostFound from "./NoPostFound";
+import styles from "./blogView.module.scss";
 
 function BlogView() {
+  const { getRandomID } = useBlog();
+
   const { isLoading, post } = usePost();
   const { isLoading: loadingNewest, posts: newest } = useNewsestPosts();
-  const { getRandomID } = useBlog();
+
   const [filteredPosts, setFilteredPosts] = useState([]);
+
   const activePost = post?.at(0);
 
   useEffect(() => {

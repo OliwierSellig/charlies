@@ -1,17 +1,17 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../../../context/CartContext";
 import { useProducts } from "../../../hooks/useProducts";
 import LoadingSpinner from "../../global/LoadingSpinner";
-import NoProductsFound from "../NoProductsFound";
 import PackageEditContainer from "../PackageEditContainer";
+import NoProductsFound from "../NoProductsFound";
 import AdditionsItem from "./AdditionsItem";
 import styles from "./additions.module.scss";
-import { useCart } from "../../../context/CartContext";
-import { useNavigate } from "react-router-dom";
 
 function Additions() {
-  const { products, isLoading } = useProducts(["addition"]);
-  const { mainReady } = useCart();
   const navigate = useNavigate();
+  const { mainReady } = useCart();
+  const { products, isLoading } = useProducts(["addition"]);
 
   useEffect(() => {
     if (!mainReady) navigate("/packages/create-package");

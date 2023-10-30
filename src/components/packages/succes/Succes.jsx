@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../../global/Button";
 import styles from "./succes.module.scss";
-import { useNavigate } from "react-router-dom";
 
 const TIME_BEFORE_CLOSE = 10;
 const INTERVAL_TIME = 1000;
 
 function Succes() {
   const navigate = useNavigate();
+
   const [timer, setTimer] = useState(TIME_BEFORE_CLOSE);
 
   useEffect(() => {

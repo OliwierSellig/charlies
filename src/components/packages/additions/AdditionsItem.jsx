@@ -1,7 +1,7 @@
-import styles from "./additionsItem.module.scss";
-import OpenProductDetails from "../OpenProductDetails";
-import QuantityButtons from "../../global/QuantityButtons";
 import { useCart } from "../../../context/CartContext";
+import QuantityButtons from "../../global/QuantityButtons";
+import OpenProductDetails from "../OpenProductDetails";
+import styles from "./additionsItem.module.scss";
 
 function AdditionsItem({ product }) {
   const { getSingleAmountAdditions, addToAdditions, removeFromAdditions } =

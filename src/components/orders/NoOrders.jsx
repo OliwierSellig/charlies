@@ -1,5 +1,5 @@
-import styles from "./noOrders.module.scss";
 import Button from "../global/Button";
+import styles from "./noOrders.module.scss";
 
 function NoOrders({ handleClick }) {
   return (

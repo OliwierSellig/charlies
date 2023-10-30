@@ -31,3 +31,11 @@ The one and only inspiration I had this time was a Polish Ecological Meat Delive
 ## Back-end
 
 I've decided that the best option to story fictional chocolate products and blog posts was to create my own backend. To accomplish that, I used an open-source backend provider called [Supabase](https://supabase.com/).
+
+## Discount Codes:
+
+- MnOpQrStUvWxYzA
+
+- RStUvWxYzAbCdEfG
+
+- XyZaBcDeFgHiJkLmN

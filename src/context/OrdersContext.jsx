@@ -155,10 +155,8 @@ function OrdersProvider({ children }) {
   function checkDeadline(order) {
     const selectedOrder = findOrder(order);
     return (
-      dayjs(selectedOrder.date).diff(
-        deadlineBorder.subtract(1, "day"),
-        "day"
-      ) <= 0
+      dayjs(selectedOrder.date).diff(deadlineBorder.subtract(1, "day"), "day") <
+      0
     );
   }
 

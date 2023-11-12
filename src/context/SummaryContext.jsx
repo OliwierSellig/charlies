@@ -7,7 +7,7 @@ import dayjs from "dayjs";
 
 const SummaryContext = createContext();
 
-const isSunday = Boolean(!dayjs().add(2, "day").day());
+const isSunday = Boolean(!dayjs().day());
 
 const fastestDate = dayjs().add(isSunday ? 3 : 2, "day");
 

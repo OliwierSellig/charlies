@@ -5,7 +5,9 @@ import styles from "./totalOrders.module.scss";
 function TotalOrders() {
   const { orderList, sortByDate } = useOrders();
 
-  const formatedDate = formatDate(sortByDate(orderList).at(0).date);
+  const formatedDate = orderList.length
+    ? formatDate(sortByDate(orderList).at(0)?.date)
+    : "No orders yet";
 
   return (
     <div className={styles.container}>

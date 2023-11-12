@@ -92,9 +92,17 @@ export function generateMonthDays(
 // -------------------------------------------------
 
 export function checkIfAbleDate(activeDate, day, fastest) {
+  console.log(fastest);
+  console.log(day);
+  console.log(day.isBefore(fastest));
+
   if (activeDate.month() !== day.$M) return false;
   if (!day.$W) return false;
-  if (activeDate.month() === dayjs().month() && day.isBefore(fastest))
+  if (
+    activeDate.month() === dayjs().month() &&
+    day.isBefore(fastest) &&
+    day.date() !== fastest.date()
+  )
     return false;
 
   return true;

@@ -2,6 +2,24 @@
 
 Charlie's Project is a website for a chocolate shop with the same name. It's main function is to let users order and compose chocolate packages online. Although I decided to expand the site with more everyday stuff like the About Section or Blog, I took my skills a step further by building this project compared to Game Space (a project I completed previously) with more advanced react patterns and way more libraries. Hope you'll enjoy my work!
 
+### Instalation
+
+```
+npm i
+```
+
+### Local Development
+
+```
+npm run dev
+```
+
+### Build
+
+```
+npm run build
+```
+
 ## Technologies I used
 
 #### Framework: React
